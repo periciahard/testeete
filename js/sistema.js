@@ -53,9 +53,9 @@
    $('#runSystemCheck')&&($('#runSystemCheck').onclick=check);
    $('#clearPageCache')&&($('#clearPageCache').onclick=clearCache);
    const footer=document.querySelector('footer');
-   if(footer)footer.textContent='ETE Professor José Luiz de Mendonça • Criado por Felipe Camargo • Versão 60.6';
+   if(footer)footer.textContent='ETE Professor José Luiz de Mendonça • Criado por Felipe Camargo • Versão 60.7';
    const box=$('#changelogBox');
-   if(box)box.innerHTML='<h3>Versão 60.6 estável</h3><p class="hint">Código limpo, remoção da TRI, módulos consolidados, verificação do sistema e foco no fluxo principal: avaliação → diagnóstico → evolução → intervenção → ficha → impressão.</p>';
+   if(box)box.innerHTML='<h3>Versão 60.7 estável</h3><p class="hint">Código limpo, remoção da TRI, módulos consolidados, verificação do sistema e foco no fluxo principal: avaliação → diagnóstico → evolução → intervenção → ficha → impressão.</p>';
  }
  document.addEventListener('DOMContentLoaded',()=>setTimeout(bind,100));
  window.SistemaETE={check,clearCache};
