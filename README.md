@@ -1,30 +1,16 @@
-# Diagnóstico Pedagógico ETE — V60.4 Estável
+# Diagnóstico Pedagógico ETE — V60.6
 
-Versão de estabilização, limpeza e organização.
+Versão de refinamento após a V60.5 correta.
 
-## O que foi feito
-- Remoção completa da TRI e dos resquícios visuais/funcionais associados.
-- Substituição do foco estatístico por evolução longitudinal.
-- Consolidação dos módulos com nomes limpos.
-- Correção de referências quebradas deixadas por versões anteriores.
-- Correção da impressão em lote.
-- Revisão do menu e do fluxo principal.
-- Verificação do sistema mantida em módulo próprio.
-- Limpeza de arquivos antigos anteriores.
-- Preservação do ciclo principal: avaliação → diagnóstico → evolução → intervenção → ficha → impressão.
+## Ajustes adicionados
+- Checklist rápido de uso na tela inicial.
+- Painel inicial mais informativo.
+- Botão de relatório consolidado na aba Evolução.
+- Backup simples com linguagem mais clara para o professor.
+- Ajustes de rótulos na aba Evolução.
+- Correção de textos duplicados em Recuperação.
+- Pequenas melhorias de orientação durante importação.
+- Verificação de sintaxe JavaScript sem erros.
 
-## Módulos principais
-- Avaliações
-- Diagnóstico
-- Evolução
-- Alunos
-- Turmas
-- Banco de Questões
-- Intervenções
-- Fichas
-- Impressão
-- Gestão
-- Configurações
-
-## Recomendação
-A partir desta versão, evitar novas funcionalidades grandes. Priorizar testes reais com professores e correções pontuais.
+## Fluxo principal
+Avaliação → Importação → Conferência → Diagnóstico → Evolução → Intervenção → Fichas → Impressão.

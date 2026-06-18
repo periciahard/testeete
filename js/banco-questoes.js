@@ -132,8 +132,8 @@
   app.$('#generateSheet')&&(app.$('#generateSheet').onclick=generateSheet); app.$('#downloadSheet')&&(app.$('#downloadSheet').onclick=()=>download('ficha-individual.txt',app.$('#sheetOutput')?.value||'')); app.$('#printSheet')&&(app.$('#printSheet').onclick=()=>window.Exportacao?.printReport(app.$('#sheetOutput')?.value||'','Ficha individualizada'));
   app.$('#generateMap')&&(app.$('#generateMap').onclick=generateMap); app.$('#printMap')&&(app.$('#printMap').onclick=()=>window.Exportacao?.printReport(app.$('#mapaOutput')?.innerText||'','Mapa da Mina'));
   app.$('#addBankQuestion')&&(app.$('#addBankQuestion').onclick=addQuestion); app.$('#clearBankForm')&&(app.$('#clearBankForm').onclick=()=>fillForm({})); app.$('#importBank')&&(app.$('#importBank').onchange=importBankFile);
-  app.$('#exportBank')&&(app.$('#exportBank').onclick=()=>download('banco-questoes.json',JSON.stringify(userBank(),null,2),'application/json'));
-  app.$('#exportBankCsv')&&(app.$('#exportBankCsv').onclick=()=>download('banco-questoes.csv',bankToCSV(),'text/csv;charset=utf-8'));
+  app.$('#exportBank')&&(app.$('#exportBank').onclick=()=>download('banco-questoes-v56.json',JSON.stringify(userBank(),null,2),'application/json'));
+  app.$('#exportBankCsv')&&(app.$('#exportBankCsv').onclick=()=>download('banco-questoes-v56.csv',bankToCSV(),'text/csv;charset=utf-8'));
   app.$('#downloadBankTemplate')&&(app.$('#downloadBankTemplate').onclick=()=>download('modelo-banco-questoes.csv','Disciplina;Descritor;Nivel;TextoBase;Enunciado;A;B;C;D;E;Gabarito;Fonte;BNCC;Tempo\nLíngua Portuguesa;D1;Fácil;Texto-base de teste;Enunciado da questão;Alternativa A;Alternativa B;Alternativa C;Alternativa D;Alternativa E;A;Autoral;;3','text/csv;charset=utf-8'));
   ['#bankFilterDisc','#bankFilterDesc','#bankFilterDiff','#bankSearch'].forEach(sel=>app.$(sel)&&(app.$(sel).oninput=app.$(sel).onchange=render)); app.$('#previewBankQuestions')&&(app.$('#previewBankQuestions').onclick=previewRandom);
  }

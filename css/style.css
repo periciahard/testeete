@@ -91,17 +91,17 @@ button:disabled{opacity:.45;cursor:not-allowed;filter:grayscale(.2);transform:no
 @media(max-width:700px){.coord-class-comparison th,.coord-class-comparison td{font-size:13px;padding:8px}.coord-filter-panel .grid2{grid-template-columns:1fr}}
 
 
-/* Módulo consolidado */
+/* V54 - inteligência pedagógica avançada */
 .advanced-panel{border-left:5px solid var(--primary,#0f2e5f)}
 .radar-wrap{display:grid;grid-template-columns:minmax(240px,320px) 1fr;gap:18px;align-items:center}.radar{width:100%;max-width:320px}.radar circle{fill:none;stroke:#d6e0ee;stroke-width:1}.radar line{stroke:#d6e0ee;stroke-width:1}.radar polygon{fill:rgba(15,46,95,.18);stroke:#0f2e5f;stroke-width:3}.radar text{font-size:11px;fill:#24364f;font-weight:700}.student-advanced{margin-top:14px}.student-advanced h5{margin:.3rem 0}.action-list li{margin:.35rem 0}.report-output{min-height:170px}.advanced-panel .comparison-table table{width:100%;border-collapse:collapse}.advanced-panel .comparison-table td,.advanced-panel .comparison-table th{border-bottom:1px solid #e5ebf4;padding:8px;text-align:left}@media(max-width:800px){.radar-wrap{grid-template-columns:1fr}.radar{margin:auto}}
-/* Módulo consolidado */
-.advanced-panel .preview-table{margin-top:10px}.advanced-panel textarea.report-output{min-height:210px}.student-report .base-student-extra{border-left:4px solid var(--accent,#1d6b42)}.comparison-table table{width:100%;border-collapse:collapse}.comparison-table th,.comparison-table td{padding:8px;border-bottom:1px solid #e5e7eb;text-align:left}.comparison-table th{font-size:12px;text-transform:uppercase;color:#475569}.bar-compact .bar-row{min-height:28px}.bar-compact .bar-label{font-size:12px}.bar-compact .bar-value{font-size:12px}.advanced-panel ol,.advanced-panel ul{padding-left:22px}.advanced-panel li{margin:6px 0}
+/* V54 - inteligência pedagógica */
+.advanced-panel .preview-table{margin-top:10px}.advanced-panel textarea.report-output{min-height:210px}.student-report .v54-student-extra{border-left:4px solid var(--accent,#1d6b42)}.comparison-table table{width:100%;border-collapse:collapse}.comparison-table th,.comparison-table td{padding:8px;border-bottom:1px solid #e5e7eb;text-align:left}.comparison-table th{font-size:12px;text-transform:uppercase;color:#475569}.bar-compact .bar-row{min-height:28px}.bar-compact .bar-label{font-size:12px}.bar-compact .bar-value{font-size:12px}.advanced-panel ol,.advanced-panel ul{padding-left:22px}.advanced-panel li{margin:6px 0}
 
-/* Módulo consolidado */
-.quick-actions .actions button,.compact-modules button,.flow-steps button{min-height:48px}.home-insights{border-left:6px solid var(--green)}.base-dashboard{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;margin:12px 0}.ux-card{background:#f8fbff;border:1px solid var(--line);border-radius:18px;padding:14px}.ux-card span{display:block;color:var(--muted);font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.05em}.ux-card b{display:block;font-size:22px;margin:6px 0}.ux-card small{color:var(--muted)}.base-alerts{background:#fffdf2;border:1px solid #f1d27a;border-radius:16px;padding:14px;margin-top:12px}.student-level-filter{display:block;margin-top:10px}.panel h3{display:flex;align-items:center;justify-content:space-between;gap:10px}.panel-toggle{background:#edf3fb;color:var(--blue);font-size:12px;padding:6px 10px;border-radius:999px;min-width:78px}.panel.collapsed>*:not(h3){display:none!important}.coord-ux-note{border-left:6px solid var(--yellow)}.info-dot{display:inline-flex;align-items:center;justify-content:center;width:24px;height:24px;border-radius:50%;background:#edf3fb;color:var(--blue);font-size:14px;margin-left:8px;cursor:help}.sidebar nav{gap:10px}.nav{font-size:16px}.view>h2{position:relative}.view>h2::after{content:'Fluxo simplificado';position:absolute;right:16px;top:50%;transform:translateY(-50%);font-size:11px;color:var(--muted);background:#f4f7fb;border-radius:999px;padding:5px 9px}.view#importar>h2::after{content:'Criar • importar • validar'}.view#diagnostico>h2::after{content:'Resultados • descritores • TRI'}.view#alunos>h2::after{content:'Busca • nível • intervenção'}.view#coordenacao>h2::after{content:'Gestão • risco • relatórios'}.view#config>h2::after{content:'Backup • nuvem • segurança'}@media(max-width:700px){.view>h2::after{display:none}.panel h3{display:block}.panel-toggle{float:right;margin-top:-4px}.base-dashboard{grid-template-columns:1fr}.flow-steps{display:grid;grid-template-columns:1fr;gap:8px}}
+/* V54 — limpeza de interface e usabilidade */
+.quick-actions .actions button,.compact-modules button,.flow-steps button{min-height:48px}.home-insights{border-left:6px solid var(--green)}.v54-dashboard{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;margin:12px 0}.ux-card{background:#f8fbff;border:1px solid var(--line);border-radius:18px;padding:14px}.ux-card span{display:block;color:var(--muted);font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.05em}.ux-card b{display:block;font-size:22px;margin:6px 0}.ux-card small{color:var(--muted)}.v54-alerts{background:#fffdf2;border:1px solid #f1d27a;border-radius:16px;padding:14px;margin-top:12px}.student-level-filter{display:block;margin-top:10px}.panel h3{display:flex;align-items:center;justify-content:space-between;gap:10px}.panel-toggle{background:#edf3fb;color:var(--blue);font-size:12px;padding:6px 10px;border-radius:999px;min-width:78px}.panel.collapsed>*:not(h3){display:none!important}.coord-ux-note{border-left:6px solid var(--yellow)}.info-dot{display:inline-flex;align-items:center;justify-content:center;width:24px;height:24px;border-radius:50%;background:#edf3fb;color:var(--blue);font-size:14px;margin-left:8px;cursor:help}.sidebar nav{gap:10px}.nav{font-size:16px}.view>h2{position:relative}.view>h2::after{content:'Fluxo simplificado';position:absolute;right:16px;top:50%;transform:translateY(-50%);font-size:11px;color:var(--muted);background:#f4f7fb;border-radius:999px;padding:5px 9px}.view#importar>h2::after{content:'Criar • importar • validar'}.view#diagnostico>h2::after{content:'Resultados • descritores • TRI'}.view#alunos>h2::after{content:'Busca • nível • intervenção'}.view#coordenacao>h2::after{content:'Gestão • risco • relatórios'}.view#config>h2::after{content:'Backup • nuvem • segurança'}@media(max-width:700px){.view>h2::after{display:none}.panel h3{display:block}.panel-toggle{float:right;margin-top:-4px}.v54-dashboard{grid-template-columns:1fr}.flow-steps{display:grid;grid-template-columns:1fr;gap:8px}}
 
 
-/* Módulo consolidado */
+/* V54 - acabamento de produto */
 .system-check-panel{border-left:6px solid var(--green)}
 .system-check-panel .preview-table{margin-top:12px}
 .status-ok{background:#effaf3;border-color:#b8e0c6;color:#14532d}
@@ -110,18 +110,18 @@ button:disabled{opacity:.45;cursor:not-allowed;filter:grayscale(.2);transform:no
 .report-output{font-family:Arial, sans-serif}
 @media print{.sidebar,.topbar,.actions,.nav,.menuBtn,.closeMenu{display:none!important}.main{margin:0!important}.panel{break-inside:avoid}}
 
-/* Módulo consolidado */
+/* V55 melhorias */
 .panel{transition:.2s}
 .panel:hover{transform:translateY(-2px)}
 .quick-filter{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0}
-.badge-estavel{background:#102a56;color:white;padding:4px 10px;border-radius:999px;font-size:12px}
+.badge-v55{background:#102a56;color:white;padding:4px 10px;border-radius:999px;font-size:12px}
 
-/* Módulo consolidado */
-.bank-banco-form{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:10px}.bank-banco-form textarea{min-height:90px}.bank-banco-form textarea:nth-last-child(-n+3){grid-column:1/-1}.bankStats{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0}.bankStats .pill{background:#eef4ff;border:1px solid #c9d8f5;border-radius:999px;padding:6px 10px;font-size:.9rem}.bankItem{border:1px solid #dfe7f3;border-radius:14px;padding:12px;margin:10px 0;background:#fff}.bankItem header{display:flex;justify-content:space-between;gap:10px;align-items:flex-start}.bankItem .meta{display:flex;flex-wrap:wrap;gap:6px;margin:6px 0}.bankItem .meta span{background:#f4f7fb;border-radius:999px;padding:3px 8px;font-size:.8rem}.bankItem pre{white-space:pre-wrap;background:#f7f9fc;border-radius:10px;padding:10px}.smallBtn{padding:6px 10px;border-radius:10px;font-size:.85rem}.question-grid .bankItem{height:auto}.banco-note{border-left:4px solid #0f2e5f;padding-left:10px}
+/* V57 - Banco Inteligente de Questões */
+.bank-v56-form{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:10px}.bank-v56-form textarea{min-height:90px}.bank-v56-form textarea:nth-last-child(-n+3){grid-column:1/-1}.bankStats{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0}.bankStats .pill{background:#eef4ff;border:1px solid #c9d8f5;border-radius:999px;padding:6px 10px;font-size:.9rem}.bankItem{border:1px solid #dfe7f3;border-radius:14px;padding:12px;margin:10px 0;background:#fff}.bankItem header{display:flex;justify-content:space-between;gap:10px;align-items:flex-start}.bankItem .meta{display:flex;flex-wrap:wrap;gap:6px;margin:6px 0}.bankItem .meta span{background:#f4f7fb;border-radius:999px;padding:3px 8px;font-size:.8rem}.bankItem pre{white-space:pre-wrap;background:#f7f9fc;border-radius:10px;padding:10px}.smallBtn{padding:6px 10px;border-radius:10px;font-size:.85rem}.question-grid .bankItem{height:auto}.v56-note{border-left:4px solid #0f2e5f;padding-left:10px}
 
-/* Módulo consolidado */
-.checks-ficha{display:flex;gap:14px;flex-wrap:wrap;margin:10px 0 14px}
-.checks-ficha label{background:#f6f8fb;border:1px solid #dfe6f1;border-radius:12px;padding:8px 10px;font-size:.92rem}
+/* V57 - Gerador automático de fichas */
+.checks-v57{display:flex;gap:14px;flex-wrap:wrap;margin:10px 0 14px}
+.checks-v57 label{background:#f6f8fb;border:1px solid #dfe6f1;border-radius:12px;padding:8px 10px;font-size:.92rem}
 .ficha-preview{background:#fff;border:1px solid #d9e2f0;border-radius:14px;padding:14px;max-height:560px;overflow:auto;margin-top:12px}
 .ficha-preview.empty{color:#667085;background:#f7f9fc}
 .ficha-doc{font-family:Arial, sans-serif;color:#111;line-height:1.35}
@@ -136,7 +136,7 @@ button:disabled{opacity:.45;cursor:not-allowed;filter:grayscale(.2);transform:no
 .ficha-doc .keybox{margin-top:14px;border-top:1px dashed #98a2b3;padding-top:8px;font-size:.9rem}
 @media print{body>*:not(.print-area){display:none!important}.print-area{display:block!important}.ficha-doc .ficha-page{border:none;border-radius:0;margin:0;page-break-after:always}}
 
-/* Módulo consolidado */
+/* V58 - Banco de Intervenções Pedagógicas */
 .panel-mini{border:1px solid #dbe5f3;border-radius:14px;padding:14px;margin:12px 0;background:#fff}
 .panel-mini h4{margin:0 0 6px;color:#0f2e5f}
 .intervention-suggestion{border-left:4px solid #0f2e5f;background:#f6f9fe;padding:10px;margin:8px 0;border-radius:10px}
@@ -145,8 +145,8 @@ button:disabled{opacity:.45;cursor:not-allowed;filter:grayscale(.2);transform:no
 .fileBtn{display:inline-flex;align-items:center;justify-content:center;padding:10px 14px;border-radius:10px;background:#0f2e5f;color:#fff;font-weight:700;cursor:pointer}
 
 
-/* V60.4 impressão em lote e limpeza */
-.print-panel{border-left:6px solid var(--yellow)}
+/* V60.6 impressão em lote e limpeza */
+.v59-panel{border-left:6px solid var(--yellow)}
 .print-preview{background:#f8fbff;border:1px dashed var(--line);border-radius:18px;padding:16px;max-height:680px;overflow:auto}
 .print-sheet{background:#fff;border:1px solid var(--line);border-radius:18px;margin:14px 0;padding:22px;box-shadow:0 8px 20px rgba(16,42,86,.08);color:#111}
 .print-head{display:flex;justify-content:space-between;gap:20px;border-bottom:2px solid var(--blue);padding-bottom:10px;margin-bottom:12px}
@@ -169,12 +169,12 @@ button:disabled{opacity:.45;cursor:not-allowed;filter:grayscale(.2);transform:no
   .page-break{page-break-after:always;border:0;margin:0}
 }
 
-/* V60.4 Turmas e Alunos */
+/* V60.6 Turmas e Alunos */
 .student-roster{columns:2;column-gap:32px;margin-top:12px}
 .student-roster li{break-inside:avoid;padding:6px 0;border-bottom:1px solid #eef2f7}
 @media(max-width:800px){.student-roster{columns:1}}
 
-/* V60.4 Gerenciador de turmas */
+/* V60.6 Gerenciador de turmas */
 .roster-head{display:flex;justify-content:space-between;align-items:center;gap:12px}
 .editable-roster{columns:1!important;list-style-position:inside}
 .editable-roster li{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:8px 0;border-bottom:1px solid #eef2f7}
@@ -183,7 +183,7 @@ button:disabled{opacity:.45;cursor:not-allowed;filter:grayscale(.2);transform:no
 .mini-actions button{padding:6px 9px;border-radius:10px;font-size:12px}
 @media(max-width:800px){.editable-roster li{display:block}.mini-actions{margin-top:6px}}
 
-/* V60.4 Evolução e comparação de simulados */
+/* V60.6 Evolução e comparação de simulados */
 .evo-table .preview-row{grid-template-columns:1.5fr .7fr .7fr .8fr 1.4fr}
 .evo-bar{position:relative;height:20px;background:#eaf0f8;border-radius:999px;overflow:hidden;min-width:120px}
 .evo-bar span{display:block;height:100%;background:linear-gradient(90deg,var(--green),#7ed957)}
@@ -192,5 +192,23 @@ button:disabled{opacity:.45;cursor:not-allowed;filter:grayscale(.2);transform:no
 .card.ok{border-left:6px solid var(--green)}.card.bad{border-left:6px solid var(--red)}
 @media(max-width:900px){.evo-table .preview-row{grid-template-columns:1fr}.evo-table .preview-row span{padding:4px 0}}
 
-/* V60.4 estabilidade */
+/* V60.6 estabilidade */
 .home-insights{border-left:6px solid var(--green)}
+
+/* V60.6 correções estruturais */
+.hidden-tecnico{display:none!important}
+#sheetOutput,#v59Output{display:none!important}
+#importar .modelbox{border-left:6px solid var(--green)}
+#excelTab{border-left:6px solid var(--blue)}
+.validationGate{border-left:6px solid var(--yellow)}
+#assessmentClass{min-height:44px}
+#generatePptxReport{background:#1d6b42;color:#fff}
+.home-insights h3{margin-top:0}
+@media print{
+  #v59Preview,.print-preview,.ficha-preview{display:block!important;max-height:none!important;overflow:visible!important}
+}
+
+/* V60.6 refinamentos */
+.v606-checklist{border-left:6px solid var(--blue)}
+.v606-checklist ol{margin:8px 0 0 20px;line-height:1.7}
+#evoConsolidado,#quickBackupBtn{background:#0f2e5f;color:white}

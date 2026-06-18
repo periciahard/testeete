@@ -23,7 +23,7 @@
  }
  function descriptorText(disc, code){return (window.Descritores?.list(disc)||[]).find(x=>x.codigo===code)?.texto || 'Descritor priorizado para recomposição da aprendizagem.';}
  function manualPriorities(){
-   const raw=$('#printManualDesc')?.value||'';
+   const raw=$('#v59ManualDesc')?.value||'';
    return raw.split(/[,;\s]+/).map(desc).filter(Boolean).map(d=>({descriptor:d,errors:1}));
  }
  function classPriorities(){
@@ -45,18 +45,18 @@
  function selectQuestions(priorities, disc, count, studentName){
    let qs=[];
    if(B()?.selectQuestions){
-     qs=B().selectQuestions(priorities,disc,count*4,{balance:($('#printDifficulty')?.value||'balanceada')==='balanceada'})||[];
+     qs=B().selectQuestions(priorities,disc,count*4,{balance:($('#v59Difficulty')?.value||'balanceada')==='balanceada'})||[];
    } else {
      qs=(B()?.allBank?B().allBank():[]).filter(q=>(!disc||q.discipline===disc)&&priorities.some(p=>desc(p.descriptor)===desc(q.descriptor)));
      qs.sort(()=>Math.random()-.5);
    }
    qs=qs.map(normalizeQuestion);
-   const difficulty=$('#printDifficulty')?.value||'balanceada';
+   const difficulty=$('#v59Difficulty')?.value||'balanceada';
    if(difficulty!=='balanceada'){
      const map={facil:'Fácil',media:'Média',dificil:'Difícil'}; const pref=map[difficulty];
      qs=qs.sort((a,b)=>(a.difficulty===pref?-1:1)-(b.difficulty===pref?-1:1));
    }
-   if($('#printAvoidUsed')?.checked && studentName){
+   if($('#v59AvoidUsed')?.checked && studentName){
      const used=new Set((getUsage()[studentName]||[]));
      const filtered=qs.filter(q=>!used.has(qKey(q)));
      if(filtered.length>=count)qs=filtered;
@@ -69,7 +69,7 @@
    return qs.slice(0,count);
  }
  function interventionText(priorities, disc){
-   if(!$('#printIncludePlan')?.checked)return '';
+   if(!$('#v59IncludePlan')?.checked)return '';
    if(I()?.suggestText)return I().suggestText(priorities,disc,4);
    return priorities.slice(0,4).map(p=>`${p.descriptor}: retomar ${descriptorText(disc,p.descriptor)} com explicação curta, exemplo resolvido, prática guiada e correção comentada.`).join('\n');
  }
@@ -82,11 +82,11 @@
  }
  function buildSheet(student, idx, opts={}){
    const a=assessment(); const r=results(); const disc=a.discipline||a.disciplina||A()?.state?.settings?.discipline||'Língua Portuguesa';
-   const count=Math.max(1,Math.min(40,Number($('#printCount')?.value)||10));
+   const count=Math.max(1,Math.min(40,Number($('#v59Count')?.value)||10));
    let pr=manualPriorities(); if(!pr.length) pr=idx>=0?studentPriorities(idx):classPriorities(); if(!pr.length) pr=[{descriptor:'D1',errors:1}];
    const qs=selectQuestions(pr,disc,count,student?.name||student?.nome);
    if(opts.record!==false && student?.name)recordUsage(student.name,qs);
-   const key=$('#printIncludeKey')?.checked!==false;
+   const key=$('#v59IncludeKey')?.checked!==false;
    const orient=interventionText(pr,disc);
    const title=student?`Ficha de Recuperação Individual`:`Ficha de Recuperação da Turma`;
    const aluno=student?.name||student?.nome||'Turma';
@@ -107,10 +107,10 @@
    return {html,text,questions:qs,priorities:pr,student:aluno};
  }
  function selectedStudents(){
-   const r=results(); const students=r.students||[]; const type=$('#printPackType')?.value||'turma';
-   const threshold=Number($('#printThreshold')?.value)||60;
+   const r=results(); const students=r.students||[]; const type=$('#v59PackType')?.value||'turma';
+   const threshold=Number($('#v59Threshold')?.value)||60;
    if(type==='individual'){
-     const idx=Number($('#printStudent')?.value||0);
+     const idx=Number($('#v59Student')?.value||0);
      return students[idx]?[{student:students[idx],idx}]:[];
    }
    if(type==='risco')return students.map((s,idx)=>({student:s,idx})).filter(x=>(x.student.percent||0)<threshold);
@@ -121,24 +121,24 @@
    const r=results(); if(!(r.summary?.nQuestions||0)){setStatus('Importe ou abra uma avaliação antes de gerar fichas.','error'); return;}
    const selected=selectedStudents();
    if(!selected.length){setStatus('Nenhum aluno encontrado para o critério selecionado.','error'); return;}
-   const pageBreaks=$('#printPageBreaks')?.checked!==false;
+   const pageBreaks=$('#v59PageBreaks')?.checked!==false;
    const sheets=selected.map(x=>buildSheet(x.student,x.idx));
    const sep=pageBreaks?'<div class="page-break"></div>':'<hr>';
    const html=sheets.map(x=>x.html).join(sep);
    const text=sheets.map(x=>x.text).join('\n\n------------------------------\n\n');
-   $('#printPreview')&&($('#printPreview').innerHTML=html);
-   $('#printOutput')&&($('#printOutput').value=text);
+   $('#v59Preview')&&($('#v59Preview').innerHTML=html);
+   $('#v59Output')&&($('#v59Output').value=text);
    window.__IMPRESSAO_LAST={html,text,count:sheets.length,sheets};
    setStatus(`${sheets.length} ficha(s) gerada(s). Revise a prévia antes de imprimir.`, 'ok');
  }
- function setStatus(msg,type='work'){const el=$('#printStatus'); if(A()?.status)A().status(el,msg,type); else if(el)el.textContent=msg;}
+ function setStatus(msg,type='work'){const el=$('#v59Status'); if(A()?.status)A().status(el,msg,type); else if(el)el.textContent=msg;}
  function printNow(){
    if(!window.__IMPRESSAO_LAST)generate();
-   const content=window.__IMPRESSAO_LAST?.html||$('#printPreview')?.innerHTML||'';
+   const content=window.__IMPRESSAO_LAST?.html||$('#v59Preview')?.innerHTML||'';
    const w=window.open('','_blank');
    if(!w){alert('Permita pop-ups para imprimir.');return;}
    const css=document.querySelector('link[href*="style.css"]')?.outerHTML||'';
-   w.document.write(`<!doctype html><html><head><meta charset="utf-8"><title>Impressão V60.4</title>${css}<style>body{background:#fff}.print-sheet{box-shadow:none;border:1px solid #ddd;margin:0 0 18px}.page-break{page-break-after:always}@media print{button{display:none}.print-sheet{page-break-inside:avoid}}</style></head><body>${content}</body></html>`);
+   w.document.write(`<!doctype html><html><head><meta charset="utf-8"><title>Impressão V60.6</title>${css}<style>body{background:#fff}.print-sheet{box-shadow:none;border:1px solid #ddd;margin:0 0 18px}.page-break{page-break-after:always}@media print{button{display:none}.print-sheet{page-break-inside:avoid}}</style></head><body>${content}</body></html>`);
    w.document.close(); setTimeout(()=>w.print(),500);
  }
  function downloadWord(){
@@ -152,26 +152,26 @@
  }
  function summary(){
    const r=results(); const pr=classPriorities(); const a=assessment();
-   const txt=`RELATÓRIO DE IMPRESSÃO / RECUPERAÇÃO - V60.4\n\nTurma: ${a.turma||''}\nDisciplina: ${a.discipline||''}\nAvaliação: ${a.title||''}\nAlunos: ${r.summary?.nStudents||0}\nQuestões da avaliação: ${r.summary?.nQuestions||0}\nMédia: ${r.summary?.avg||0}%\n\nDescritores prioritários:\n${pr.map(p=>'- '+p.descriptor+' - '+descriptorText(a.discipline,p.descriptor)).join('\n')}\n\nAções sugeridas:\n${interventionText(pr,a.discipline)}\n`;
-   $('#printOutput')&&($('#printOutput').value=txt);
-   $('#printPreview')&&($('#printPreview').innerHTML='<pre class="print-report">'+safe(txt)+'</pre>');
+   const txt=`RELATÓRIO DE IMPRESSÃO / RECUPERAÇÃO - V60.6\n\nTurma: ${a.turma||''}\nDisciplina: ${a.discipline||''}\nAvaliação: ${a.title||''}\nAlunos: ${r.summary?.nStudents||0}\nQuestões da avaliação: ${r.summary?.nQuestions||0}\nMédia: ${r.summary?.avg||0}%\n\nDescritores prioritários:\n${pr.map(p=>'- '+p.descriptor+' - '+descriptorText(a.discipline,p.descriptor)).join('\n')}\n\nAções sugeridas:\n${interventionText(pr,a.discipline)}\n`;
+   $('#v59Output')&&($('#v59Output').value=txt);
+   $('#v59Preview')&&($('#v59Preview').innerHTML='<pre class="print-report">'+safe(txt)+'</pre>');
    window.__IMPRESSAO_LAST={html:'<pre>'+safe(txt)+'</pre>',text:txt,count:1,sheets:[]};
    setStatus('Relatório da coordenação gerado.', 'ok');
  }
  function populateStudents(){
-   const sel=$('#printStudent'); if(!sel)return;
+   const sel=$('#v59Student'); if(!sel)return;
    const old=sel.value; const sts=results().students||[];
    sel.innerHTML=sts.map((s,i)=>`<option value="${i}">${safe(s.name||s.nome||('Aluno '+(i+1)))}</option>`).join('');
    if(old && sel.querySelector(`option[value="${old}"]`))sel.value=old;
  }
  function render(){populateStudents();}
  function bind(){
-   $('#printGenerate')&&($('#printGenerate').onclick=generate);
-   $('#printNow')&&($('#printNow').onclick=printNow);
-   $('#printWord')&&($('#printWord').onclick=downloadWord);
-   $('#printTxt')&&($('#printTxt').onclick=downloadTxt);
-   $('#printSummary')&&($('#printSummary').onclick=summary);
-   ['printPackType','printStudent','printCount','printThreshold','printManualDesc','printDifficulty'].forEach(id=>{const el=$('#'+id); if(el)el.onchange=()=>{ if(window.__IMPRESSAO_LAST) generate(); };});
+   $('#v59Generate')&&($('#v59Generate').onclick=generate);
+   $('#v59Print')&&($('#v59Print').onclick=printNow);
+   $('#v59Word')&&($('#v59Word').onclick=downloadWord);
+   $('#v59Txt')&&($('#v59Txt').onclick=downloadTxt);
+   $('#v59Summary')&&($('#v59Summary').onclick=summary);
+   ['v59PackType','v59Student','v59Count','v59Threshold','v59ManualDesc','v59Difficulty'].forEach(id=>{const el=$('#'+id); if(el)el.onchange=()=>{ if(window.__IMPRESSAO_LAST) generate(); };});
  }
  window.Impressao={render,generate,printNow,downloadWord,downloadTxt,summary};
  document.addEventListener('DOMContentLoaded',()=>{bind();render();});

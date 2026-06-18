@@ -12,6 +12,18 @@
     ]
   },
   {
+    "codigo": "D2",
+    "disciplina": "Língua Portuguesa",
+    "texto": "Estabelecer relações entre partes de um texto por repetição ou substituição.",
+    "explicacao": "Identifica retomadas pronominais e substituições lexicais.",
+    "intervencao": "Exercícios de coesão referencial.",
+    "bncc": "Relacionar à habilidade BNCC correspondente no planejamento da rede.",
+    "exemplos": [
+      "Questão contextualizada com situação real.",
+      "Item de leitura/interpretação vinculado ao descritor."
+    ]
+  },
+  {
     "codigo": "D3",
     "disciplina": "Língua Portuguesa",
     "texto": "Inferir o sentido de uma palavra ou expressão.",
@@ -36,30 +48,6 @@
     ]
   },
   {
-    "codigo": "D6",
-    "disciplina": "Língua Portuguesa",
-    "texto": "Identificar o tema de um texto.",
-    "explicacao": "Reconhece o assunto central e a ideia global.",
-    "intervencao": "Resumos curtos, títulos alternativos e identificação de ideia central.",
-    "bncc": "Relacionar à habilidade BNCC correspondente no planejamento da rede.",
-    "exemplos": [
-      "Questão contextualizada com situação real.",
-      "Item de leitura/interpretação vinculado ao descritor."
-    ]
-  },
-  {
-    "codigo": "D14",
-    "disciplina": "Língua Portuguesa",
-    "texto": "Distinguir fato de opinião relativa a esse fato.",
-    "explicacao": "Separa informação verificável de julgamento/opinião.",
-    "intervencao": "Analisar notícias, editoriais e comentários.",
-    "bncc": "Relacionar à habilidade BNCC correspondente no planejamento da rede.",
-    "exemplos": [
-      "Questão contextualizada com situação real.",
-      "Item de leitura/interpretação vinculado ao descritor."
-    ]
-  },
-  {
     "codigo": "D5",
     "disciplina": "Língua Portuguesa",
     "texto": "Interpretar texto com auxílio de material gráfico diverso.",
@@ -72,35 +60,11 @@
     ]
   },
   {
-    "codigo": "D12",
+    "codigo": "D6",
     "disciplina": "Língua Portuguesa",
-    "texto": "Identificar a finalidade de textos de diferentes gêneros.",
-    "explicacao": "Reconhece objetivo comunicativo: informar, convencer, instruir, narrar.",
-    "intervencao": "Comparar gêneros textuais e suas funções sociais.",
-    "bncc": "Relacionar à habilidade BNCC correspondente no planejamento da rede.",
-    "exemplos": [
-      "Questão contextualizada com situação real.",
-      "Item de leitura/interpretação vinculado ao descritor."
-    ]
-  },
-  {
-    "codigo": "D20",
-    "disciplina": "Língua Portuguesa",
-    "texto": "Reconhecer diferentes formas de tratar uma informação na comparação de textos.",
-    "explicacao": "Compara abordagens, pontos de vista e tratamento de um mesmo tema.",
-    "intervencao": "Leitura comparativa de dois textos sobre o mesmo assunto.",
-    "bncc": "Relacionar à habilidade BNCC correspondente no planejamento da rede.",
-    "exemplos": [
-      "Questão contextualizada com situação real.",
-      "Item de leitura/interpretação vinculado ao descritor."
-    ]
-  },
-  {
-    "codigo": "D21",
-    "disciplina": "Língua Portuguesa",
-    "texto": "Reconhecer posições distintas entre duas ou mais opiniões relativas ao mesmo fato ou tema.",
-    "explicacao": "Identifica divergências e convergências argumentativas.",
-    "intervencao": "Debates orientados, quadro de opiniões e argumentos.",
+    "texto": "Identificar o tema de um texto.",
+    "explicacao": "Reconhece o assunto central e a ideia global.",
+    "intervencao": "Resumos curtos, títulos alternativos e identificação de ideia central.",
     "bncc": "Relacionar à habilidade BNCC correspondente no planejamento da rede.",
     "exemplos": [
       "Questão contextualizada com situação real.",
@@ -168,11 +132,11 @@
     ]
   },
   {
-    "codigo": "D15",
+    "codigo": "D12",
     "disciplina": "Língua Portuguesa",
-    "texto": "Estabelecer relações lógico-discursivas presentes no texto.",
-    "explicacao": "Reconhece conectivos e relações de oposição, conclusão, adição, causa.",
-    "intervencao": "Atividades com conectores e reescrita de frases.",
+    "texto": "Identificar a finalidade de textos de diferentes gêneros.",
+    "explicacao": "Reconhece objetivo comunicativo: informar, convencer, instruir, narrar.",
+    "intervencao": "Comparar gêneros textuais e suas funções sociais.",
     "bncc": "Relacionar à habilidade BNCC correspondente no planejamento da rede.",
     "exemplos": [
       "Questão contextualizada com situação real.",
@@ -180,11 +144,35 @@
     ]
   },
   {
-    "codigo": "D2",
+    "codigo": "D13",
     "disciplina": "Língua Portuguesa",
-    "texto": "Estabelecer relações entre partes de um texto por repetição ou substituição.",
-    "explicacao": "Identifica retomadas pronominais e substituições lexicais.",
-    "intervencao": "Exercícios de coesão referencial.",
+    "texto": "Identificar marcas linguísticas que evidenciam o locutor e o interlocutor de um texto.",
+    "explicacao": "Reconhece registro, variedade linguística e situação comunicativa.",
+    "intervencao": "Comparar linguagem formal, informal e regionalismos.",
+    "bncc": "Relacionar à habilidade BNCC correspondente no planejamento da rede.",
+    "exemplos": [
+      "Questão contextualizada com situação real.",
+      "Item de leitura/interpretação vinculado ao descritor."
+    ]
+  },
+  {
+    "codigo": "D14",
+    "disciplina": "Língua Portuguesa",
+    "texto": "Distinguir fato de opinião relativa a esse fato.",
+    "explicacao": "Separa informação verificável de julgamento/opinião.",
+    "intervencao": "Analisar notícias, editoriais e comentários.",
+    "bncc": "Relacionar à habilidade BNCC correspondente no planejamento da rede.",
+    "exemplos": [
+      "Questão contextualizada com situação real.",
+      "Item de leitura/interpretação vinculado ao descritor."
+    ]
+  },
+  {
+    "codigo": "D15",
+    "disciplina": "Língua Portuguesa",
+    "texto": "Estabelecer relações lógico-discursivas presentes no texto.",
+    "explicacao": "Reconhece conectivos e relações de oposição, conclusão, adição, causa.",
+    "intervencao": "Atividades com conectores e reescrita de frases.",
     "bncc": "Relacionar à habilidade BNCC correspondente no planejamento da rede.",
     "exemplos": [
       "Questão contextualizada com situação real.",
@@ -240,11 +228,23 @@
     ]
   },
   {
-    "codigo": "D13",
+    "codigo": "D20",
     "disciplina": "Língua Portuguesa",
-    "texto": "Identificar marcas linguísticas que evidenciam o locutor e o interlocutor de um texto.",
-    "explicacao": "Reconhece registro, variedade linguística e situação comunicativa.",
-    "intervencao": "Comparar linguagem formal, informal e regionalismos.",
+    "texto": "Reconhecer diferentes formas de tratar uma informação na comparação de textos.",
+    "explicacao": "Compara abordagens, pontos de vista e tratamento de um mesmo tema.",
+    "intervencao": "Leitura comparativa de dois textos sobre o mesmo assunto.",
+    "bncc": "Relacionar à habilidade BNCC correspondente no planejamento da rede.",
+    "exemplos": [
+      "Questão contextualizada com situação real.",
+      "Item de leitura/interpretação vinculado ao descritor."
+    ]
+  },
+  {
+    "codigo": "D21",
+    "disciplina": "Língua Portuguesa",
+    "texto": "Reconhecer posições distintas entre duas ou mais opiniões relativas ao mesmo fato ou tema.",
+    "explicacao": "Identifica divergências e convergências argumentativas.",
+    "intervencao": "Debates orientados, quadro de opiniões e argumentos.",
     "bncc": "Relacionar à habilidade BNCC correspondente no planejamento da rede.",
     "exemplos": [
       "Questão contextualizada com situação real.",
