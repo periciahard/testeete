@@ -186,27 +186,49 @@
         gabarito_json:a.key
       };
 
-      // V66.6: evitar duplicação de avaliações.
-      // Se a avaliação já tiver cloud_avaliacao_id, atualiza esse registro.
-      // Caso contrário, procura por turma + disciplina + tipo + título + data.
+      // V66.7: consolidação definitiva contra duplicação.
+      // Estratégia:
+      // 1) se houver cloud_avaliacao_id válido, atualiza;
+      // 2) procura avaliação existente por turma + disciplina + título + data;
+      // 3) para títulos genéricos ("Avaliação atual"), procura por turma + disciplina + título,
+      //    ignorando horário/data, para evitar múltiplas cópias acidentais;
+      // 4) antes de inserir, repete a checagem para reduzir corrida entre salvamentos automáticos.
+      const tituloNorm=String(titulo||'').trim().toLowerCase();
+      const tituloGenerico=/^(avalia[cç][aã]o atual|avalia[cç][aã]o|diagn[oó]stico atual)$/i.test(tituloNorm);
       let av=null, existingId=a.cloud_avaliacao_id||null;
+
+      async function findExisting(){
+        let q=await Cloud.client.from('avaliacoes')
+          .select('id,criado_em')
+          .eq('turma_id',link.turma.id)
+          .eq('disciplina',disciplina)
+          .eq('titulo',titulo)
+          .eq('data_aplicacao',data_avaliacao)
+          .order('criado_em',{ascending:false})
+          .limit(1);
+        if(!q.error && q.data?.[0]?.id) return q.data[0].id;
+        if(tituloGenerico){
+          q=await Cloud.client.from('avaliacoes')
+            .select('id,criado_em')
+            .eq('turma_id',link.turma.id)
+            .eq('disciplina',disciplina)
+            .eq('titulo',titulo)
+            .order('data_aplicacao',{ascending:false})
+            .order('criado_em',{ascending:false})
+            .limit(1);
+          if(!q.error && q.data?.[0]?.id) return q.data[0].id;
+        }
+        return null;
+      }
+
       if(existingId){
         const chk=await this.client.from('avaliacoes').select('id').eq('id',existingId).maybeSingle();
         if(chk.error){console.warn('Não foi possível conferir avaliação existente:', chk.error.message);}
         if(!chk.error && chk.data?.id) existingId=chk.data.id; else existingId=null;
       }
       if(!existingId){
-        const q=await this.client.from('avaliacoes')
-          .select('id,criado_em')
-          .eq('turma_id',link.turma.id)
-          .eq('disciplina',disciplina)
-          .eq('tipo',tipo)
-          .eq('titulo',titulo)
-          .eq('data_aplicacao',data_avaliacao)
-          .order('criado_em',{ascending:false})
-          .limit(1);
-        if(q.error){console.warn('Não foi possível procurar duplicidade de avaliação:', q.error.message);}
-        if(!q.error && q.data?.[0]?.id) existingId=q.data[0].id;
+        try{ existingId=await findExisting(); }
+        catch(e){ console.warn('Não foi possível procurar duplicidade de avaliação:', e.message); }
       }
 
       if(existingId){
@@ -219,9 +241,21 @@
         const delResp=await this.client.from('respostas').delete().eq('avaliacao_id',av.id);
         if(delResp.error){console.warn('Erro ao limpar respostas anteriores:', delResp.error.message);}
       }else{
-        const ins=await this.client.from('avaliacoes').insert(payload).select().single();
-        if(ins.error){this.setStatus('Erro ao salvar avaliação: '+ins.error.message,'error');return null;}
-        av=ins.data;
+        // Última checagem imediatamente antes do INSERT.
+        try{ existingId=await findExisting(); }catch(e){}
+        if(existingId){
+          const up=await this.client.from('avaliacoes').update(payload).eq('id',existingId).select().single();
+          if(up.error){this.setStatus('Erro ao atualizar avaliação: '+up.error.message,'error');return null;}
+          av=up.data;
+          const delRes=await this.client.from('resultados_alunos').delete().eq('avaliacao_id',av.id);
+          if(delRes.error){this.setStatus('Avaliação atualizada, mas houve erro ao limpar resultados anteriores: '+delRes.error.message,'error');return av;}
+          const delResp=await this.client.from('respostas').delete().eq('avaliacao_id',av.id);
+          if(delResp.error){console.warn('Erro ao limpar respostas anteriores:', delResp.error.message);}
+        }else{
+          const ins=await this.client.from('avaliacoes').insert(payload).select().single();
+          if(ins.error){this.setStatus('Erro ao salvar avaliação: '+ins.error.message,'error');return null;}
+          av=ins.data;
+        }
       }
 
       const r=A().getResults();

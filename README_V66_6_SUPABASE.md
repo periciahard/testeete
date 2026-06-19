@@ -1,4 +1,4 @@
-# V66.6 – Consolidação Final Supabase
+# V66.7 – Consolidação Final Supabase
 
 ## O que foi alterado
 

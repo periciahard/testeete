@@ -1,4 +1,4 @@
-const CACHE='ete-diagnostico-v66-6';
+const CACHE='ete-diagnostico-v66-7';
 const ASSETS=[
   "assets/header-ete-modelo.png",
   "assets/icons/icon.svg",
