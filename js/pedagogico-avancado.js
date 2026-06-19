@@ -1,5 +1,5 @@
 (function(){
-  const A=()=>window.ETE;
+  const A=()=>window.VETOR;
   const levels=['Elementar I','Elementar II','Básico','Desejável'];
   const qs=(s,root=document)=>root.querySelector(s);
   const qsa=(s,root=document)=>Array.from(root.querySelectorAll(s));

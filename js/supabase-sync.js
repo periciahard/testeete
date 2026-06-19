@@ -2,9 +2,9 @@
   'use strict';
   const SUPABASE_URL='https://shqnaeatdkdtnheswggq.supabase.co';
   const SUPABASE_KEY='sb_publishable_ByueLBjkkGNOW0Wt2yD7hg_n0YDvMqi';
-  const A=()=>window.ETE;
-  const URL_KEY='ete_supabase_url';
-  const ANON_KEY='ete_supabase_anon';
+  const A=()=>window.VETOR;
+  const URL_KEY='vetor_supabase_url';
+  const ANON_KEY='vetor_supabase_anon';
   const has=v=>v!==undefined && v!==null && String(v).trim()!=='';
   const Cloud={
     client:null, session:null, profile:null, turmas:[], assessments:[], selectedCloudAssessment:null,
@@ -20,7 +20,7 @@
     setStatus(msg,type='work'){
       if(A()?.status) A().status('#cloudStatus',msg,type);
       const mini=document.querySelector('#cloudStatusMini');
-      if(mini){mini.textContent= type==='ok' ? 'Nuvem conectada' : 'Modo local'; mini.className='cloud-mini '+(type==='ok'?'ok':'');}
+      if(mini){mini.textContent= type==='ok' ? 'Nuvem conectada' : 'Aguardando login'; mini.className='cloud-mini '+(type==='ok'?'ok':'');}
       const quick=document.querySelector('#cloudQuickStatus');
       if(quick){quick.style.display='block'; quick.className='statusbox '+(type==='ok'?'status-ok':type==='error'?'status-error':'status-work'); quick.textContent=msg;}
     },
@@ -44,7 +44,7 @@
     },
     initClient(){
       const cfg=this.getConfig();
-      if(!window.supabase){this.setStatus('Biblioteca Supabase não carregou. O modo local continua funcionando.','error');return false;}
+      if(!window.supabase){this.setStatus('Biblioteca Supabase não carregou. O  continua funcionando.','error');return false;}
       try{this.client=window.supabase.createClient(cfg.url,cfg.anon);return true;}catch(e){this.setStatus('Erro ao criar cliente Supabase: '+e.message,'error');return false;}
     },
     saveConfig(){
@@ -64,7 +64,7 @@
     },
     async restoreSession(){
       if(!this.client&&!this.initClient())return;
-      try{const {data}=await this.client.auth.getSession(); this.session=data.session||null; if(this.session) await this.loadCloudContext(); else this.setStatus('Supabase configurado. Faça login para sincronizar.','work');}
+      try{const {data}=await this.client.auth.getSession(); this.session=data.session||null; if(this.session) await this.loadCloudContext(); else this.setStatus('Supabase configurado. Faça login institucional para sincronizar.','work');}
       catch(e){this.setStatus('Não foi possível verificar sessão: '+e.message,'error');}
     },
     async mainLogin(email,password){
@@ -88,7 +88,7 @@
       const list=document.querySelector('#cloudAssessmentsList'); if(list)list.innerHTML='';
       const user=document.querySelector('#cloudUserBox'); if(user)user.innerHTML='';
       const dash=document.querySelector('#cloudCoordDashboard'); if(dash)dash.innerHTML='';
-      this.setStatus('Saiu da nuvem.','work');
+      this.setStatus('Sessão institucional encerrada.','work');
     },
     async loadCloudContext(){
       if(!this.client&&!this.initClient())return;
@@ -100,7 +100,7 @@
       if(!profile)throw new Error('Usuário autenticado, mas sem perfil na tabela perfis.');
       this.profile=profile;
       await this.loadTurmas();
-      try{await window.TurmasETE?.syncFromSupabase?.();}catch(e){console.warn('Falha ao sincronizar turmas/alunos',e);}
+      try{await window.TurmasVetor?.syncFromSupabase?.();}catch(e){console.warn('Falha ao sincronizar turmas/alunos',e);}
       this.renderUserBox();
       this.setStatus(`Conectado como ${profile.nome} (${profile.perfil}).`,'ok');
       await this.listAssessments(false);
@@ -186,7 +186,7 @@
         gabarito_json:a.key
       };
 
-      // V66.7: consolidação definitiva contra duplicação.
+      // Consolidação definitiva contra duplicação.
       // Estratégia:
       // 1) se houver cloud_avaliacao_id válido, atualiza;
       // 2) procura avaliação existente por turma + disciplina + título + data;
@@ -330,7 +330,7 @@
       const {data,error}=await this.client.from('avaliacoes').select('id,nome,titulo,tipo,disciplina,data_aplicacao,data_avaliacao,criado_em,professor_id,questoes_json,descritores_json,gabarito_json,turmas(nome)').order('criado_em',{ascending:false}).limit(200);
       if(error){this.setStatus('Erro ao listar avaliações: '+error.message,'error');return;}
       let rows=data||[];
-      // V66.3: não usar relacionamento automático avaliacoes -> perfis.
+      // Não usar relacionamento automático avaliacoes -> perfis.
       // O banco possui professor_id, mas não FK formal para perfis; buscamos os nomes separadamente.
       const ids=[...new Set(rows.map(x=>x.professor_id).filter(Boolean))];
       let profMap={};
@@ -367,6 +367,6 @@
       this.setStatus('Avaliação carregada da nuvem.','ok'); A().showView('diagnostico');
     }
   };
-  window.ETESupabase=Cloud;
+  window.VETORSupabase=Cloud;
   document.addEventListener('DOMContentLoaded',()=>Cloud.init());
 })();

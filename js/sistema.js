@@ -3,7 +3,7 @@
  'use strict';
  const $=s=>document.querySelector(s);
  function check(){
-   const A=window.ETE;
+   const A=window.VETOR;
    const out=$('#systemCheckOutput');
    if(!out)return;
    const modules=[
@@ -11,7 +11,7 @@
     ['Importação',!!window.Importacao],
     ['Diagnóstico',!!window.Diagnostico],
     ['Evolução',!!window.Evolucao],
-    ['Turmas',!!window.TurmasETE],
+    ['Turmas',!!window.TurmasVetor],
     ['Banco de Questões',!!window.BancoQuestoes],
     ['Fichas',!!window.Fichas],
     ['Intervenções',!!window.Intervencoes],
@@ -53,10 +53,10 @@
    $('#runSystemCheck')&&($('#runSystemCheck').onclick=check);
    $('#clearPageCache')&&($('#clearPageCache').onclick=clearCache);
    const footer=document.querySelector('footer');
-   if(footer)footer.textContent='ETE Professor José Luiz de Mendonça • Criado por Felipe Camargo • Versão 66.7 Supabase';
+   if(footer)footer.textContent='VETOR • Plataforma de Inteligência Educacional • V68.6';
    const box=$('#changelogBox');
-   if(box)box.innerHTML='<h3>Versão 66.7 Supabase estável</h3><p class="hint">Consolidação Supabase: avaliação com atualização segura, histórico institucional, evolução entre aplicações, painel gestor e cache renovado.</p>';
+   if(box)box.innerHTML='<h3>V68.6 - Limpeza Técnica Final</h3><p class="hint">Inteligência Pedagógica: metas, alertas, descritores críticos, alunos prioritários e plano de intervenção com dados do Supabase.</p>';
  }
  document.addEventListener('DOMContentLoaded',()=>setTimeout(bind,100));
- window.SistemaETE={check,clearCache};
+ window.SistemaVetor={check,clearCache};
 })();

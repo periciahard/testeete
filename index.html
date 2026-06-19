@@ -5,59 +5,73 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1" name="viewport"/>
 <meta content="#0f2e5f" name="theme-color"/>
-<title>ETE Professor José Luiz de Mendonça | Diagnóstico Pedagógico V65</title>
+<title>VETOR | V68.6 Produção Final</title>
 <link href="manifest.webmanifest" rel="manifest"/>
-<link href="css/style.css?v=66.7" rel="stylesheet"/>
+<link href="css/style.css?v=68-6" rel="stylesheet"/>
 <style>body.app-ready .view{display:none}body.app-ready .view.active{display:block}</style>
 </head>
 <body class="app-ready auth-locked">
-
-<div id="loginScreen" class="login-screen">
-  <div class="login-card login-card-v655">
-    <section class="login-visual" aria-label="Identidade do sistema">
-      <img src="assets/logo-ete.png" alt="Logo ETE" class="login-logo"/>
-      <span class="login-kicker">Sistema Inteligente de Diagnóstico Educacional</span>
-      <h1>Diagnóstico Pedagógico</h1>
-      <p>ETE Professor José Luiz de Mendonça</p>
-      <div class="login-chips">
-        <span>Diagnóstico</span><span>Intervenção</span><span>Relatórios</span>
-      </div>
-    </section>
-    <section class="login-form" aria-label="Acesso ao sistema">
-      <h2>Acessar plataforma</h2>
-      <p class="login-subtitle">Entre com seu e-mail institucional e senha cadastrados no Supabase.</p>
-      <label>Usuário
-        <input id="loginUser" autocomplete="username" placeholder="Digite seu e-mail institucional"/>
-      </label>
-      <label>Senha
-        <input id="loginPass" type="password" autocomplete="current-password" placeholder="Digite sua senha"/>
-      </label>
-      <div class="login-options">
-        <label class="remember-line"><input type="checkbox" id="loginRemember" checked/> <span>Lembrar de mim</span></label>
-      </div>
-      <button id="loginBtn">Entrar</button>
-      <div id="loginMsg" class="login-msg"></div>
-    </section>
-  </div>
+<div class="login-screen" id="loginScreen">
+<div class="login-card login-card-vetor">
+<section aria-label="Identidade do sistema" class="login-visual">
+<img alt="Logo VETOR" class="login-logo" src="assets/vetor-logo.svg"/>
+<span class="login-kicker">Plataforma de Inteligência Educacional</span>
+<h1>VETOR</h1>
+<p>Transformando avaliações em direção pedagógica.</p>
+<div class="login-chips">
+<span>Diagnóstico</span><span>Evolução</span><span>Intervenção</span>
 </div>
-
-<div class="topbar"><button aria-label="Abrir menu" class="menuBtn" id="openMenu">☰ Menu</button><strong>ETE Professor José Luiz de Mendonça</strong><span class="cloud-mini" id="cloudStatusMini">Modo local</span><span class="auth-badge" id="authUserBadge"></span><button class="logoutBtn" id="logoutBtn">Sair</button></div>
+</section>
+<section aria-label="Acesso ao sistema" class="login-form">
+<h2>Acessar plataforma</h2>
+<p class="login-subtitle">Entre com seu e-mail institucional e senha cadastrados no Supabase.</p>
+<label>Usuário
+        <input autocomplete="username" id="loginUser" placeholder="Digite seu e-mail institucional"/>
+</label>
+<label>Senha
+        <input autocomplete="current-password" id="loginPass" placeholder="Digite sua senha" type="password"/>
+</label>
+<div class="login-options">
+<label class="remember-line"><input checked="" id="loginRemember" type="checkbox"/> <span>Lembrar de mim</span></label>
+</div>
+<button id="loginBtn">Entrar</button>
+<div class="login-msg" id="loginMsg"></div>
+</section>
+</div>
+</div>
+<div class="topbar"><button aria-label="Abrir menu" class="menuBtn" id="openMenu">☰ Menu</button><strong>VETOR</strong><span class="cloud-mini" id="cloudStatusMini">Aguardando login</span><span class="auth-badge" id="authUserBadge"></span><button class="logoutBtn" id="logoutBtn">Sair</button></div>
 <aside class="sidebar" id="sidebar">
-<div class="brand"><img alt="Logo ETE" class="brand-logo" src="assets/logo-ete.png"/><div><strong>ETE Prof. José Luiz</strong><small>Diagnóstico Educacional V66.7</small></div></div>
+<div class="brand"><img alt="Logo VETOR" class="brand-logo" src="assets/vetor-logo.svg"/><div><strong>VETOR</strong><small>Transformando avaliações em direção pedagógica.</small></div></div>
 <button aria-label="Fechar menu" class="closeMenu" id="closeMenu">×</button>
-<nav><button class="nav active" data-view="importar"><span class="nav-icon">AV</span> Avaliações</button><button class="nav" data-view="diagnostico"><span class="nav-icon">AN</span> Análises</button><button class="nav" data-view="evolucao"><span class="nav-icon">EV</span> Evolução</button><button class="nav" data-view="alunos"><span class="nav-icon">AL</span> Alunos</button><button class="nav" data-view="turmasAlunos"><span class="nav-icon">TU</span> Turmas</button><button class="nav" data-view="bancoQuestoes"><span class="nav-icon">BQ</span> Banco</button><button class="nav" data-view="intervencoes"><span class="nav-icon">IN</span> Intervenções</button><button class="nav" data-view="recuperacao"><span class="nav-icon">FI</span> Fichas</button><button class="nav" data-view="impressao"><span class="nav-icon">IM</span> Impressão</button><button class="nav professor-nav" data-view="minhasTurmas"><span class="nav-icon">MT</span> Minhas Turmas</button><button class="nav" data-view="coordenacao"><span class="nav-icon">GE</span> Gestão</button><button class="nav admin-only" data-view="usuariosAdmin"><span class="nav-icon">US</span> Usuários</button><button class="nav" data-view="config"><span class="nav-icon">CF</span> Configurações</button></nav>
-<div class="sidebar-session" aria-label="Sessão do usuário">
-  <div class="sidebar-user" id="sidebarUserBadge">Usuário logado</div>
-  <button class="sidebarLogoutBtn" id="logoutBtnSide" type="button">Sair</button>
+<nav class="vetor-menu">
+<button class="nav active primary-nav" data-view="importar"><span class="nav-icon">🚀</span> Nova Análise <span class="help-dot" title="Comece aqui: escolha a turma, importe a planilha e gere o diagnóstico.">?</span></button>
+<button class="nav" data-view="diagnostico"><span class="nav-icon">📊</span> Resultados <span class="help-dot" title="Veja o desempenho geral da turma, níveis, descritores e mapa de calor.">?</span></button>
+<button class="nav" data-view="evolucao"><span class="nav-icon">📈</span> Evolução <span class="help-dot" title="Compare avaliações ao longo do tempo e acompanhe avanços ou quedas.">?</span></button>
+<button class="nav" data-view="inteligencia"><span class="nav-icon">🎯</span> Intervenções <span class="help-dot" title="Use os dados para identificar descritores críticos e planejar ações pedagógicas.">?</span></button>
+<button class="nav" data-view="coordenacao"><span class="nav-icon">🏫</span> Gestão Escolar <span class="help-dot" title="Painel da coordenação com visão institucional, turmas críticas e indicadores gerais.">?</span></button>
+<div class="menu-divider">Organização</div>
+<button class="nav" data-view="alunos"><span class="nav-icon">👨‍🎓</span> Alunos <span class="help-dot" title="Consulte o desempenho individual dos estudantes.">?</span></button>
+<button class="nav" data-view="turmasAlunos"><span class="nav-icon">📋</span> Turmas <span class="help-dot" title="Cadastre turmas, alunos e gere planilhas modelo.">?</span></button>
+<button class="nav" data-view="bancoQuestoes"><span class="nav-icon">🧩</span> Banco <span class="help-dot" title="Organize questões e descritores para fichas e intervenções.">?</span></button>
+<button class="nav" data-view="recuperacao"><span class="nav-icon">📄</span> Fichas <span class="help-dot" title="Gere atividades direcionadas a partir dos descritores prioritários.">?</span></button>
+<button class="nav" data-view="impressao"><span class="nav-icon">🖨️</span> Impressão <span class="help-dot" title="Prepare relatórios e materiais para impressão ou PDF.">?</span></button>
+<button class="nav professor-nav" data-view="minhasTurmas"><span class="nav-icon">⭐</span> Minhas Turmas <span class="help-dot" title="Área do professor com suas turmas vinculadas.">?</span></button>
+<div class="menu-divider">Sistema</div>
+<button class="nav admin-only" data-view="usuariosAdmin"><span class="nav-icon">👥</span> Usuários <span class="help-dot" title="Gerencie perfis e usuários institucionais.">?</span></button>
+<button class="nav" data-view="config"><span class="nav-icon">⚙️</span> Configurações <span class="help-dot" title="Backup, Supabase e preferências institucionais.">?</span></button>
+</nav>
+<div aria-label="Sessão do usuário" class="sidebar-session">
+<div class="sidebar-user" id="sidebarUserBadge">Usuário logado</div>
+<button class="sidebarLogoutBtn" id="logoutBtnSide" type="button">Sair</button>
 </div>
 </aside>
 <main class="main">
 <header class="hero">
 <div class="hero-title">
-<img alt="Logo ETE Professor José Luiz de Mendonça" class="hero-logo" src="assets/logo-ete.png"/>
+<img alt="Logo VETOR" class="hero-logo" src="assets/vetor-logo.svg"/>
 <div>
-<p class="eyebrow">Sistema Inteligente de Diagnóstico Educacional V66.7</p>
-<h1>ETE Professor José Luiz de Mendonça</h1>
+<p class="eyebrow">Sistema Inteligente de Plataforma de Inteligência Educacional</p>
+<h1>VETOR</h1>
 <p>Plataforma de Inteligência Pedagógica</p>
 <p class="creator">Criado por Felipe Camargo</p>
 </div>
@@ -65,9 +79,15 @@
 <div class="savebox"><span id="saveStatus">Salvamento automático ativo</span><small id="lastSave">Ainda não salvo</small></div>
 </header>
 <section class="view active" id="importar">
+<div class="vetor-hero professor-flow">
+<div class="hero-copy"><span class="eyebrow">Experiência do Professor</span><h2>🚀 Nova Análise</h2><p>Comece por aqui. Em poucos passos, o VETOR transforma a planilha da avaliação em diagnóstico, evolução e sugestões pedagógicas.</p></div>
+<div class="flow-steps"><div><b>1</b><span>Escolha a turma</span></div><div><b>2</b><span>Defina a disciplina</span></div><div><b>3</b><span>Importe a planilha</span></div><div><b>4</b><span>Gere e salve o diagnóstico</span></div></div>
+<div class="actions compact"><button class="hero-action" data-go="importar">Iniciar nova análise</button><button class="secondary" data-go="evolucao">Ver evolução</button><button class="secondary" data-go="coordenacao">Resumo da escola</button></div>
+</div>
+<div class="teacher-summary-grid"><div class="teacher-card"><span>Fluxo recomendado</span><b>Importar → Analisar → Salvar</b><small>Use sempre o botão Salvar diagnóstico na nuvem.</small></div><div class="teacher-card"><span>Para intervenção</span><b>Descritores críticos</b><small>Priorize os descritores com menor desempenho.</small></div><div class="teacher-card"><span>Para acompanhar</span><b>Evolução</b><small>Compare avaliações da mesma turma ao longo do tempo.</small></div></div><div class="panel professor-checklist"><h3>Checklist antes de importar</h3><ol><li>Confirme turma, disciplina e data.</li><li>Use uma planilha com questões, descritores, gabarito e respostas.</li><li>Após gerar a análise, clique em <b>Salvar diagnóstico na nuvem</b>.</li></ol></div>
 <h2>📥 Importação</h2>
 <p class="hint">Escolha um caminho. O modelo recomendado é: 1ª linha = questões; 2ª linha = descritores; 3ª linha = gabarito; demais linhas = respostas dos alunos.</p>
-<div class="panel modelbox"><h3>1. Identificação da avaliação</h3><p class="hint">Preencha e salve estes dados antes de importar a planilha. Cada combinação de turma, disciplina, tipo e data cria uma avaliação independente. Para simulados, use Simulado 1 até Simulado 10 ou informe um título personalizado, evitando que a planilha de uma turma apague a outra.</p><div class="grid2"><label>Título da avaliação *<input id="assessmentTitle" placeholder="Ex.: Simulado 3, Diagnóstico 1, Revisão"/></label><label>Turma *<select id="assessmentClass"><option value="">Selecione a turma</option></select></label><label>Disciplina *<select id="assessmentDiscipline"><option value="Língua Portuguesa">Língua Portuguesa</option><option value="Matemática">Matemática</option></select></label><label>Tipo *<select id="assessmentType"><option value="diagnostica">Avaliação Diagnóstica</option><option value="simulado1">Simulado 1</option><option value="simulado2">Simulado 2</option><option value="simulado3">Simulado 3</option><option value="simulado4">Simulado 4</option><option value="simulado5">Simulado 5</option><option value="simulado6">Simulado 6</option><option value="simulado7">Simulado 7</option><option value="simulado8">Simulado 8</option><option value="simulado9">Simulado 9</option><option value="simulado10">Simulado 10</option><option value="recuperacao">Recuperação</option><option value="bimestral">Avaliação Bimestral</option><option value="personalizada">Personalizada</option></select></label><label>Data da avaliação *<input id="assessmentDate" type="date"/></label><label>Professor responsável<input id="assessmentTeacher" placeholder="Ex.: Felipe Camargo"/></label></div><div class="statusbox status-work" id="assessmentSaveStatus">Nenhuma avaliação ativa. Salve a avaliação para liberar a importação.</div><div class="actions"><button id="saveAssessmentMeta">Salvar avaliação</button><button class="secondary" id="newAssessment">Nova avaliação</button></div></div>
+<div class="panel modelbox"><h3>1. Identificação da avaliação</h3><p class="hint">Preencha e salve estes dados antes de importar a planilha. Cada combinação de turma, disciplina, tipo e data cria uma avaliação independente. Para simulados, use Simulado 1 até Simulado 10 ou informe um título personalizado, evitando que a planilha de uma turma apague a outra.</p><div class="grid2"><label>Título da avaliação *<input id="assessmentTitle" placeholder="Ex.: Simulado 3, VETOR 1, Revisão"/></label><label>Turma *<select id="assessmentClass"><option value="">Selecione a turma</option></select></label><label>Disciplina *<select id="assessmentDiscipline"><option value="Língua Portuguesa">Língua Portuguesa</option><option value="Matemática">Matemática</option></select></label><label>Tipo *<select id="assessmentType"><option value="diagnostica">Avaliação Diagnóstica</option><option value="simulado1">Simulado 1</option><option value="simulado2">Simulado 2</option><option value="simulado3">Simulado 3</option><option value="simulado4">Simulado 4</option><option value="simulado5">Simulado 5</option><option value="simulado6">Simulado 6</option><option value="simulado7">Simulado 7</option><option value="simulado8">Simulado 8</option><option value="simulado9">Simulado 9</option><option value="simulado10">Simulado 10</option><option value="recuperacao">Recuperação</option><option value="bimestral">Avaliação Bimestral</option><option value="personalizada">Personalizada</option></select></label><label>Data da avaliação *<input id="assessmentDate" type="date"/></label><label>Professor responsável<input id="assessmentTeacher" placeholder="Ex.: Felipe Camargo"/></label></div><div class="statusbox status-work" id="assessmentSaveStatus">Nenhuma avaliação ativa. Salve a avaliação para liberar a importação.</div><div class="actions"><button id="saveAssessmentMeta">Salvar avaliação</button><button class="secondary" id="newAssessment">Nova avaliação</button></div></div>
 <div class="panel activeAssessmentPanel"><h3>Avaliação atual</h3><div class="statusbox status-work" id="activeAssessmentBox">Nenhuma avaliação salva selecionada.</div></div>
 <div class="panel"><h3>Histórico de avaliações</h3><p class="hint">Abra avaliações já salvas. O histórico preserva diagnósticas, simulados e recuperações já importadas.</p><div class="assessment-history" id="assessmentHistory"></div></div>
 <div class="panel validationGate"><h3>Conferência obrigatória</h3><p class="hint">Depois de ler ou digitar os dados, o sistema precisa confirmar se encontrou questões, descritores, gabarito e alunos.</p><div class="statusbox status-work" id="importGate">Aguardando importação ou validação.</div><div class="actions"><button class="secondary" id="validateDataGate">1. Validar estrutura</button><button disabled="" id="confirmImport">2. Confirmar e analisar</button></div></div>
@@ -82,7 +102,7 @@
 <div class="panel"><h3>Mapeamento das questões</h3><p class="hint">Após importar, confira se cada questão está ligada ao descritor correto da disciplina escolhida.</p><div class="question-grid" id="questionMap"></div></div>
 </section>
 <section class="view" id="diagnostico">
-<h2>📊 Diagnóstico</h2><p class="hint">Resultado geral, níveis pedagógicos, gráficos, descritores críticos, mapa de calor e sugestões objetivas para intervenção.</p><div class="panel quick-actions" id="analysisQuickAccess"><h3>Acessos rápidos de análise</h3><p class="hint">Use estes atalhos para entrar nas análises específicas sem criar novas abas no menu principal.</p><div class="actions compact"><button data-go="diagnostico">Resultado da turma</button><button class="secondary" data-go="descritores">Descritores</button><button class="secondary" data-go="evolucao">Evolução</button><button class="secondary" data-go="recuperacao">Recuperação e fichas</button><button class="secondary" id="generatePptxReport">Gerar apresentação profissional</button><button class="secondary" id="coordenacaoPptxBtn">PowerPoint profissional</button><button class="secondary" id="cloudQuickSave">Salvar diagnóstico na nuvem</button></div></div>
+<h2>📊 Resultados da Avaliação <span class="help-dot" title="Nesta área o professor visualiza o diagnóstico da turma após importar a planilha.">?</span></h2><p class="hint">Resultado geral em linguagem direta: desempenho da turma, alunos prioritários, descritores críticos e ações sugeridas.</p><div class="panel quick-actions" id="analysisQuickAccess"><h3>Acessos rápidos de análise</h3><p class="hint">Use estes atalhos para entrar nas análises específicas sem criar novas abas no menu principal.</p><div class="actions compact"><button data-go="diagnostico">Resultado da turma</button><button class="secondary" data-go="descritores">Descritores</button><button class="secondary" data-go="evolucao">Evolução</button><button class="secondary" data-go="recuperacao">Recuperação e fichas</button><button class="secondary" id="generatePptxReport">Gerar apresentação profissional</button><button class="secondary" id="coordenacaoPptxBtn">PowerPoint profissional</button><button class="secondary" id="cloudQuickSave">Salvar diagnóstico na nuvem</button></div></div>
 <div class="panel diagnostic-selector">
 <h3>Escolher turma/avaliação para visualizar</h3>
 <p class="hint">Selecione a avaliação salva que deseja analisar. Isso permite alternar entre turmas sem apagar os dados já importados.</p>
@@ -101,307 +121,277 @@
 <div class="panel"><h3>Mapa de calor</h3><p class="hint">Verde = acerto. Vermelho = erro. Linhas = alunos. Colunas = questões.</p><div class="heatmap" id="heatmap"></div></div>
 <div class="panel"><h3>O que fazer amanhã?</h3><div id="tomorrowPlan"></div></div>
 </section>
-
 <section class="view" id="evolucao">
-<h2>📈 Evolução e Comparação de Avaliações</h2>
-<p class="hint">Compare qualquer avaliação salva: Diagnóstica, Simulado 1 a 10, Recuperação, Bimestral ou avaliações personalizadas. Use esta área para verificar se as intervenções entre uma avaliação e outra produziram melhora real.</p>
-
+<h2>📈 Evolução da Aprendizagem <span class="help-dot" title="Compare duas ou mais avaliações para saber se a turma avançou, manteve ou regrediu.">?</span></h2>
+<p class="hint">Compare avaliações salvas na nuvem e acompanhe a trajetória da turma, dos descritores e dos estudantes.</p>
+<div class="panel evolution-guide"><h3>Como ler esta tela</h3><div class="teacher-summary-grid"><div class="teacher-card"><span>Avanço</span><b>+ p.p.</b><small>Mostra crescimento em pontos percentuais.</small></div><div class="teacher-card"><span>Atenção</span><b>queda ou estabilidade</b><small>Indica necessidade de intervenção.</small></div><div class="teacher-card"><span>Decisão</span><b>próximo descritor</b><small>Use os descritores críticos para planejar a aula.</small></div></div></div>
 <div class="panel">
-  <h3>1. Filtros de evolução</h3>
-  <div class="grid2">
-    <label>Turma
+<h3>1. Filtros de evolução</h3>
+<div class="grid2">
+<label>Turma
       <select id="evoTurma"><option value="">Todas</option></select>
-    </label>
-    <label>Disciplina
+</label>
+<label>Disciplina
       <select id="evoDisc"><option value="">Todas</option><option value="Língua Portuguesa">Língua Portuguesa</option><option value="Matemática">Matemática</option></select>
-    </label>
-    
-  </div>
-  <div class="actions compact">
-    <button id="evoCompare">Atualizar painel</button>
-    <button class="secondary" id="evoExport">Baixar relatório da evolução</button><button class="secondary" id="evoConsolidado">Relatório consolidado</button>
-  </div>
-  <div class="statusbox status-work" id="evoStatus">Salve pelo menos duas avaliações com dados para visualizar evolução.</div>
+</label>
 </div>
-
-<div class="panel">
-  <h3>2. Evolução geral da turma/escola</h3>
-  <div id="evoTimeline"></div>
+<div class="actions compact">
+<button id="evoCompare">Atualizar painel</button>
+<button class="secondary" id="evoExport">Baixar relatório da evolução</button><button class="secondary" id="evoConsolidado">Relatório consolidado</button>
 </div>
-
+<div class="statusbox status-work" id="evoStatus">Salve pelo menos duas avaliações com dados para visualizar evolução.</div>
+</div><div class="panel" id="vetorEvoPanel"><h3>Resumo da evolução da turma</h3><div class="statusbox status-work" id="vetorStatusEvo">Aguardando leitura da nuvem.</div></div>
 <div class="panel">
-  <h3>3. Comparação automática das avaliações</h3>
-  <div id="evoDirectCompare"></div>
+<h3>2. Evolução geral da turma/escola</h3>
+<div id="evoTimeline"></div>
 </div>
-
 <div class="panel">
-  <h3>4. Evolução por descritor</h3>
-  <div id="evoDescriptor"></div>
+<h3>3. Comparação automática das avaliações</h3>
+<div id="evoDirectCompare"></div>
 </div>
-
 <div class="panel">
-  <h3>5. Evolução entre turmas</h3>
-  <div id="evoClassCompare"></div>
+<h3>4. Evolução por descritor</h3>
+<div id="evoDescriptor"></div>
 </div>
-
 <div class="panel">
-  <h3>6. Evolução individual do aluno</h3>
-  <div class="grid2">
-    <label>Aluno
+<h3>5. Evolução entre turmas</h3>
+<div id="evoClassCompare"></div>
+</div>
+<div class="panel">
+<h3>6. Evolução individual do aluno</h3>
+<div class="grid2">
+<label>Aluno
       <select id="evoStudent"><option value="">Selecione</option></select>
-    </label>
-    <label>Ação
+</label>
+<label>Ação
       <button class="secondary" id="evoStudentBtn">Ver evolução do aluno</button>
-    </label>
-  </div>
-  <div id="evoStudentPanel"></div>
+</label>
+</div>
+<div id="evoStudentPanel"></div>
 </div>
 </section>
-
 <section class="view" id="alunos"><h2>👨‍🎓 Alunos</h2><p class="hint">Selecione um aluno para ver diagnóstico individual, descritores críticos, perfil cognitivo e evolução histórica.</p><div class="split"><div><input id="studentSearch" placeholder="Buscar aluno..."/><label class="student-level-filter">Filtrar por nível<select id="studentLevelFilter"><option value="">Todos</option><option value="Elementar I">Elementar I</option><option value="Elementar II">Elementar II</option><option value="Básico">Básico</option><option value="Desejável">Desejável</option></select></label><div class="list" id="studentList"></div></div><div class="panel empty" id="studentDetail">Selecione um aluno.</div></div></section>
 <section class="view" id="descritores"><h2>🧩 Descritores</h2><p class="hint">Consulta por disciplina com descrição, habilidades relacionadas, erros comuns, estratégias e questões associadas.</p><div class="toolbar"><select id="descriptorDiscipline"><option value="Língua Portuguesa">Língua Portuguesa</option><option value="Matemática">Matemática</option><option value="todos">Português e Matemática</option></select><input id="descriptorSearch" placeholder="Buscar por D1, inferir, porcentagem..."/></div><div id="descriptorList"></div></section>
-
-<section class="view" id="intervencoes"><h2>🧠 Intervenções Pedagógicas</h2><p class="hint">IA pedagógica offline: banco local de recomendações, atividades e sequências didáticas por descritor. Não usa API paga, funciona no modo local e pode ser alimentado pela coordenação e pelos professores.</p>
+<section class="view" id="intervencoes"><h2>🧠 Intervenções Pedagógicas</h2><p class="hint">IA pedagógica offline: banco pedagógico de recomendações, atividades e sequências didáticas por descritor. Não usa API paga, pode ser alimentado pela coordenação e pelos professores.</p>
 <div class="panel"><h3>1. Painel do banco de intervenções</h3><div class="bankStats" id="interventionStats"></div><p class="hint">As intervenções cadastradas aqui são sugeridas automaticamente quando um descritor aparece como prioritário na turma ou no aluno.</p></div>
-<div class="panel"><h3>2. Cadastrar nova intervenção</h3><div class="grid2"><label>Disciplina<select id="intDisc"><option value="Língua Portuguesa">Língua Portuguesa</option><option value="Matemática">Matemática</option><option value="Todas">Todas</option></select></label><label>Descritor<input id="intDesc" placeholder="Ex.: D4"/></label><label>Título<input id="intTitle" placeholder="Ex.: Inferência com tirinhas"/></label><label>Tipo<select id="intType"><option>Atividade de recomposição</option><option>Sequência didática</option><option>Roteiro de aula</option><option>Lista de exercícios</option><option>Vídeo</option><option>PDF</option></select></label><label>Nível<select id="intDiff"><option>Fácil</option><option selected>Média</option><option>Difícil</option></select></label><label>Tempo estimado<input id="intTime" placeholder="Ex.: 25 min"/></label><label>Recurso/link<input id="intResource" placeholder="Link, nome do PDF ou material"/></label><label>Fonte<input id="intSource" placeholder="Autoral, SAEPE, livro, etc."/></label></div><label>Descrição da intervenção<textarea id="intText" placeholder="Descreva a ação pedagógica que o professor pode aplicar."></textarea></label><div class="actions compact"><button id="addIntervention">Salvar intervenção</button><button class="secondary" id="clearInterventionForm">Limpar</button><label class="fileBtn">Importar CSV/JSON<input accept=".csv,.txt,.json" id="importInterventions" type="file" hidden/></label><button class="secondary" id="downloadInterventionTemplate">Baixar modelo CSV</button><button class="secondary" id="exportInterventions">Exportar JSON</button><button class="secondary" id="exportInterventionsCsv">Exportar CSV</button></div><div class="statusbox" id="intImportStatus">Aguardando cadastro ou importação.</div></div>
-<div class="panel"><h3>3. Sugestões automáticas para a avaliação atual</h3><p class="hint">Escolha turma ou aluno. O sistema lê os descritores prioritários e busca recomendações no banco local.</p><div class="grid2"><label>Disciplina<select id="intSuggestDisc"><option value="Língua Portuguesa">Língua Portuguesa</option><option value="Matemática">Matemática</option></select></label><label>Modo<select id="intSuggestMode"><option value="turma">Descritores críticos da turma</option><option value="aluno">Descritores críticos do aluno</option></select></label><label>Aluno<select id="intSuggestStudent"><option value="">Selecione</option></select></label><label>Descritores manuais<input id="intSuggestManual" placeholder="Opcional: D4, D7, D12"/></label></div><div id="interventionSuggestions"></div></div>
+<div class="panel"><h3>2. Cadastrar nova intervenção</h3><div class="grid2"><label>Disciplina<select id="intDisc"><option value="Língua Portuguesa">Língua Portuguesa</option><option value="Matemática">Matemática</option><option value="Todas">Todas</option></select></label><label>Descritor<input id="intDesc" placeholder="Ex.: D4"/></label><label>Título<input id="intTitle" placeholder="Ex.: Inferência com tirinhas"/></label><label>Tipo<select id="intType"><option>Atividade de recomposição</option><option>Sequência didática</option><option>Roteiro de aula</option><option>Lista de exercícios</option><option>Vídeo</option><option>PDF</option></select></label><label>Nível<select id="intDiff"><option>Fácil</option><option selected="">Média</option><option>Difícil</option></select></label><label>Tempo estimado<input id="intTime" placeholder="Ex.: 25 min"/></label><label>Recurso/link<input id="intResource" placeholder="Link, nome do PDF ou material"/></label><label>Fonte<input id="intSource" placeholder="Autoral, SAEPE, livro, etc."/></label></div><label>Descrição da intervenção<textarea id="intText" placeholder="Descreva a ação pedagógica que o professor pode aplicar."></textarea></label><div class="actions compact"><button id="addIntervention">Salvar intervenção</button><button class="secondary" id="clearInterventionForm">Limpar</button><label class="fileBtn">Importar CSV/JSON<input accept=".csv,.txt,.json" hidden="" id="importInterventions" type="file"/></label><button class="secondary" id="downloadInterventionTemplate">Baixar modelo CSV</button><button class="secondary" id="exportInterventions">Exportar JSON</button><button class="secondary" id="exportInterventionsCsv">Exportar CSV</button></div><div class="statusbox" id="intImportStatus">Aguardando cadastro ou importação.</div></div>
+<div class="panel"><h3>3. Sugestões automáticas para a avaliação atual</h3><p class="hint">Escolha turma ou aluno. O sistema lê os descritores prioritários e busca recomendações no banco pedagógico.</p><div class="grid2"><label>Disciplina<select id="intSuggestDisc"><option value="Língua Portuguesa">Língua Portuguesa</option><option value="Matemática">Matemática</option></select></label><label>Modo<select id="intSuggestMode"><option value="turma">Descritores críticos da turma</option><option value="aluno">Descritores críticos do aluno</option></select></label><label>Aluno<select id="intSuggestStudent"><option value="">Selecione</option></select></label><label>Descritores manuais<input id="intSuggestManual" placeholder="Opcional: D4, D7, D12"/></label></div><div id="interventionSuggestions"></div></div>
 <div class="panel"><h3>4. Consultar banco de intervenções</h3><div class="toolbar"><select id="intFilterDisc"><option value="">Todas as disciplinas</option><option value="Língua Portuguesa">Língua Portuguesa</option><option value="Matemática">Matemática</option><option value="Todas">Todas</option></select><input id="intFilterDesc" placeholder="Descritor, ex.: D4"/><input id="intSearch" placeholder="Buscar por texto, recurso, tipo..."/></div><div id="interventionList"></div></div></section>
 <section class="view" id="recuperacao"><h2>📄 Recuperação e Fichas</h2><p class="hint">Gere fichas individualizadas, fichas da turma e kits de recuperação a partir dos descritores prioritários. A seleção usa o Banco Inteligente de Questões da escola, com sorteio aleatório, balanceamento de dificuldade e opção de evitar repetição.</p>
-<div class="panel ficha-v57-main"><h3>Gerador automático de fichas</h3><p class="hint">Use esta área para transformar diagnóstico em ação pedagógica. O sistema identifica os descritores mais frágeis do aluno ou da turma e monta uma ficha pronta para imprimir.</p><div class="grid2"><label>Tipo de geração<select id="v57Scope"><option value="individual">Ficha individual</option><option value="turma">Todas as fichas da turma</option><option value="risco">Apenas alunos abaixo da meta</option><option value="descritor">Ficha por descritor da turma</option></select></label><label>Aluno<select id="sheetStudent"><option value="">Selecione</option></select></label><label>Quantidade de questões<input id="v57Count" type="number" min="1" max="40" value="10"/></label><label>Meta mínima para alunos em risco (%)<input id="v57Threshold" type="number" min="0" max="100" value="60"/></label><label>Descritores manuais (opcional)<input id="v57ManualDesc" placeholder="Ex.: D4, D7, D12"/></label><label>Dificuldade<select id="v57Difficulty"><option value="balanceada">Balanceada</option><option value="facil">Priorizar fáceis</option><option value="media">Priorizar médias</option><option value="dificil">Priorizar difíceis</option></select></label></div><div class="checks-v57"><label><input id="v57AvoidUsed" type="checkbox" checked/> Evitar questões já utilizadas pelo aluno</label><label><input id="v57IncludeKey" type="checkbox" checked/> Incluir gabarito ao final</label><label><input id="v57IncludePlan" type="checkbox" checked/> Incluir orientação pedagógica</label></div><div class="actions compact"><button id="v57Generate">Gerar ficha(s)</button><button class="secondary" id="v57Print">Gerar PDF</button><button class="secondary" id="v57Doc">Baixar Word institucional</button><button class="secondary" id="v57Txt">Baixar TXT</button><button class="secondary" id="v57ClearUsage">Limpar histórico de questões usadas</button></div><div class="statusbox status-work" id="v57Status">Aguardando geração.</div><div id="v57Preview" class="ficha-preview empty">A ficha aparecerá aqui.</div><textarea class="report-output" id="sheetOutput" readonly=""></textarea></div>
+<div class="panel ficha-v57-main"><h3>Gerador automático de fichas</h3><p class="hint">Use esta área para transformar diagnóstico em ação pedagógica. O sistema identifica os descritores mais frágeis do aluno ou da turma e monta uma ficha pronta para imprimir.</p><div class="grid2"><label>Tipo de geração<select id="v57Scope"><option value="individual">Ficha individual</option><option value="turma">Todas as fichas da turma</option><option value="risco">Apenas alunos abaixo da meta</option><option value="descritor">Ficha por descritor da turma</option></select></label><label>Aluno<select id="sheetStudent"><option value="">Selecione</option></select></label><label>Quantidade de questões<input id="v57Count" max="40" min="1" type="number" value="10"/></label><label>Meta mínima para alunos em risco (%)<input id="v57Threshold" max="100" min="0" type="number" value="60"/></label><label>Descritores manuais (opcional)<input id="v57ManualDesc" placeholder="Ex.: D4, D7, D12"/></label><label>Dificuldade<select id="v57Difficulty"><option value="balanceada">Balanceada</option><option value="facil">Priorizar fáceis</option><option value="media">Priorizar médias</option><option value="dificil">Priorizar difíceis</option></select></label></div><div class="checks-v57"><label><input checked="" id="v57AvoidUsed" type="checkbox"/> Evitar questões já utilizadas pelo aluno</label><label><input checked="" id="v57IncludeKey" type="checkbox"/> Incluir gabarito ao final</label><label><input checked="" id="v57IncludePlan" type="checkbox"/> Incluir orientação pedagógica</label></div><div class="actions compact"><button id="v57Generate">Gerar ficha(s)</button><button class="secondary" id="v57Print">Gerar PDF</button><button class="secondary" id="v57Doc">Baixar Word institucional</button><button class="secondary" id="v57Txt">Baixar TXT</button><button class="secondary" id="v57ClearUsage">Limpar histórico de questões usadas</button></div><div class="statusbox status-work" id="v57Status">Aguardando geração.</div><div class="ficha-preview empty" id="v57Preview">A ficha aparecerá aqui.</div><textarea class="report-output" id="sheetOutput" readonly=""></textarea></div>
 <div class="panel"><h3>Mapa da Mina</h3><label>Escolha o aluno<select id="mapStudent"><option value="">Selecione um aluno</option></select></label><div class="actions compact"><button id="generateMap">Gerar Mapa da Mina</button><button class="secondary" id="printMap">Exportar PDF</button><button class="secondary" data-go="bancoQuestoes">Abrir Banco de Questões</button></div><div class="map-output empty" id="mapaOutput">Selecione um aluno.</div></div>
-<div class="panel"><h3>Ficha rápida individualizada</h3><p class="hint">Atalho herdado da V56. Para impressão em lote e Word, use o gerador acima.</p><div class="actions compact"><button id="generateSheet">Gerar ficha rápida</button><button class="secondary" id="printSheet">Exportar PDF</button><button class="secondary" id="downloadSheet">Baixar TXT</button></div></div></section>
-
-
+<div class="panel"><h3>Ficha rápida individualizada</h3><p class="hint">Use esta opção para gerar rapidamente uma ficha individual. Para impressão em lote e Word, use o gerador acima.</p><div class="actions compact"><button id="generateSheet">Gerar ficha rápida</button><button class="secondary" id="printSheet">Exportar PDF</button><button class="secondary" id="downloadSheet">Baixar TXT</button></div></div></section>
 <section class="view" id="turmasAlunos">
 <h2>📋 Gerenciador de Turmas e Alunos</h2>
 <p class="hint">Cadastre, edite, exclua, transfira e arquive alunos e turmas. Gere também a planilha modelo da turma, já com os nomes dos estudantes e no formato lido pelo sistema.</p>
-
 <div class="panel">
-  <h3>Resumo</h3>
-  <div class="cards small" id="turmaCadastroStats"></div>
-  <div class="statusbox status-work" id="turmaStatus">Gerenciador pronto.</div>
+<h3>Resumo</h3>
+<div class="cards small" id="turmaCadastroStats"></div>
+<div class="statusbox status-work" id="turmaStatus">Gerenciador pronto.</div>
 </div>
-
 <div class="panel">
-  <h3>1. Selecionar turma ativa</h3>
-  <div class="grid2">
-    <label>Turma
+<h3>1. Selecionar turma ativa</h3>
+<div class="grid2">
+<label>Turma
       <select id="turmaCadastroSelect"></select>
-    </label>
-    <label>Buscar aluno
+</label>
+<label>Buscar aluno
       <input id="turmaAlunoBusca" placeholder="Digite parte do nome do aluno"/>
-    </label>
-  </div>
-  <div class="actions compact">
-    <button id="turmaApplyAssessment">Usar turma na avaliação atual</button>
-    <button class="secondary" id="turmaExportCsv">Exportar turma CSV</button>
-    <button class="secondary" id="turmaExportJson">Exportar todas JSON</button>
-    <button class="secondary" id="turmaExportAllCsv">Exportar todas CSV</button>
-  </div>
+</label>
 </div>
-
+<div class="actions compact">
+<button id="turmaApplyAssessment">Usar turma na avaliação atual</button>
+<button class="secondary" id="turmaExportCsv">Exportar turma CSV</button>
+<button class="secondary" id="turmaExportJson">Exportar todas JSON</button>
+<button class="secondary" id="turmaExportAllCsv">Exportar todas CSV</button>
+</div>
+</div>
 <div class="panel">
-  <h3>2. Gerar planilha modelo da turma</h3>
-  <p class="hint">O professor baixa esta planilha, preenche descritores, gabarito e respostas. Ao importar de volta, o sistema já reconhece o formato.</p>
-  <div class="grid2">
-    <label>Quantidade de questões
-      <input id="templateQuestionsCount" type="number" min="1" max="100" value="26"/>
-    </label>
-    <label>Ação
+<h3>2. Gerar planilha modelo da turma</h3>
+<p class="hint">O professor baixa esta planilha, preenche descritores, gabarito e respostas. Ao importar de volta, o sistema já reconhece o formato.</p>
+<div class="grid2">
+<label>Quantidade de questões
+      <input id="templateQuestionsCount" max="100" min="1" type="number" value="26"/>
+</label>
+<label>Ação
       <button id="baixarModeloTurma">Baixar planilha modelo da turma</button>
-    </label>
-  </div>
+</label>
 </div>
-
+</div>
 <div class="panel">
-  <h3>3. Criar, renomear, arquivar e reativar turmas</h3>
-  <div class="grid2">
-    <label>Nova turma
+<h3>3. Criar, renomear, arquivar e reativar turmas</h3>
+<div class="grid2">
+<label>Nova turma
       <input id="novaTurmaNome" placeholder="Ex.: 1º A ADMINISTRAÇÃO 2027"/>
-    </label>
-    <label>Criar
+</label>
+<label>Criar
       <button id="criarTurmaBtn">Criar turma</button>
-    </label>
-    <label>Novo nome da turma selecionada
+</label>
+<label>Novo nome da turma selecionada
       <input id="renomearTurmaNome" placeholder="Ex.: 1º A ADM"/>
-    </label>
-    <label>Renomear
+</label>
+<label>Renomear
       <button class="secondary" id="renomearTurmaBtn">Renomear turma</button>
-    </label>
-    <label>Turmas arquivadas
+</label>
+<label>Turmas arquivadas
       <select id="turmaArquivadaSelect"></select>
-    </label>
-    <label>Ações de fim/início de ano
+</label>
+<label>Ações de fim/início de ano
       <div class="actions compact">
-        <button class="danger" id="arquivarTurmaBtn">Arquivar turma atual</button>
-        <button class="secondary" id="reativarTurmaBtn">Reativar turma</button>
-      </div>
-    </label>
-  </div>
+<button class="danger" id="arquivarTurmaBtn">Arquivar turma atual</button>
+<button class="secondary" id="reativarTurmaBtn">Reativar turma</button>
 </div>
-
+</label>
+</div>
+</div>
 <div class="panel">
-  <h3>4. Adicionar, importar e transferir alunos</h3>
-  <div class="grid2">
-    <label>Novo aluno na turma atual
+<h3>4. Adicionar, importar e transferir alunos</h3>
+<div class="grid2">
+<label>Novo aluno na turma atual
       <input id="novoAlunoNome" placeholder="Nome completo do aluno"/>
-    </label>
-    <label>Adicionar
+</label>
+<label>Adicionar
       <button id="addAlunoBtn">Adicionar aluno</button>
-    </label>
-    <label>Transferir aluno selecionado para
+</label>
+<label>Transferir aluno selecionado para
       <select id="alunoTransferTurma"></select>
-    </label>
-    <label>Importar lista CSV/Excel
-      <input id="importTurmaFile" type="file" accept=".csv,.txt,.xlsx,.xls,.json"/>
-    </label>
-  </div>
-  <p class="hint">Modelo de importação aceito: colunas Turma, Nº, Aluno. Se não houver coluna Turma, os alunos serão adicionados à turma selecionada.</p>
+</label>
+<label>Importar lista CSV/Excel
+      <input accept=".csv,.txt,.xlsx,.xls,.json" id="importTurmaFile" type="file"/>
+</label>
 </div>
-
+<p class="hint">Modelo de importação aceito: colunas Turma, Nº, Aluno. Se não houver coluna Turma, os alunos serão adicionados à turma selecionada.</p>
+</div>
 <div class="panel" id="turmaCadastroList">Carregando alunos...</div>
 </section>
-
 <section class="view" id="bancoQuestoes"><h2>📚 Banco Inteligente de Questões</h2><p class="hint">Cadastre, importe, filtre e exporte questões por disciplina, descritor e dificuldade. As questões cadastradas passam automaticamente a alimentar fichas, simulados e recuperação.</p>
-<div class="panel bank-v56-panel"><h3>1. Cadastrar questão</h3><div class="bank-form bank-v56-form"><select id="bankDisc"><option value="Língua Portuguesa">Língua Portuguesa</option><option value="Matemática">Matemática</option></select><input id="bankDesc" placeholder="Descritor, ex.: D15"/><select id="bankDiff"><option>Fácil</option><option selected="">Média</option><option>Difícil</option></select><select id="bankKey"><option>A</option><option>B</option><option>C</option><option>D</option><option>E</option></select><input id="bankSource" placeholder="Fonte, ex.: autoral, institucional, livro"/><input id="bankBncc" placeholder="Habilidade/competência (opcional)"/><input id="bankTime" type="number" min="1" placeholder="Tempo estimado (min)"/><textarea id="bankBase" placeholder="Texto-base ou situação-problema (opcional)"></textarea><textarea id="bankText" placeholder="Enunciado da questão"></textarea><textarea id="bankAlts" placeholder="A) ...
+<div class="panel bank-v56-panel"><h3>1. Cadastrar questão</h3><div class="bank-form bank-v56-form"><select id="bankDisc"><option value="Língua Portuguesa">Língua Portuguesa</option><option value="Matemática">Matemática</option></select><input id="bankDesc" placeholder="Descritor, ex.: D15"/><select id="bankDiff"><option>Fácil</option><option selected="">Média</option><option>Difícil</option></select><select id="bankKey"><option>A</option><option>B</option><option>C</option><option>D</option><option>E</option></select><input id="bankSource" placeholder="Fonte, ex.: autoral, institucional, livro"/><input id="bankBncc" placeholder="Habilidade/competência (opcional)"/><input id="bankTime" min="1" placeholder="Tempo estimado (min)" type="number"/><textarea id="bankBase" placeholder="Texto-base ou situação-problema (opcional)"></textarea><textarea id="bankText" placeholder="Enunciado da questão"></textarea><textarea id="bankAlts" placeholder="A) ...
 B) ...
 C) ...
 D) ...
 E) ..."></textarea></div><div class="actions"><button id="addBankQuestion">Adicionar ao banco</button><button class="secondary" id="clearBankForm">Limpar formulário</button></div></div>
 <div class="panel"><h3>2. Importar e exportar banco</h3><p class="hint">Modelo aceito em Excel/CSV: Disciplina, Descritor, Nivel, TextoBase, Enunciado, A, B, C, D, E, Gabarito, Fonte, Habilidade, Tempo.</p><div class="actions"><input accept=".xlsx,.xls,.csv,.json" id="importBank" type="file"/><button class="secondary" id="downloadBankTemplate">Baixar modelo CSV</button><button class="secondary" id="exportBank">Exportar JSON</button><button class="secondary" id="exportBankCsv">Exportar CSV</button></div><div class="statusbox" id="bankImportStatus">Nenhum arquivo importado nesta sessão.</div></div>
 <div class="panel"><h3>3. Filtros e cobertura</h3><div class="grid2"><label>Disciplina<select id="bankFilterDisc"><option value="">Todas</option><option value="Língua Portuguesa">Língua Portuguesa</option><option value="Matemática">Matemática</option></select></label><label>Descritor<input id="bankFilterDesc" placeholder="Ex.: D4"/></label><label>Dificuldade<select id="bankFilterDiff"><option value="">Todas</option><option>Fácil</option><option>Média</option><option>Difícil</option></select></label><label>Buscar<input id="bankSearch" placeholder="Texto, fonte, habilidade..."/></label></div><div id="smartBankPanel"></div><div id="bankList"></div></div>
-<div class="panel"><h3>4. Testar sorteio aleatório</h3><p class="hint">Use para conferir se o banco está escolhendo questões variadas por descritor.</p><div class="grid2"><label>Disciplina<select id="bankPreviewDisc"><option value="Língua Portuguesa">Língua Portuguesa</option><option value="Matemática">Matemática</option></select></label><label>Descritores prioritários<input id="bankPreviewDesc" placeholder="Ex.: D4, D7, D12"/></label><label>Quantidade<input id="bankPreviewCount" type="number" min="1" max="30" value="10"/></label><label>Balancear dificuldade<select id="bankPreviewBalance"><option value="sim">Sim</option><option value="nao">Não</option></select></label></div><div class="actions"><button id="previewBankQuestions">Sortear questões</button></div><div id="bankPreviewOutput" class="question-grid"></div></div></section>
-
+<div class="panel"><h3>4. Testar sorteio aleatório</h3><p class="hint">Use para conferir se o banco está escolhendo questões variadas por descritor.</p><div class="grid2"><label>Disciplina<select id="bankPreviewDisc"><option value="Língua Portuguesa">Língua Portuguesa</option><option value="Matemática">Matemática</option></select></label><label>Descritores prioritários<input id="bankPreviewDesc" placeholder="Ex.: D4, D7, D12"/></label><label>Quantidade<input id="bankPreviewCount" max="30" min="1" type="number" value="10"/></label><label>Balancear dificuldade<select id="bankPreviewBalance"><option value="sim">Sim</option><option value="nao">Não</option></select></label></div><div class="actions"><button id="previewBankQuestions">Sortear questões</button></div><div class="question-grid" id="bankPreviewOutput"></div></div></section>
 <section class="view" id="impressao">
 <h2>🖨️ Impressão em Lote</h2>
 <p class="hint">Gere, revise e imprima fichas individuais, fichas da turma, kits de recuperação e relatórios de acompanhamento em lote. A seleção usa o Banco de Questões e as Intervenções Pedagógicas offline.</p>
-
 <div class="panel v59-panel">
-  <h3>1. Configuração da impressão</h3>
-  <div class="grid2">
-    <label>Tipo de pacote
+<h3>1. Configuração da impressão</h3>
+<div class="grid2">
+<label>Tipo de pacote
       <select id="v59PackType">
-        <option value="individual">Ficha de um aluno</option>
-        <option value="turma" selected>Fichas de toda a turma</option>
-        <option value="risco">Apenas alunos abaixo da meta</option>
-        <option value="descritor">Ficha por descritores prioritários da turma</option>
-        <option value="kit">Kit completo de recuperação</option>
-      </select>
-    </label>
-    <label>Aluno
+<option value="individual">Ficha de um aluno</option>
+<option selected="" value="turma">Fichas de toda a turma</option>
+<option value="risco">Apenas alunos abaixo da meta</option>
+<option value="descritor">Ficha por descritores prioritários da turma</option>
+<option value="kit">Kit completo de recuperação</option>
+</select>
+</label>
+<label>Aluno
       <select id="v59Student"><option value="">Selecione</option></select>
-    </label>
-    <label>Quantidade de questões por ficha
-      <input id="v59Count" type="number" min="1" max="40" value="10"/>
-    </label>
-    <label>Meta mínima para seleção por risco (%)
-      <input id="v59Threshold" type="number" min="0" max="100" value="60"/>
-    </label>
-    <label>Descritores manuais (opcional)
+</label>
+<label>Quantidade de questões por ficha
+      <input id="v59Count" max="40" min="1" type="number" value="10"/>
+</label>
+<label>Meta mínima para seleção por risco (%)
+      <input id="v59Threshold" max="100" min="0" type="number" value="60"/>
+</label>
+<label>Descritores manuais (opcional)
       <input id="v59ManualDesc" placeholder="Ex.: D4, D7, D12"/>
-    </label>
-    <label>Dificuldade
+</label>
+<label>Dificuldade
       <select id="v59Difficulty">
-        <option value="balanceada" selected>Balanceada</option>
-        <option value="facil">Priorizar fáceis</option>
-        <option value="media">Priorizar médias</option>
-        <option value="dificil">Priorizar difíceis</option>
-      </select>
-    </label>
-  </div>
-  <div class="checks-v57">
-    <label><input id="v59AvoidUsed" type="checkbox" checked/> Evitar questões já utilizadas pelo aluno</label>
-    <label><input id="v59IncludeKey" type="checkbox" checked/> Incluir gabarito ao final</label>
-    <label><input id="v59IncludePlan" type="checkbox" checked/> Incluir orientação/intervenção pedagógica</label>
-    <label><input id="v59PageBreaks" type="checkbox" checked/> Uma ficha por página</label>
-  </div>
-  <div class="actions compact">
-    <button id="v59Generate">Gerar pacote</button>
-    <button class="secondary" id="v59Print">Gerar PDF</button>
-    <button class="secondary" id="v59Word">Baixar Word institucional</button>
-    <button class="secondary" id="v59Txt">Baixar TXT</button>
-    <button class="secondary" id="v59Summary">Relatório da coordenação</button>
-  </div>
-  <div class="statusbox status-work" id="v59Status">Aguardando geração.</div>
+<option selected="" value="balanceada">Balanceada</option>
+<option value="facil">Priorizar fáceis</option>
+<option value="media">Priorizar médias</option>
+<option value="dificil">Priorizar difíceis</option>
+</select>
+</label>
 </div>
-
+<div class="checks-v57">
+<label><input checked="" id="v59AvoidUsed" type="checkbox"/> Evitar questões já utilizadas pelo aluno</label>
+<label><input checked="" id="v59IncludeKey" type="checkbox"/> Incluir gabarito ao final</label>
+<label><input checked="" id="v59IncludePlan" type="checkbox"/> Incluir orientação/intervenção pedagógica</label>
+<label><input checked="" id="v59PageBreaks" type="checkbox"/> Uma ficha por página</label>
+</div>
+<div class="actions compact">
+<button id="v59Generate">Gerar pacote</button>
+<button class="secondary" id="v59Print">Gerar PDF</button>
+<button class="secondary" id="v59Word">Baixar Word institucional</button>
+<button class="secondary" id="v59Txt">Baixar TXT</button>
+<button class="secondary" id="v59Summary">Relatório da coordenação</button>
+</div>
+<div class="statusbox status-work" id="v59Status">Aguardando geração.</div>
+</div>
 <div class="panel v59-panel">
-  <h3>2. Pré-visualização</h3>
-  <p class="hint">Confira antes de imprimir. Quando houver muitas fichas, a prévia será paginada para manter a tela leve.</p>
-  <div id="v59Preview" class="print-preview empty">O pacote de impressão aparecerá aqui.</div>
-  <textarea class="report-output" id="v59Output" readonly></textarea>
+<h3>2. Pré-visualização</h3>
+<p class="hint">Confira antes de imprimir. Quando houver muitas fichas, a prévia será paginada para manter a tela leve.</p>
+<div class="print-preview empty" id="v59Preview">O pacote de impressão aparecerá aqui.</div>
+<textarea class="report-output" id="v59Output" readonly=""></textarea>
 </div>
 </section>
-
-
 <section class="view" id="minhasTurmas">
 <h2>📌 Minhas Turmas</h2>
 <p class="hint">Área do professor para comparar as turmas vinculadas à sua série e disciplina, acompanhar evolução e abrir diagnósticos.</p>
 <div class="panel">
-  <h3>Resumo do meu perfil</h3>
-  <div class="cards small" id="minhasTurmasCards"></div>
+<h3>Resumo do meu perfil</h3>
+<div class="cards small" id="minhasTurmasCards"></div>
 </div>
 <div class="panel">
-  <h3>Comparação das minhas turmas</h3>
-  <div id="minhasTurmasComparacao"></div>
+<h3>Comparação das minhas turmas</h3>
+<div id="minhasTurmasComparacao"></div>
 </div>
 <div class="panel">
-  <h3>Evolução das minhas turmas</h3>
-  <div id="minhasTurmasEvolucao"></div>
+<h3>Evolução das minhas turmas</h3>
+<div id="minhasTurmasEvolucao"></div>
 </div>
 <div class="panel">
-  <h3>Avaliações disponíveis para mim</h3>
-  <div id="minhasTurmasAvaliacoes"></div>
+<h3>Avaliações disponíveis para mim</h3>
+<div id="minhasTurmasAvaliacoes"></div>
 </div>
 </section>
-
-<section class="view" id="coordenacao">
-<div class="panel coordenacao-v608" id="painelCoordenacaoV608">
-<h3>🏫 Painel da coordenação pedagógica</h3>
-<p class="hint">Resumo institucional gerado a partir das avaliações salvas no navegador.</p>
-<div id="coordV608Resumo" class="cards small"></div>
+<section class="view" id="inteligencia">
+<h2>🧠 Inteligência Pedagógica V68.6</h2>
+<p class="hint">Painel institucional baseado diretamente no Supabase. Organiza metas pedagógicas, alertas, descritores críticos, alunos prioritários e plano de intervenção.</p>
+<div class="panel">
+<h3>Controle da inteligência</h3>
+<p class="hint">Atualize depois de salvar novas avaliações na nuvem.</p>
 <div class="actions compact">
-<button id="coordV608Atualizar">Atualizar painel</button>
-<button class="secondary" id="coordV608Pptx">Gerar apresentação profissional</button>
-<button class="secondary" id="coordV608Txt">Baixar relatório da coordenação</button>
+<button id="vetorRefresh">Atualizar inteligência pedagógica</button>
+<button class="secondary" id="vetorExport">Baixar plano de intervenção</button>
+<button class="secondary" id="vetorCopy">Copiar plano</button>
 </div>
-<div id="coordV608Detalhes"></div>
-</div><h2>🏫 Coordenação</h2><p class="hint">Área para leitura gestora: turmas críticas, descritores críticos, alunos prioritários e evolução geral.</p><div class="panel coord-ux-note" id="coordUxNote"><h3>Leitura executiva</h3><p class="hint">Os painéis abaixo foram organizados para leitura rápida: primeiro veja alertas e turmas críticas; depois aprofunde por descritores, evolução e relatórios. Clique nos títulos para recolher ou abrir blocos.</p></div><div class="panel coord-filter-panel"><h3>Selecionar turma para análise gestora</h3><p class="hint">Escolha uma turma para ver a leitura da coordenação. Use a comparação para observar diferenças entre turmas, médias, níveis e descritores prioritários.</p><div class="grid2"><label>Turma analisada<select id="coordClassSelect"><option value="todas">Todas as turmas</option></select></label><label>Comparar com<select id="coordCompareClassSelect"><option value="">Selecione outra turma</option></select></label></div><div class="coord-class-comparison" id="coordClassComparison"></div></div><div id="coordExecutivePanel"></div><div id="coordDashboard"></div><div id="coordDescriptorComparePanel"></div><div id="coordLongitudinalPanel"></div><div id="schoolRiskPanel"></div><div id="autoConselhoPanel"></div><div class="panel" id="disciplineComparison"></div><div class="panel" id="cloudCoordDashboard"></div><div class="panel"><h3>Histórico de avaliações</h3><p class="hint">Salve momentos como Avaliação Diagnóstica, Simulado 1, Simulado 2 ou Recuperação.</p><input id="snapshotName" placeholder="Nome da avaliação, ex.: Simulado 1"/><div class="actions"><button id="saveSnapshot">Salvar diagnóstico atual</button><button class="danger" id="clearSnapshots">Limpar histórico</button></div><div id="history"></div></div><div class="panel"><h3>Relatórios</h3><label>Aluno para relatório individual<select id="reportStudent"><option value="0">Primeiro aluno</option></select></label><div class="cards small"><button data-report="turma">Turma</button><button data-report="individual">Individual</button><button data-report="familia">Pais</button><button data-report="conselho">Conselho</button><button data-report="coordenacao">Coordenação</button></div><textarea class="report-output" id="reportOutput" placeholder="O relatório aparecerá aqui." readonly=""></textarea><div class="actions"><button id="copyReport">Copiar</button><button id="downloadReport">Baixar TXT</button><button id="exportReportPdf">Exportar PDF</button></div></div></section>
-
-<section class="view admin-only" id="usuariosAdmin">
-  <h2>👥 Administração → Usuários</h2>
-  <p class="hint">Tela local de gestão de usuários. Permite criar professores, alterar ou redefinir senhas, definir série, disciplina e bloquear acessos sem editar o código. A estrutura já usa campos equivalentes aos futuros <b>profiles</b> e <b>user_permissions</b> do Supabase.</p>
-  <div class="panel">
-    <h3 id="usuarioAdminTitulo">Novo usuário/professor</h3>
-    <div class="grid2 admin-user-form">
-      <label>Nome completo<input id="adminUserNome" placeholder="Ex.: Professor 1º ano Matemática"></label>
-      <label>Login<input id="adminUserLogin" placeholder="Ex.: prof1mat"></label>
-      <label>Senha<input id="adminUserSenha" type="password" placeholder="Digite nova senha ou deixe em branco ao editar"></label>
-      <label>Perfil<select id="adminUserRole"><option value="prof">Professor</option><option value="coord">Coordenação</option><option value="admin">Administrador</option></select></label>
-      <label>Série<select id="adminUserAno"><option value="1">1º ano</option><option value="2">2º ano</option><option value="3">3º ano</option><option value="1,2,3">Todas as séries</option></select></label>
-      <label>Disciplina<select id="adminUserDisc"><option value="Língua Portuguesa">Língua Portuguesa</option><option value="Matemática">Matemática</option><option value="Língua Portuguesa,Matemática">Português e Matemática</option></select></label>
-      <label class="inline-check"><input type="checkbox" id="adminUserAtivo" checked> Usuário ativo</label>
-    </div>
-    <div class="actions">
-      <button id="adminUserSalvar">Salvar usuário</button>
-      <button class="secondary" id="adminUserNovo">Limpar formulário</button>
-      <button class="secondary" id="adminUsersExport">Exportar usuários para migração</button>
-    </div>
-    <p class="hint" id="adminUserStatus"></p>
-  </div>
-  <div class="panel">
-    <h3>Usuários cadastrados</h3>
-    <div id="usuariosV65Lista"></div>
-  </div>
+<div class="statusbox status-work" id="vetorStatus">Aguardando leitura da nuvem.</div>
+</div>
+<div id="vetorIntelligenceDashboard"></div>
+<div class="panel">
+<h3>Plano de intervenção gerado</h3>
+<textarea class="report-output" id="vetorPlanoTexto" readonly=""></textarea>
+</div>
 </section>
-
+<section class="view" id="coordenacao">
+<div class="vetor-hero management-hero"><div class="hero-copy"><span class="eyebrow">Gestão Escolar</span><h2>🏫 Resumo da Escola</h2><p>Visão executiva para coordenação: acompanhe médias, turmas prioritárias, alunos em risco e descritores críticos a partir dos dados salvos no Supabase.</p></div><div class="flow-steps"><div><b>1</b><span>Veja alertas</span></div><div><b>2</b><span>Compare turmas</span></div><div><b>3</b><span>Defina intervenção</span></div></div></div>
+<div class="panel" id="vetorCoordPanel"><h3>🧠 Inteligência Pedagógica V68.6</h3><div class="statusbox status-work" id="vetorStatusCoord">Aguardando leitura da nuvem.</div></div><h2>🏫 Coordenação</h2><p class="hint">Área para leitura gestora: turmas críticas, descritores críticos, alunos prioritários e evolução geral.</p><div class="panel coord-ux-note" id="coordUxNote"><h3>Leitura executiva</h3><p class="hint">Os painéis abaixo foram organizados para leitura rápida: primeiro veja alertas e turmas críticas; depois aprofunde por descritores, evolução e relatórios. Clique nos títulos para recolher ou abrir blocos.</p></div><div class="panel coord-filter-panel"><h3>Selecionar turma para análise gestora</h3><p class="hint">Escolha uma turma para ver a leitura da coordenação. Use a comparação para observar diferenças entre turmas, médias, níveis e descritores prioritários.</p><div class="grid2"><label>Turma analisada<select id="coordClassSelect"><option value="todas">Todas as turmas</option></select></label><label>Comparar com<select id="coordCompareClassSelect"><option value="">Selecione outra turma</option></select></label></div><div class="coord-class-comparison" id="coordClassComparison"></div></div><div id="coordExecutivePanel"></div><div id="coordDashboard"></div><div id="coordDescriptorComparePanel"></div><div id="coordLongitudinalPanel"></div><div id="schoolRiskPanel"></div><div id="autoConselhoPanel"></div><div class="panel" id="disciplineComparison"></div><div class="panel" id="cloudCoordDashboard"></div><div class="panel"><h3>Histórico de avaliações</h3><p class="hint">Salve momentos como Avaliação Diagnóstica, Simulado 1, Simulado 2 ou Recuperação.</p><input id="snapshotName" placeholder="Nome da avaliação, ex.: Simulado 1"/><div class="actions"><button id="saveSnapshot">Salvar diagnóstico atual</button><button class="danger" id="clearSnapshots">Limpar histórico</button></div><div id="history"></div></div><div class="panel"><h3>Relatórios</h3><label>Aluno para relatório individual<select id="reportStudent"><option value="0">Primeiro aluno</option></select></label><div class="cards small"><button data-report="turma">Turma</button><button data-report="individual">Individual</button><button data-report="familia">Pais</button><button data-report="conselho">Conselho</button><button data-report="coordenacao">Coordenação</button></div><textarea class="report-output" id="reportOutput" placeholder="O relatório aparecerá aqui." readonly=""></textarea><div class="actions"><button id="copyReport">Copiar</button><button id="downloadReport">Baixar TXT</button><button id="exportReportPdf">Exportar PDF</button></div></div></section>
+<section class="view admin-only" id="usuariosAdmin">
+<h2>👥 Administração de usuários</h2>
+<div class="panel">
+<h3>Usuários institucionais no Supabase</h3>
+<p class="hint">A V68.6 limpa usa autenticação do Supabase. Crie ou edite usuários em <b>Supabase → Authentication → Users</b> e registre o perfil correspondente na tabela <b>perfis</b>.</p>
+<div class="cards small">
+<div class="card"><span>Perfis suportados</span><b>admin, coordenacao, professor</b></div>
+<div class="card"><span>Tabela de vínculo</span><b>perfis</b></div>
+<div class="card"><span>Dados pedagógicos</span><b>Supabase</b></div>
+</div>
+</div>
+</section>
 <section class="view" id="config">
-<div class="panel admin-only" id="usuariosV65Panel"><h3>👥 Usuários e permissões locais</h3><p class="hint">Login provisório local. Na versão com Supabase, estes perfis poderão ser migrados para autenticação em nuvem.</p><div id="usuariosV65Lista"></div></div><h2>⚙️ Configurações</h2><div class="panel"><p>Os dados ficam salvos no navegador deste aparelho. Só são apagados se você solicitar.</p><label>Disciplina padrão<select id="configDiscipline"><option value="Língua Portuguesa">Língua Portuguesa</option><option value="Matemática">Matemática</option></select></label><div class="actions"><button id="quickBackupBtn">Baixar backup do sistema</button><button id="exportJson" class="secondary">Backup técnico</button><button class="secondary" id="exportFullBackup">Backup completo</button><button class="secondary" id="exportExcelBackup">Backup Excel</button><input accept=".json" id="importJson" type="file"/><input accept=".json" id="importFullBackup" type="file"/><button class="secondary" id="restoreBackup">Restaurar backup completo</button><button class="danger" id="clearAll">Apagar todos os dados</button></div><p class="hint" id="backupStatus"></p></div>
+<h2>⚙️ Configurações <span class="help-dot" title="Área técnica: backup, Supabase e preferências. Evite alterar sem necessidade.">?</span></h2><div class="panel system-health"><h3>Diagnóstico rápido do sistema</h3><div class="teacher-summary-grid"><div class="teacher-card"><span>Versão</span><b>V68.6</b><small>Produção limpa</small></div><div class="teacher-card"><span>Banco</span><b>Supabase</b><small>Dados institucionais na nuvem</small></div><div class="teacher-card"><span>Identidade</span><b>VETOR</b><small>Marca educacional própria</small></div></div></div><div class="panel"><p>Os dados institucionais são salvos no Supabase. O navegador mantém apenas preferências e rascunhos temporários.</p><label>Disciplina padrão<select id="configDiscipline"><option value="Língua Portuguesa">Língua Portuguesa</option><option value="Matemática">Matemática</option></select></label><div class="actions"><button id="quickBackupBtn">Baixar backup do sistema</button><button class="secondary" id="exportJson">Backup técnico</button><button class="secondary" id="exportFullBackup">Backup completo</button><button class="secondary" id="exportExcelBackup">Backup Excel</button><input accept=".json" id="importJson" type="file"><input accept=".json" id="importFullBackup" type="file"><button class="secondary" id="restoreBackup">Restaurar backup completo</button><button class="danger" id="clearAll">Apagar todos os dados</button></input></input></div><p class="hint" id="backupStatus"></p></div>
 <div class="panel cloud-panel">
 <h3>Modo institucional</h3>
-<p class="hint">O sistema continua funcionando localmente. Ao fazer login, você poderá salvar avaliações na nuvem, carregar turmas vinculadas e permitir que outros professores visualizem seus dados sem alterá-los.</p>
+<p class="hint">O sistema trabalha em modo institucional com Supabase. Faça login para sincronizar turmas, avaliações, resultados e histórico.</p>
 <div class="cloud-config-box"><h4>Configuração do Supabase</h4><p class="hint">Cole apenas a URL do projeto e a chave pública anon. Nunca use chave secreta/service role no GitHub Pages.</p><div class="grid2"><label>URL do Supabase<input id="supabaseUrl" placeholder="https://seu-projeto.supabase.co"/></label><label>Anon public key<input id="supabaseAnonKey" placeholder="eyJhbGci..."/></label></div><div class="actions"><button class="secondary" id="saveSupabaseConfig">Salvar configuração</button><button class="secondary" id="testSupabaseConfig">Testar conexão</button></div></div>
-<div class="statusbox status-work" id="cloudStatus">Modo local ativo. Faça login para sincronizar.</div>
+<div class="statusbox status-work" id="cloudStatus">Aguardando login institucional para sincronizar com o Supabase.</div>
 <div class="grid2">
 <label>E-mail<input id="cloudEmail" placeholder="professor@escola.com" type="email"/></label>
 <label>Senha<input id="cloudPassword" placeholder="Senha cadastrada no Supabase" type="password"/></label>
@@ -414,7 +404,7 @@ E) ..."></textarea></div><div class="actions"><button id="addBankQuestion">Adici
 <div class="cloud-user" id="cloudUserBox"></div>
 <div class="grid2">
 <label>Turma vinculada<select id="cloudTurma"><option value="">Faça login para carregar turmas</option></select></label>
-<label>Título da avaliação<input id="cloudAssessmentTitle" placeholder="Ex.: Simulado 3, Diagnóstico 1, Revisão"/></label><label>Data da avaliação<input id="cloudAssessmentDate" type="date"/></label>
+<label>Título da avaliação<input id="cloudAssessmentTitle" placeholder="Ex.: Simulado 3, VETOR 1, Revisão"/></label><label>Data da avaliação<input id="cloudAssessmentDate" type="date"/></label>
 </div>
 <label>Tipo de avaliação<select id="cloudAssessmentType"><option value="diagnostica">Avaliação Diagnóstica</option><option value="simulado1">Simulado 1</option><option value="simulado2">Simulado 2</option><option value="recuperacao">Recuperação</option><option value="bimestral">Avaliação Bimestral</option></select></label>
 <div class="actions">
@@ -423,15 +413,14 @@ E) ..."></textarea></div><div class="actions"><button id="addBankQuestion">Adici
 </div>
 <div class="cloud-list" id="cloudAssessmentsList"></div>
 </div>
-
 <div class="panel system-check-panel">
 <h3>✅ Verificação do sistema</h3>
 <p class="hint">Antes de usar com professores, rode este teste rápido. Ele verifica avaliação ativa, dados importados, validação, relatórios, backup, módulos e dependências.</p>
 <div class="actions"><button id="runSystemCheck">Testar sistema</button><button class="secondary" id="clearPageCache">Limpar cache e atualizar</button></div>
-<div id="systemCheckOutput" class="statusbox status-work">Aguardando teste.</div>
+<div class="statusbox status-work" id="systemCheckOutput">Aguardando teste.</div>
 </div>
 <div class="panel" id="changelogBox"></div></section>
-<footer>ETE Professor José Luiz de Mendonça • Criado por Felipe Camargo • Versão 66.7 Supabase</footer>
+<footer>VETOR • Plataforma de Inteligência Educacional • V68.6</footer>
 </main>
 <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
@@ -439,28 +428,62 @@ E) ..."></textarea></div><div class="actions"><button id="addBankQuestion">Adici
 <script src="https://cdn.jsdelivr.net/npm/pptxgenjs@3.12.0/dist/pptxgen.bundle.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/html2pdf.js@0.10.1/dist/html2pdf.bundle.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/docx@8.5.0/build/index.umd.js"></script>
-<script src="js/app.js?v=66.7"></script>
-<script src="js/descritores.js?v=66.7"></script>
-<script src="js/turmas.js?v=66.7"></script>
-<script src="js/importacao.js?v=66.7"></script>
-<script src="js/diagnostico.js?v=66.7"></script>
-<script src="js/evolucao.js?v=66.7"></script>
-<script src="js/relatorios.js?v=66.7"></script>
-<script src="js/exportacao.js?v=66.7"></script>
-<script src="js/banco-questoes.js?v=66.7"></script>
-<script src="js/fichas.js?v=66.7"></script>
-<script src="js/intervencoes.js?v=66.7"></script>
-<script src="js/impressao.js?v=66.7"></script>
-<script src="js/supabase-sync.js?v=66.7"></script>
-<script src="js/pedagogico-avancado.js?v=66.7"></script>
-<script src="js/sistema.js?v=66.7"></script>
-<script src="js/correcoes-v605.js?v=66.7"></script>
-<script src="js/melhorias-v606.js?v=66.7"></script>
-<script src="js/exportacoes-v607.js?v=66.7"></script>
-<script src="js/coordenacao-v608.js?v=66.7"></script>
-<script src="js/exportacoes-v609.js?v=66.7"></script>
-<script src="js/institucional-v62.js?v=66.7"></script>
-<script src="js/auth-v63.js?v=66.7"></script>
-<script src="js/v64-estabilidade.js?v=66.7"></script>
-<script src="js/evolucao-v664.js?v=66.7"></script></body>
+<script src="js/app.js?v=68-6"></script>
+<script src="js/descritores.js?v=68-6"></script>
+<script src="js/turmas.js?v=68-6"></script>
+<script src="js/importacao.js?v=68-6"></script>
+<script src="js/diagnostico.js?v=68-6"></script>
+<script src="js/evolucao.js?v=68-6"></script>
+<script src="js/relatorios.js?v=68-6"></script>
+<script src="js/exportacao.js?v=68-6"></script>
+<script src="js/banco-questoes.js?v=68-6"></script>
+<script src="js/fichas.js?v=68-6"></script>
+<script src="js/intervencoes.js?v=68-6"></script>
+<script src="js/impressao.js?v=68-6"></script>
+<script src="js/supabase-sync.js?v=68-6"></script>
+<script src="js/pedagogico-avancado.js?v=68-6"></script>
+<script src="js/sistema.js?v=68-6"></script>
+<script src="js/correcoes.js?v=68-6"></script>
+<script src="js/melhorias.js?v=68-6"></script>
+<script src="js/exportacoes-pdf.js?v=68-6"></script>
+<script src="js/coordenacao.js?v=68-6"></script>
+<script src="js/exportacoes-office.js?v=68-6"></script>
+<script src="js/institucional.js?v=68-6"></script>
+<script src="js/auth-supabase.js?v=68-6"></script>
+<script src="js/estabilidade.js?v=68-6"></script>
+<script src="js/evolucao-supabase.js?v=68-6"></script>
+<script src="js/inteligencia.js?v=68-6"></script>
+<script id="vetor-ux-v68-2">
+(function(){
+  function go(view){
+    document.querySelectorAll('.view').forEach(v=>v.classList.remove('active'));
+    const target=document.getElementById(view); if(target) target.classList.add('active');
+    document.querySelectorAll('.nav').forEach(b=>b.classList.toggle('active', b.dataset.view===view));
+    window.scrollTo({top:0, behavior:'smooth'});
+  }
+  document.addEventListener('click', function(e){
+    const btn=e.target.closest('[data-go]'); if(btn){ e.preventDefault(); go(btn.dataset.go); }
+    const help=e.target.closest('.help-dot');
+    if(help){
+      e.preventDefault();
+      const text=help.getAttribute('title') || help.dataset.help || 'Ajuda contextual do VETOR.';
+      let tip=document.querySelector('#vetorTooltip');
+      if(!tip){
+        tip=document.createElement('div');
+        tip.id='vetorTooltip';
+        tip.className='vetor-tooltip';
+        document.body.appendChild(tip);
+      }
+      tip.textContent=text;
+      const r=help.getBoundingClientRect();
+      tip.style.left=Math.min(window.innerWidth-320, Math.max(12, r.left))+'px';
+      tip.style.top=(r.bottom+10+window.scrollY)+'px';
+      tip.classList.add('show');
+      clearTimeout(window.__vetorTooltipTimer);
+      window.__vetorTooltipTimer=setTimeout(()=>tip.classList.remove('show'),4200);
+    }
+  });
+})();
+</script>
+</body>
 </html>

@@ -1,16 +1,14 @@
-# Diagnóstico Pedagógico ETE — V65
+# VETOR V68.6 – Produção Final
 
-Versão de refatoração e estabilidade.
+**VETOR**  
+**Transformando avaliações em direção pedagógica.**
 
-## Implementado
-- Correção definitiva do `service-worker.js`, incluindo lista `ASSETS` definida.
-- Tela **Minhas Turmas** específica para professor.
-- Professor por série + disciplina consegue visualizar suas turmas, comparar médias, acompanhar evolução e abrir diagnósticos permitidos.
-- Coordenação e administrador mantêm visão geral.
-- Usuários de teste ocultados da tela de login.
-- Autoria inicial aplicada ao banco de questões local.
-- Filtros de turma/disciplina reforçados para professor.
-- Cache atualizado para `ete-diagnostico-v65`.
+Versão focada em produção:
+- identidade VETOR consolidada;
+- cache e PWA revisados;
+- exportações padronizadas;
+- RLS institucional mais restritivo;
+- limpeza de resquícios visuais e técnicos da identidade anterior;
+- scripts verificados sem erro de sintaxe.
 
-## Observação
-O login ainda é local/provisório. Para segurança real e compartilhamento de dados entre professores e coordenação, a próxima etapa deve ser Supabase.
+Arquivo SQL: `supabase_vetor_v68_6.sql`

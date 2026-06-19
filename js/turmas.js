@@ -505,8 +505,8 @@
     "WAGNER JOSE PAULINO DA SILVA"
   ]
 };
- const STORE='ete_turmas_v602';
- const ARCHIVE='ete_turmas_arquivadas_v602';
+ const STORE='vetor_turmas_v68_6';
+ const ARCHIVE='vetor_turmas_arquivadas_v68_6';
  const $=s=>document.querySelector(s);
  const safe=s=>String(s??'').replace(/[&<>"]/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[m]));
  const norm=s=>String(s??'').trim().replace(/\s+/g,' ');
@@ -521,7 +521,7 @@
  let turmaIdByName={};
  let alunoIdByKey={};
  const keyAluno=(turma,nome)=>String(turma||'')+'||'+String(nome||'').toUpperCase();
- function cloud(){const C=window.ETESupabase; return (C&&C.client&&C.session)?C:null;}
+ function cloud(){const C=window.VETORSupabase; return (C&&C.client&&C.session)?C:null;}
  async function refreshCloud(){
    const C=cloud();
    if(!C)return false;
@@ -593,8 +593,8 @@
  function download(name, content, type='text/plain;charset=utf-8'){const blob=new Blob([content],{type}); const a=document.createElement('a'); a.href=URL.createObjectURL(blob); a.download=name; document.body.appendChild(a); a.click(); setTimeout(()=>{URL.revokeObjectURL(a.href);a.remove();},700);}
  function toCsv(rows){return rows.map(r=>r.map(v=>`"${String(v??'').replace(/"/g,'""')}"`).join(',')).join('\n');}
  function exportTurmaCsv(turma){const rows=[['Turma','Nº','Aluno'],...(turmas[turma]||[]).map((n,i)=>[turma,i+1,n])]; download(`alunos_${turma.replace(/\W+/g,'_')}.csv`, toCsv(rows), 'text/csv;charset=utf-8');}
- function exportAllJson(){download('turmas_alunos_ete_v602.json', JSON.stringify({ativas:turmas,arquivadas},null,2), 'application/json;charset=utf-8');}
- function exportAllCsv(){const rows=[['Status','Turma','Nº','Aluno']]; orderedKeys(turmas).forEach(t=>turmas[t].forEach((n,i)=>rows.push(['Ativa',t,i+1,n]))); orderedKeys(arquivadas).forEach(t=>arquivadas[t].forEach((n,i)=>rows.push(['Arquivada',t,i+1,n]))); download('turmas_alunos_ete_v602.csv', toCsv(rows), 'text/csv;charset=utf-8');}
+ function exportAllJson(){download('turmas_alunos_vetor_v68_6.json', JSON.stringify({ativas:turmas,arquivadas},null,2), 'application/json;charset=utf-8');}
+ function exportAllCsv(){const rows=[['Status','Turma','Nº','Aluno']]; orderedKeys(turmas).forEach(t=>turmas[t].forEach((n,i)=>rows.push(['Ativa',t,i+1,n]))); orderedKeys(arquivadas).forEach(t=>arquivadas[t].forEach((n,i)=>rows.push(['Arquivada',t,i+1,n]))); download('turmas_alunos_vetor_v68_6.csv', toCsv(rows), 'text/csv;charset=utf-8');}
  function currentTurma(){return $('#turmaCadastroSelect')?.value || orderedKeys()[0] || '';}
  function setStatus(msg,type='work'){const el=$('#turmaStatus'); if(!el)return; el.className='statusbox '+(type==='ok'?'status-ok':type==='error'?'status-error':'status-work'); el.innerHTML=msg;}
  function renderStats(){const el=$('#turmaCadastroStats'); if(el)el.innerHTML=`<div class="card"><span>Turmas ativas</span><b>${orderedKeys(turmas).length}</b></div><div class="card"><span>Alunos ativos</span><b>${allCount(turmas)}</b></div><div class="card"><span>Arquivadas</span><b>${orderedKeys(arquivadas).length}</b></div><div class="card"><span>Alunos arquivados</span><b>${allCount(arquivadas)}</b></div>`;}
@@ -615,7 +615,7 @@
  async function editAluno(idx){const turma=currentTurma(); const old=turmas[turma]?.[idx]; if(!old)return; const name=norm(prompt('Editar nome do aluno:', old)); if(!name)return; try{if(cloud())await cloudUpdateAluno(turma,old,name);}catch(e){return setStatus('Erro ao editar aluno no Supabase: '+e.message,'error');} turmas[turma][idx]=name.toUpperCase(); turmas[turma].sort((a,b)=>a.localeCompare(b,'pt-BR')); save(turmas); render(); setStatus('Aluno editado'+(cloud()?' no Supabase.':'.'),'ok');}
  async function deleteAluno(idx){const turma=currentTurma(); const old=turmas[turma]?.[idx]; if(!old)return; if(!confirm('Excluir aluno da turma atual?\n\n'+old))return; try{if(cloud())await cloudDeleteAluno(turma,old);}catch(e){return setStatus('Erro ao excluir aluno no Supabase: '+e.message,'error');} turmas[turma].splice(idx,1); save(turmas); render(); setStatus('Aluno excluído'+(cloud()?' do Supabase.':' da turma.'),'ok');}
  async function transferAluno(idx){const turma=currentTurma(); const old=turmas[turma]?.[idx]; if(!old)return; const destino=$('#alunoTransferTurma')?.value || prompt('Transferir para qual turma?'); if(!destino||!turmas[destino])return setStatus('Turma de destino inválida.','error'); try{if(cloud())await cloudTransferAluno(turma,destino,old);}catch(e){return setStatus('Erro ao transferir aluno no Supabase: '+e.message,'error');} turmas[turma].splice(idx,1); if(!turmas[destino].some(n=>n.toUpperCase()===old.toUpperCase()))turmas[destino].push(old); turmas[destino].sort((a,b)=>a.localeCompare(b,'pt-BR')); save(turmas); render(); setStatus('Aluno transferido para '+safe(destino)+(cloud()?' no Supabase.':'.'),'ok');}
- function applyAssessment(){const turma=currentTurma(); const A=window.ETE; if(!A||!turma)return; const a=A.state.assessment||{}; a.turma=turma; if(!(a.students||[]).length) a.students=(turmas[turma]||[]).map(name=>({name,answers:[]})); A.state.assessment=a; const input=$('#assessmentClass'); if(input) input.value=turma; A.save?.(); A.renderAll?.(); setStatus('Turma aplicada à avaliação atual.','ok');}
+ function applyAssessment(){const turma=currentTurma(); const A=window.VETOR; if(!A||!turma)return; const a=A.state.assessment||{}; a.turma=turma; if(!(a.students||[]).length) a.students=(turmas[turma]||[]).map(name=>({name,answers:[]})); A.state.assessment=a; const input=$('#assessmentClass'); if(input) input.value=turma; A.save?.(); A.renderAll?.(); setStatus('Turma aplicada à avaliação atual.','ok');}
  function buildTemplateRows(){const turma=currentTurma(); const n=Math.max(1,Math.min(100,Number($('#templateQuestionsCount')?.value)||26)); const rows=[]; rows.push(['Nome do aluno',...Array.from({length:n},(_,i)=>'Q'+(i+1))]); rows.push(['Descritor',...Array.from({length:n},()=> '')]); rows.push(['Gabarito',...Array.from({length:n},()=> '')]); (turmas[turma]||[]).forEach(name=>rows.push([name,...Array.from({length:n},()=> '')])); return rows;}
  function downloadTemplate(){const turma=currentTurma(); const rows=buildTemplateRows(); const filename=`modelo_respostas_${turma.replace(/\W+/g,'_')}.xlsx`; if(window.XLSX){const ws=XLSX.utils.aoa_to_sheet(rows); const wb=XLSX.utils.book_new(); XLSX.utils.book_append_sheet(wb,ws,'Respostas'); XLSX.writeFile(wb,filename); setStatus('Planilha modelo Excel gerada.','ok');} else {download(filename.replace('.xlsx','.csv'),toCsv(rows),'text/csv;charset=utf-8'); setStatus('Biblioteca Excel indisponível. Modelo CSV gerado.','ok');}}
  function parseCsvLine(line){const out=[]; let cur='',q=false; for(let i=0;i<line.length;i++){const ch=line[i]; if(ch==='"'&&line[i+1]==='"'){cur+='"';i++;} else if(ch==='"')q=!q; else if((ch===','||ch===';'||ch==='\t')&&!q){out.push(cur.trim());cur='';} else cur+=ch;} out.push(cur.trim()); return out;}
@@ -639,6 +639,6 @@
    $('#importTurmaFile')&&($('#importTurmaFile').onchange=e=>importRosterFile(e.target.files?.[0]));
    document.addEventListener('click',e=>{const b=e.target.closest('[data-edit-student],[data-delete-student],[data-transfer-student]'); if(!b)return; const idx=Number(b.dataset.editStudent??b.dataset.deleteStudent??b.dataset.transferStudent); if(b.dataset.editStudent!=null)editAluno(idx); if(b.dataset.deleteStudent!=null)deleteAluno(idx); if(b.dataset.transferStudent!=null)transferAluno(idx);});
  }
- window.TurmasETE={getTurmas,getArquivadas,getAlunos,render,downloadTemplate,applyAssessment,syncFromSupabase:refreshCloud,refreshCloud};
+ window.TurmasVetor={getTurmas,getArquivadas,getAlunos,render,downloadTemplate,applyAssessment,syncFromSupabase:refreshCloud,refreshCloud};
  document.addEventListener('DOMContentLoaded',()=>{bind();render(); setTimeout(()=>{refreshCloud();},1200);});
 })();

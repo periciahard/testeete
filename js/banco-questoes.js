@@ -1,6 +1,6 @@
 (function(){
  'use strict';
- const A=()=>window.ETE;
+ const A=()=>window.VETOR;
  const letras=['A','B','C','D','E'];
  const norm=v=>String(v??'').trim();
  const safe=v=>A()?.safe?A().safe(v):String(v??'').replace(/[&<>\"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','\"':'&quot;'}[c]));

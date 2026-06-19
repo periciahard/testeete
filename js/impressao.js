@@ -1,7 +1,7 @@
 
 (function(){
  'use strict';
- const A=()=>window.ETE;
+ const A=()=>window.VETOR;
  const B=()=>window.BancoQuestoes;
  const I=()=>window.Intervencoes;
  const $=s=>document.querySelector(s);
@@ -13,8 +13,8 @@
  function download(name, content, type='text/plain;charset=utf-8'){const blob=new Blob([content],{type});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=name;document.body.appendChild(a);a.click();setTimeout(()=>{URL.revokeObjectURL(a.href);a.remove();},600);}
  function assessment(){return A()?.state?.assessment||{};}
  function results(){return A()?.getResults?A().getResults():{students:[],descriptorStats:[],summary:{nStudents:0,nQuestions:0,avg:0}};}
- function getUsage(){try{return JSON.parse(localStorage.getItem('ete_question_usage')||localStorage.getItem('ete_question_usage')||'{}')}catch{return {}}}
- function setUsage(u){localStorage.setItem('ete_question_usage',JSON.stringify(u)); localStorage.setItem('ete_question_usage',JSON.stringify(u));}
+ function getUsage(){try{return JSON.parse(localStorage.getItem('vetor_question_usage')||localStorage.getItem('vetor_question_usage')||'{}')}catch{return {}}}
+ function setUsage(u){localStorage.setItem('vetor_question_usage',JSON.stringify(u)); localStorage.setItem('vetor_question_usage',JSON.stringify(u));}
  function qKey(q){return q.id||[q.discipline,q.descriptor,q.enunciado].join('|').slice(0,160);}
  function recordUsage(name, qs){if(!name)return; const u=getUsage(); u[name]=u[name]||[]; qs.forEach(q=>{const id=qKey(q); if(!u[name].includes(id))u[name].push(id)}); setUsage(u);}
  function normalizeQuestion(q){
@@ -97,13 +97,13 @@
    const keyHtml=key?`<div class="print-key"><b>Gabarito:</b> ${qs.map((q,i)=>`${i+1}-${q.key||'C'}`).join(' | ')}</div>`:'';
    const orientHtml=orient?`<div class="print-orient"><b>Orientação pedagógica:</b><br>${safe(orient).replace(/\n/g,'<br>')}</div>`:'';
    const html=`<article class="print-sheet">
-     <header class="print-head"><div><b>ETE Professor José Luiz de Mendonça</b><br><span>${safe(a.title||'Avaliação')}</span></div><div><b>${safe(title)}</b><br>${new Date().toLocaleDateString('pt-BR')}</div></header>
+     <header class="print-head"><div><b>VETOR</b><br><span>${safe(a.title||'Avaliação')}</span></div><div><b>${safe(title)}</b><br>${new Date().toLocaleDateString('pt-BR')}</div></header>
      <div class="print-meta"><b>Aluno:</b> ${safe(aluno)} &nbsp; <b>Turma:</b> ${safe(turma)} &nbsp; <b>Disciplina:</b> ${safe(disc)}<br><b>Desempenho atual:</b> ${safe(desempenho)}<br><b>Descritores prioritários:</b> ${prHtml}</div>
      ${orientHtml}
      ${qsHtml}
      ${keyHtml}
    </article>`;
-   const text=`ETE Professor José Luiz de Mendonça\n${title}\nAluno: ${aluno}\nTurma: ${turma}\nDisciplina: ${disc}\nDesempenho atual: ${desempenho}\nDescritores prioritários: ${pr.map(p=>p.descriptor).join(', ')}\n\n${orient?`Orientação pedagógica:\n${orient}\n\n`:''}${qs.map((q,i)=>textQuestion(q,i+1)).join('\n')}${key?`\nGabarito: ${qs.map((q,i)=>`${i+1}-${q.key||'C'}`).join(' | ')}\n`:''}`;
+   const text=`VETOR\n${title}\nAluno: ${aluno}\nTurma: ${turma}\nDisciplina: ${disc}\nDesempenho atual: ${desempenho}\nDescritores prioritários: ${pr.map(p=>p.descriptor).join(', ')}\n\n${orient?`Orientação pedagógica:\n${orient}\n\n`:''}${qs.map((q,i)=>textQuestion(q,i+1)).join('\n')}${key?`\nGabarito: ${qs.map((q,i)=>`${i+1}-${q.key||'C'}`).join(' | ')}\n`:''}`;
    return {html,text,questions:qs,priorities:pr,student:aluno};
  }
  function selectedStudents(){
@@ -138,7 +138,7 @@
    const w=window.open('','_blank');
    if(!w){alert('Permita pop-ups para imprimir.');return;}
    const css=document.querySelector('link[href*="style.css"]')?.outerHTML||'';
-   w.document.write(`<!doctype html><html><head><meta charset="utf-8"><title>Impressão V64</title>${css}<style>body{background:#fff}.print-sheet{box-shadow:none;border:1px solid #ddd;margin:0 0 18px}.page-break{page-break-after:always}@media print{button{display:none}.print-sheet{page-break-inside:avoid}}</style></head><body>${content}</body></html>`);
+   w.document.write(`<!doctype html><html><head><meta charset="utf-8"><title>Impressão V68.6</title>${css}<style>body{background:#fff}.print-sheet{box-shadow:none;border:1px solid #ddd;margin:0 0 18px}.page-break{page-break-after:always}@media print{button{display:none}.print-sheet{page-break-inside:avoid}}</style></head><body>${content}</body></html>`);
    w.document.close(); setTimeout(()=>w.print(),500);
  }
  function downloadWord(){
@@ -152,7 +152,7 @@
  }
  function summary(){
    const r=results(); const pr=classPriorities(); const a=assessment();
-   const txt=`RELATÓRIO DE IMPRESSÃO / RECUPERAÇÃO - V64\n\nTurma: ${a.turma||''}\nDisciplina: ${a.discipline||''}\nAvaliação: ${a.title||''}\nAlunos: ${r.summary?.nStudents||0}\nQuestões da avaliação: ${r.summary?.nQuestions||0}\nMédia: ${r.summary?.avg||0}%\n\nDescritores prioritários:\n${pr.map(p=>'- '+p.descriptor+' - '+descriptorText(a.discipline,p.descriptor)).join('\n')}\n\nAções sugeridas:\n${interventionText(pr,a.discipline)}\n`;
+   const txt=`RELATÓRIO DE IMPRESSÃO / RECUPERAÇÃO - V68.6\n\nTurma: ${a.turma||''}\nDisciplina: ${a.discipline||''}\nAvaliação: ${a.title||''}\nAlunos: ${r.summary?.nStudents||0}\nQuestões da avaliação: ${r.summary?.nQuestions||0}\nMédia: ${r.summary?.avg||0}%\n\nDescritores prioritários:\n${pr.map(p=>'- '+p.descriptor+' - '+descriptorText(a.discipline,p.descriptor)).join('\n')}\n\nAções sugeridas:\n${interventionText(pr,a.discipline)}\n`;
    $('#v59Output')&&($('#v59Output').value=txt);
    $('#v59Preview')&&($('#v59Preview').innerHTML='<pre class="print-report">'+safe(txt)+'</pre>');
    window.__IMPRESSAO_LAST={html:'<pre>'+safe(txt)+'</pre>',text:txt,count:1,sheets:[]};

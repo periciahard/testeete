@@ -1,7 +1,7 @@
 
 (function(){
  'use strict';
- const A=()=>window.ETE;
+ const A=()=>window.VETOR;
  const $=s=>document.querySelector(s);
  function safe(s){return A()?.safe?A().safe(s??''):String(s??'').replace(/[&<>"]/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[m]));}
  function norm(s){return String(s??'').trim();}
@@ -81,7 +81,7 @@
  }
  function exportTxt(){
    const arr=filtered(); const a=byId($('#evoA')?.value), b=byId($('#evoB')?.value);
-   let txt='RELATÓRIO DE EVOLUÇÃO - V64\n\n';
+   let txt='RELATÓRIO DE EVOLUÇÃO - V68.6\n\n';
    txt+='Avaliações filtradas:\n'+arr.map(x=>`- ${label(x)} | média ${compute(x).summary.avg}%`).join('\n')+'\n\n';
    if(a&&b){const ra=compute(a),rb=compute(b); txt+=`Comparação direta:\nInicial: ${label(a)} - ${ra.summary.avg}%\nFinal: ${label(b)} - ${rb.summary.avg}%\nDiferença: ${Math.round((rb.summary.avg-ra.summary.avg)*10)/10} p.p.\n`;}
    A()?.download?.('relatorio_evolucao.txt',txt);

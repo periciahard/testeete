@@ -145,7 +145,7 @@ button:disabled{opacity:.45;cursor:not-allowed;filter:grayscale(.2);transform:no
 .fileBtn{display:inline-flex;align-items:center;justify-content:center;padding:10px 14px;border-radius:10px;background:#0f2e5f;color:#fff;font-weight:700;cursor:pointer}
 
 
-/* V64 impressão em lote e limpeza */
+/* Impressão em lote e limpeza */
 .v59-panel{border-left:6px solid var(--yellow)}
 .print-preview{background:#f8fbff;border:1px dashed var(--line);border-radius:18px;padding:16px;max-height:680px;overflow:auto}
 .print-sheet{background:#fff;border:1px solid var(--line);border-radius:18px;margin:14px 0;padding:22px;box-shadow:0 8px 20px rgba(16,42,86,.08);color:#111}
@@ -169,12 +169,12 @@ button:disabled{opacity:.45;cursor:not-allowed;filter:grayscale(.2);transform:no
   .page-break{page-break-after:always;border:0;margin:0}
 }
 
-/* V64 Turmas e Alunos */
+/* Turmas e Alunos */
 .student-roster{columns:2;column-gap:32px;margin-top:12px}
 .student-roster li{break-inside:avoid;padding:6px 0;border-bottom:1px solid #eef2f7}
 @media(max-width:800px){.student-roster{columns:1}}
 
-/* V64 Gerenciador de turmas */
+/* Gerenciador de turmas */
 .roster-head{display:flex;justify-content:space-between;align-items:center;gap:12px}
 .editable-roster{columns:1!important;list-style-position:inside}
 .editable-roster li{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:8px 0;border-bottom:1px solid #eef2f7}
@@ -183,7 +183,7 @@ button:disabled{opacity:.45;cursor:not-allowed;filter:grayscale(.2);transform:no
 .mini-actions button{padding:6px 9px;border-radius:10px;font-size:12px}
 @media(max-width:800px){.editable-roster li{display:block}.mini-actions{margin-top:6px}}
 
-/* V64 Evolução e comparação de simulados */
+/* Evolução e comparação de simulados */
 .evo-table .preview-row{grid-template-columns:1.5fr .7fr .7fr .8fr 1.4fr}
 .evo-bar{position:relative;height:20px;background:#eaf0f8;border-radius:999px;overflow:hidden;min-width:120px}
 .evo-bar span{display:block;height:100%;background:linear-gradient(90deg,var(--green),#7ed957)}
@@ -192,10 +192,10 @@ button:disabled{opacity:.45;cursor:not-allowed;filter:grayscale(.2);transform:no
 .card.ok{border-left:6px solid var(--green)}.card.bad{border-left:6px solid var(--red)}
 @media(max-width:900px){.evo-table .preview-row{grid-template-columns:1fr}.evo-table .preview-row span{padding:4px 0}}
 
-/* V64 estabilidade */
+/* Estabilidade */
 .home-insights{border-left:6px solid var(--green)}
 
-/* V64 correções estruturais */
+/* Correções estruturais */
 .hidden-tecnico{display:none!important}
 #sheetOutput,#v59Output{display:none!important}
 #importar .modelbox{border-left:6px solid var(--green)}
@@ -208,12 +208,12 @@ button:disabled{opacity:.45;cursor:not-allowed;filter:grayscale(.2);transform:no
   #v59Preview,.print-preview,.ficha-preview{display:block!important;max-height:none!important;overflow:visible!important}
 }
 
-/* V64 refinamentos */
-.v606-checklist{border-left:6px solid var(--blue)}
-.v606-checklist ol{margin:8px 0 0 20px;line-height:1.7}
+/* Refinamentos */
+.checklist-pedagogico{border-left:6px solid var(--blue)}
+.checklist-pedagogico ol{margin:8px 0 0 20px;line-height:1.7}
 #evoConsolidado,#quickBackupBtn{background:#0f2e5f;color:white}
 
-/* V64 - documentos institucionais e correção de exportações */
+/* Documentos institucionais e exportações */
 .ficha-preview .texto-base,
 .print-preview .texto-base,
 .texto-base{
@@ -252,12 +252,12 @@ button:disabled{opacity:.45;cursor:not-allowed;filter:grayscale(.2);transform:no
   background:#eef7ff;
 }
 
-/* V64 corrigida - coordenação pedagógica */
-.coordenacao-v608{border-left:6px solid var(--green)}
+/* Coordenação pedagógica */
+.coordenacao-institucional{border-left:6px solid var(--green)}
 .coord-table .preview-row{grid-template-columns:1.2fr 1fr 1.2fr .6fr .6fr .8fr}
-#coordenacaoPptxBtn,#coordV608Pptx{background:#1d6b42;color:#fff}
+#coordenacaoPptxBtn,#coordInstitucionalPptx{background:#1d6b42;color:#fff}
 
-/* V64 - correção real de PDF, Word e PowerPoint */
+/* PDF, Word e PowerPoint */
 .texto-base,.qitem,.print-question,.print-textbase{
   background:transparent!important;
   border:0!important;
@@ -267,17 +267,17 @@ button:disabled{opacity:.45;cursor:not-allowed;filter:grayscale(.2);transform:no
   max-height:45px;
   object-fit:contain;
 }
-#pdf-render-v609{
+#pdf-render-institucional{
   font-family:Arial, Helvetica, sans-serif;
   color:#111;
 }
 
-/* V64 - Padronização institucional */
+/* Padronização institucional */
 .texto-base,.qitem,.print-question{background:transparent!important;border:0!important;box-shadow:none!important}
 body.app-ready .view#inicio{display:none!important}
 .v62-question{break-inside:avoid}
 
-/* V64 - Login e perfis */
+/* Login e perfis */
 .auth-locked .topbar,.auth-locked .sidebar,.auth-locked .main{filter:blur(3px);pointer-events:none;user-select:none}
 .login-screen{position:fixed;inset:0;z-index:999999;background:linear-gradient(135deg,#0f2e5f,#0b1f3f);display:none;align-items:center;justify-content:center;padding:24px}
 .login-card{width:min(430px,95vw);background:#fff;border-radius:24px;padding:28px;box-shadow:0 24px 80px rgba(0,0,0,.35)}
@@ -296,10 +296,10 @@ body.app-ready .view#inicio{display:none!important}
 .role-professor .admin-only{display:none!important}
 .role-professor #config,.role-professor #turmasAlunos,.role-professor #alunos{display:none!important}
 
-/* V64 */
+/* Estilos complementares */
 .professor-panel{background:#fff;border:1px solid #dbe3ef;border-radius:16px;padding:16px;margin-bottom:16px}
 
-/* V64 - estabilidade, minhas turmas e autoria */
+/* Estabilidade, minhas turmas e autoria */
 .v64-table .preview-row{grid-template-columns:1.1fr 1fr 1.2fr .6fr .7fr 1.4fr}
 .v64-bar{position:relative;height:20px;background:#e9eef6;border-radius:999px;overflow:hidden;min-width:120px}
 .v64-bar span{display:block;height:100%;background:#1d6b42}
@@ -309,7 +309,7 @@ body.app-ready .view#inicio{display:none!important}
 .role-professor [data-view="coordenacao"]{display:none!important}
 .login-help{display:none!important}
 
-/* V65 - Administração de usuários */
+/* Administração de usuários */
 .admin-user-form label{display:flex;flex-direction:column;gap:.35rem}
 .inline-check{flex-direction:row!important;align-items:center;margin-top:1.7rem}
 .users-admin-table .preview-row{grid-template-columns:1.2fr .9fr .7fr 1fr 1.25fr}
@@ -319,7 +319,7 @@ body.app-ready .view#inicio{display:none!important}
 @media(max-width:800px){.users-admin-table .preview-row{grid-template-columns:1fr}.row-actions{justify-content:flex-start}}
 
 
-/* V65.1 - botão Sair visível também no menu lateral (desktop e celular) */
+/* Botão Sair visível também no menu lateral */
 .sidebar-session{
   margin-top:16px;
   padding-top:14px;
@@ -355,12 +355,12 @@ body.app-ready .view#inicio{display:none!important}
   .topbar .logoutBtn{display:none}
 }
 
-/*V65.2*/
+/* Ajustes de layout */
 .sidebar{width:260px!important;padding:12px!important;overflow-y:auto}.main-content,.content{margin-left:280px!important}.sidebar .menu-item,.sidebar nav a,.sidebar button{min-height:44px!important;padding:10px 12px!important;margin-bottom:6px!important;font-size:.95rem!important}
-/* ===== Ajustes V65.3 - Menu lateral compacto 100% visível ===== */
-:root{--sidebar-v653:220px}
+/* Menu lateral compacto */
+:root{--sidebar-compact:220px}
 .sidebar{
-  width:var(--sidebar-v653)!important;
+  width:var(--sidebar-compact)!important;
   padding:10px 10px!important;
   overflow:hidden!important;
   display:flex!important;
@@ -427,7 +427,7 @@ body.app-ready .view#inicio{display:none!important}
   font-size:13px!important;
 }
 .main{
-  margin-left:var(--sidebar-v653)!important;
+  margin-left:var(--sidebar-compact)!important;
   padding:22px!important;
   max-width:none!important;
 }
@@ -455,7 +455,7 @@ body.app-ready .view#inicio{display:none!important}
 }
 
 
-/* V65.4 - menu lateral compacto, sem corte e sem rolagem em telas comuns */
+/* Menu lateral compacto, sem corte */
 .sidebar{
   width:230px!important;
   padding:10px 10px!important;
@@ -563,7 +563,7 @@ body.app-ready .view#inicio{display:none!important}
 }
 
 
-/* V65.5 - tela de login institucional redesenhada */
+/* Tela de login institucional redesenhada */
 .login-screen{
   background:
     radial-gradient(circle at 18% 12%, rgba(255,210,63,.24), transparent 30%),
@@ -571,7 +571,7 @@ body.app-ready .view#inicio{display:none!important}
     linear-gradient(135deg,#071b3a 0%, #102a56 55%, #173d78 100%)!important;
   padding:32px!important;
 }
-.login-card-v655{
+.login-card-vetor{
   width:min(940px,94vw)!important;
   min-height:560px!important;
   padding:0!important;
@@ -674,7 +674,7 @@ body.app-ready .view#inicio{display:none!important}
   font-weight:900!important;
   color:#102033!important;
 }
-.login-card-v655 input:not([type=checkbox]){
+.login-card-vetor input:not([type=checkbox]){
   height:52px!important;
   border-radius:14px!important;
   border:1px solid #d8e2ef!important;
@@ -684,7 +684,7 @@ body.app-ready .view#inicio{display:none!important}
   margin-top:7px!important;
   outline:none!important;
 }
-.login-card-v655 input:not([type=checkbox]):focus{
+.login-card-vetor input:not([type=checkbox]):focus{
   border-color:#173d78!important;
   box-shadow:0 0 0 4px rgba(23,61,120,.10)!important;
   background:#fff!important;
@@ -695,7 +695,7 @@ body.app-ready .view#inicio{display:none!important}
   justify-content:space-between!important;
   margin:2px 0 16px!important;
 }
-.login-card-v655 .remember-line{
+.login-card-vetor .remember-line{
   display:flex!important;
   align-items:center!important;
   gap:10px!important;
@@ -703,12 +703,12 @@ body.app-ready .view#inicio{display:none!important}
   font-weight:700!important;
   color:#334155!important;
 }
-.login-card-v655 .remember-line input{
+.login-card-vetor .remember-line input{
   width:18px!important;
   height:18px!important;
   accent-color:#102a56!important;
 }
-.login-card-v655 button#loginBtn{
+.login-card-vetor button#loginBtn{
   height:54px!important;
   border-radius:14px!important;
   background:linear-gradient(135deg,#102a56,#173d78)!important;
@@ -718,14 +718,14 @@ body.app-ready .view#inicio{display:none!important}
   margin-top:0!important;
   box-shadow:0 12px 28px rgba(16,42,86,.22)!important;
 }
-.login-card-v655 .login-msg{
+.login-card-vetor .login-msg{
   min-height:22px!important;
   margin-top:14px!important;
   font-size:14px!important;
 }
 @media(max-width:760px){
   .login-screen{padding:18px!important;align-items:flex-start!important;overflow:auto!important}
-  .login-card-v655{grid-template-columns:1fr!important;min-height:0!important;border-radius:24px!important}
+  .login-card-vetor{grid-template-columns:1fr!important;min-height:0!important;border-radius:24px!important}
   .login-visual{padding:26px 24px!important;display:block!important}
   .login-logo{width:78px!important;height:78px!important;margin:0 0 14px!important;border-radius:20px!important}
   .login-kicker{font-size:10px!important;letter-spacing:.10em!important}
@@ -735,7 +735,7 @@ body.app-ready .view#inicio{display:none!important}
   .login-form h2{font-size:23px!important}
 }
 
-/* V65.6 - acabamento institucional: login, menu sem emojis e identidade limpa */
+/* Acabamento institucional: login, menu e identidade */
 .login-logo{
   width:148px!important;
   height:148px!important;
@@ -790,3 +790,40 @@ body.app-ready .view#inicio{display:none!important}
   .login-logo{width:124px!important;height:124px!important;}
   .nav-icon{width:22px!important;min-width:22px!important;height:22px!important;font-size:9px!important;}
 }
+
+
+/* V68.6 - VETOR Experiência do Professor */
+:root{--vetor-blue:#0f2e5f;--vetor-green:#2e8b57;--vetor-mint:#e9f7f0;--vetor-soft:#f5f8fc;--vetor-ink:#102033;}
+.login-card-vetor{border:1px solid rgba(15,46,95,.12);box-shadow:0 22px 60px rgba(15,46,95,.16)}
+.login-visual{background:linear-gradient(135deg,var(--vetor-blue),#123f7a 55%,var(--vetor-green));color:#fff;border-radius:24px;padding:28px}
+.login-logo,.brand-logo{object-fit:contain}
+.brand{border-bottom:1px solid rgba(15,46,95,.08);padding-bottom:14px;margin-bottom:12px}
+.vetor-menu .primary-nav{background:linear-gradient(135deg,var(--vetor-blue),var(--vetor-green));color:#fff;font-weight:800;box-shadow:0 10px 22px rgba(46,139,87,.22)}
+.menu-divider{font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:#6b7280;margin:14px 8px 6px;font-weight:800}
+.help-dot{display:inline-flex;align-items:center;justify-content:center;width:18px;height:18px;border-radius:50%;background:#e8f3ff;color:var(--vetor-blue);font-size:12px;font-weight:900;margin-left:6px;border:1px solid rgba(15,46,95,.18);cursor:help;vertical-align:middle}
+.primary-nav .help-dot{background:rgba(255,255,255,.2);color:#fff;border-color:rgba(255,255,255,.45)}
+.vetor-hero{background:linear-gradient(135deg,#ffffff 0%,#f6fbff 48%,#e9f7f0 100%);border:1px solid rgba(15,46,95,.10);border-left:6px solid var(--vetor-green);border-radius:24px;padding:22px;margin:0 0 18px;box-shadow:0 18px 38px rgba(15,46,95,.08)}
+.vetor-hero .eyebrow{display:inline-block;background:rgba(46,139,87,.12);color:var(--vetor-green);font-weight:900;text-transform:uppercase;letter-spacing:.08em;border-radius:999px;padding:6px 10px;font-size:12px;margin-bottom:8px}
+.vetor-hero h2{font-size:clamp(28px,4vw,44px);margin:4px 0 8px;color:var(--vetor-blue)}
+.vetor-hero p{max-width:780px;color:#334155;font-size:16px;line-height:1.55}
+.flow-steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin:16px 0}
+.flow-steps div{background:#fff;border:1px solid rgba(15,46,95,.10);border-radius:16px;padding:12px;display:flex;gap:10px;align-items:center}
+.flow-steps b{background:var(--vetor-blue);color:#fff;border-radius:50%;width:30px;height:30px;display:inline-flex;align-items:center;justify-content:center;flex:0 0 30px}
+.flow-steps span{font-weight:750;color:var(--vetor-ink)}
+.hero-action,button.hero-action{background:linear-gradient(135deg,var(--vetor-blue),var(--vetor-green));color:#fff;border:none;font-weight:900;box-shadow:0 12px 26px rgba(46,139,87,.24)}
+.teacher-summary-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:12px;margin:12px 0 18px}
+.teacher-card{background:#fff;border:1px solid rgba(15,46,95,.10);border-radius:18px;padding:14px;box-shadow:0 10px 24px rgba(15,46,95,.06)}
+.teacher-card span{display:block;color:#64748b;font-size:12px;text-transform:uppercase;font-weight:800;letter-spacing:.06em;margin-bottom:4px}
+.teacher-card b{display:block;color:var(--vetor-blue);font-size:18px;margin-bottom:4px}
+.teacher-card small{color:#475569;line-height:1.35}
+.professor-checklist{border-left:5px solid var(--vetor-blue)}
+.evolution-guide,.system-health{background:var(--vetor-soft)}
+.management-hero{border-left-color:var(--vetor-blue)}
+.nav .nav-icon{min-width:24px;text-align:center}
+@media(max-width:760px){.vetor-hero{padding:16px;border-radius:18px}.flow-steps{grid-template-columns:1fr}.teacher-summary-grid{grid-template-columns:1fr}.vetor-hero h2{font-size:28px}}
+
+
+/* V68.6 - ajuda contextual elegante */
+.vetor-tooltip{position:absolute;z-index:9999;max-width:300px;padding:12px 14px;border-radius:14px;background:#0f2e5f;color:#fff;box-shadow:0 18px 40px rgba(15,46,95,.22);font-size:13px;line-height:1.35;opacity:0;transform:translateY(-4px);pointer-events:none;transition:.18s ease}
+.vetor-tooltip.show{opacity:1;transform:translateY(0)}
+.vetor-tooltip:before{content:"";position:absolute;top:-6px;left:18px;width:12px;height:12px;background:#0f2e5f;transform:rotate(45deg)}

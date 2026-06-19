@@ -1,13 +1,13 @@
 (function(){
- const A=()=>window.ETE; const B=()=>window.BancoQuestoes;
+ const A=()=>window.VETOR; const B=()=>window.BancoQuestoes;
  function $(s){return document.querySelector(s)}
  function safe(s){return A()?.safe?A().safe(s??''):String(s??'').replace(/[&<>]/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[m]));}
  function normDesc(x){return String(x||'').trim().toUpperCase().replace(/^DESCRITOR\s*/,'').replace(/^D\s*/,'D');}
  function download(name, content, type='text/plain;charset=utf-8'){const blob=new Blob([content],{type});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=name;document.body.appendChild(a);a.click();setTimeout(()=>{URL.revokeObjectURL(a.href);a.remove();},400);}
  function assessment(){return A()?.state?.assessment||{};}
  function results(){return A()?.getResults?A().getResults():{students:[],summary:{},descriptorStats:[]};}
- function getUsage(){try{return JSON.parse(localStorage.getItem('ete_question_usage')||'{}')}catch{return {}}}
- function setUsage(u){localStorage.setItem('ete_question_usage',JSON.stringify(u));}
+ function getUsage(){try{return JSON.parse(localStorage.getItem('vetor_question_usage')||'{}')}catch{return {}}}
+ function setUsage(u){localStorage.setItem('vetor_question_usage',JSON.stringify(u));}
  function questionKey(q){return q.id||[q.discipline,q.descriptor,q.enunciado].join('|').slice(0,160);}
  function recordUsage(studentName, qs){const u=getUsage(); const k=studentName||'turma'; u[k]=u[k]||[]; qs.forEach(q=>{const id=questionKey(q); if(!u[k].includes(id))u[k].push(id)}); setUsage(u);}
  function prioritiesForStudent(idx){return B()?.priorityDescriptors?B().priorityDescriptors(idx):[];}
@@ -42,7 +42,7 @@
    const plan=$('#v57IncludePlan')?.checked!==false;
    const metaStudent=student?`${student.name}`:'Turma';
    const desempenho=student?`${student.total||0}/${r.summary?.nQuestions||0} acertos (${student.percent||0}%) • ${student.level||''}`:`Média da turma: ${r.summary?.avg||0}%`;
-   return {student:metaStudent, questions:qs, priorities:pr, html:`<div class="ficha-page"><div class="ficha-head"><div><h2>ETE Professor José Luiz de Mendonça</h2><div>Ficha de Recuperação / Recomposição da Aprendizagem</div></div><div><b>fichas</b></div></div><div class="ficha-meta"><div><b>Aluno:</b> ${safe(metaStudent)}</div><div><b>Turma:</b> ${safe(a.turma||a.className||'')}</div><div><b>Disciplina:</b> ${safe(disc)}</div><div><b>Avaliação:</b> ${safe(a.title||a.nome||'')}</div><div><b>Desempenho atual:</b> ${safe(desempenho)}</div><div><b>Descritores prioritários:</b> ${safe(pr.map(p=>p.descriptor).join(', ')||'-')}</div></div>${plan?`<div class="texto-base"><b>Orientação pedagógica:</b> ${safe(intervention(pr,disc))}</div>`:''}${qs.map((q,i)=>`<div class="qitem"><b>${i+1}. [${safe(q.descriptor)} • ${safe(q.difficulty||'Média')}]</b>${q.textBase?`<div class="texto-base">${safe(q.textBase)}</div>`:''}<p>${safe(q.enunciado)}</p><div>${safe((q.alts||[]).join('\n')).replace(/\n/g,'<br>')}</div></div>`).join('')}${key?`<div class="keybox"><b>Gabarito:</b> ${qs.map((q,i)=>`${i+1}) ${q.key||'C'}`).join(' • ')}</div>`:''}</div>`, text:`ETE Professor José Luiz de Mendonça\nFicha de Recuperação / Recomposição da Aprendizagem\nAluno: ${metaStudent}\nTurma: ${a.turma||''}\nDisciplina: ${disc}\nAvaliação: ${a.title||''}\nDesempenho atual: ${desempenho}\nDescritores prioritários: ${pr.map(p=>p.descriptor).join(', ')||'-'}\n\n${plan?'Orientação pedagógica: '+intervention(pr,disc)+'\n\n':''}${qs.map((q,i)=>`${i+1}. [${q.descriptor} • ${q.difficulty||'Média'}]\n${q.textBase?'Texto-base: '+q.textBase+'\n':''}${q.enunciado}\n${(q.alts||[]).join('\n')}`).join('\n\n')}${key?'\n\nGABARITO\n'+qs.map((q,i)=>`${i+1}) ${q.key||'C'}`).join('\n'):''}`};
+   return {student:metaStudent, questions:qs, priorities:pr, html:`<div class="ficha-page"><div class="ficha-head"><div><h2>VETOR</h2><div>Ficha de Recuperação / Recomposição da Aprendizagem</div></div><div><b>fichas</b></div></div><div class="ficha-meta"><div><b>Aluno:</b> ${safe(metaStudent)}</div><div><b>Turma:</b> ${safe(a.turma||a.className||'')}</div><div><b>Disciplina:</b> ${safe(disc)}</div><div><b>Avaliação:</b> ${safe(a.title||a.nome||'')}</div><div><b>Desempenho atual:</b> ${safe(desempenho)}</div><div><b>Descritores prioritários:</b> ${safe(pr.map(p=>p.descriptor).join(', ')||'-')}</div></div>${plan?`<div class="texto-base"><b>Orientação pedagógica:</b> ${safe(intervention(pr,disc))}</div>`:''}${qs.map((q,i)=>`<div class="qitem"><b>${i+1}. [${safe(q.descriptor)} • ${safe(q.difficulty||'Média')}]</b>${q.textBase?`<div class="texto-base">${safe(q.textBase)}</div>`:''}<p>${safe(q.enunciado)}</p><div>${safe((q.alts||[]).join('\n')).replace(/\n/g,'<br>')}</div></div>`).join('')}${key?`<div class="keybox"><b>Gabarito:</b> ${qs.map((q,i)=>`${i+1}) ${q.key||'C'}`).join(' • ')}</div>`:''}</div>`, text:`VETOR\nFicha de Recuperação / Recomposição da Aprendizagem\nAluno: ${metaStudent}\nTurma: ${a.turma||''}\nDisciplina: ${disc}\nAvaliação: ${a.title||''}\nDesempenho atual: ${desempenho}\nDescritores prioritários: ${pr.map(p=>p.descriptor).join(', ')||'-'}\n\n${plan?'Orientação pedagógica: '+intervention(pr,disc)+'\n\n':''}${qs.map((q,i)=>`${i+1}. [${q.descriptor} • ${q.difficulty||'Média'}]\n${q.textBase?'Texto-base: '+q.textBase+'\n':''}${q.enunciado}\n${(q.alts||[]).join('\n')}`).join('\n\n')}${key?'\n\nGABARITO\n'+qs.map((q,i)=>`${i+1}) ${q.key||'C'}`).join('\n'):''}`};
  }
  function buildAll(){
    const r=results(); const scope=$('#v57Scope')?.value||'individual'; const idx=Number($('#sheetStudent')?.value); const threshold=Number($('#v57Threshold')?.value)||60;
@@ -65,7 +65,7 @@
  function word(){if(!current.html) render(); const html=`<html><head><meta charset="utf-8"><style>body{font-family:Arial}.ficha-page{page-break-after:always}.ficha-head{border-bottom:2px solid #0f2e5f}.qitem{margin:10px 0}.texto-base{background:#f4f7fb;border-left:4px solid #0f2e5f;padding:8px}</style></head><body>${current.html}</body></html>`; download('fichas-recuperacao.doc',html,'application/msword;charset=utf-8');}
  function bind(){
    $('#v57Generate')&&($('#v57Generate').onclick=render); $('#v57Print')&&($('#v57Print').onclick=print); $('#v57Doc')&&($('#v57Doc').onclick=word); $('#v57Txt')&&($('#v57Txt').onclick=()=>{if(!current.text)render(); download('fichas-recuperacao.txt',current.text);});
-   $('#v57ClearUsage')&&($('#v57ClearUsage').onclick=()=>{if(confirm('Limpar histórico de questões já usadas?')){localStorage.removeItem('ete_question_usage');$('#v57Status').textContent='Histórico de uso limpo.';}});
+   $('#v57ClearUsage')&&($('#v57ClearUsage').onclick=()=>{if(confirm('Limpar histórico de questões já usadas?')){localStorage.removeItem('vetor_question_usage');$('#v57Status').textContent='Histórico de uso limpo.';}});
  }
  document.addEventListener('DOMContentLoaded',bind);
  window.Fichas={render,buildAll,print,word};
