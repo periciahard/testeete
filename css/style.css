@@ -453,3 +453,111 @@ body.app-ready .view#inicio{display:none!important}
   .brand{min-height:40px!important;margin-bottom:6px!important}
   .sidebar-user{display:none!important}
 }
+
+
+/* V65.4 - menu lateral compacto, sem corte e sem rolagem em telas comuns */
+.sidebar{
+  width:230px!important;
+  padding:10px 10px!important;
+  overflow:hidden!important;
+  display:flex!important;
+  flex-direction:column!important;
+}
+.main{
+  margin-left:230px!important;
+}
+.brand{
+  gap:8px!important;
+  margin-bottom:8px!important;
+  min-height:42px!important;
+}
+.brand-logo{
+  width:40px!important;
+  height:40px!important;
+  border-radius:10px!important;
+  padding:3px!important;
+  flex:0 0 auto!important;
+}
+.brand strong{
+  display:block!important;
+  font-size:14px!important;
+  line-height:1.05!important;
+  white-space:nowrap!important;
+  overflow:hidden!important;
+  text-overflow:ellipsis!important;
+}
+.brand small{
+  font-size:11px!important;
+  line-height:1.1!important;
+}
+.sidebar nav{
+  display:flex!important;
+  flex-direction:column!important;
+  gap:4px!important;
+  flex:1 1 auto!important;
+  min-height:0!important;
+  overflow:hidden!important;
+}
+.nav{
+  min-height:0!important;
+  height:37px!important;
+  padding:7px 9px!important;
+  border-radius:10px!important;
+  font-size:13px!important;
+  line-height:1!important;
+  gap:7px!important;
+  white-space:nowrap!important;
+  overflow:hidden!important;
+  text-overflow:ellipsis!important;
+  transform:none!important;
+}
+.nav:hover,.nav.active{
+  transform:none!important;
+}
+.nav span{
+  width:18px!important;
+  min-width:18px!important;
+  font-size:14px!important;
+  text-align:center!important;
+}
+.sidebar-session{
+  flex:0 0 auto!important;
+  margin-top:8px!important;
+  padding-top:8px!important;
+  border-top:1px solid rgba(255,255,255,.12)!important;
+}
+.sidebar-user{
+  font-size:11px!important;
+  line-height:1.15!important;
+  opacity:.9!important;
+  white-space:nowrap!important;
+  overflow:hidden!important;
+  text-overflow:ellipsis!important;
+  margin-bottom:6px!important;
+}
+.sidebarLogoutBtn{
+  width:100%!important;
+  height:40px!important;
+  padding:8px 10px!important;
+  border-radius:12px!important;
+  font-size:14px!important;
+  background:var(--yellow)!important;
+  color:var(--blue)!important;
+}
+@media(max-height:760px){
+  .sidebar{padding:8px 9px!important;}
+  .brand{margin-bottom:6px!important;}
+  .brand-logo{width:34px!important;height:34px!important;}
+  .brand strong{font-size:13px!important;}
+  .brand small{font-size:10px!important;}
+  .sidebar nav{gap:3px!important;}
+  .nav{height:33px!important;padding:6px 8px!important;font-size:12px!important;border-radius:9px!important;}
+  .nav span{font-size:13px!important;width:17px!important;min-width:17px!important;}
+  .sidebar-session{margin-top:6px!important;padding-top:6px!important;}
+  .sidebarLogoutBtn{height:36px!important;font-size:13px!important;}
+}
+@media(max-width:900px){
+  .sidebar{left:-245px!important;width:230px!important;overflow:auto!important;}
+  .sidebar.open{left:0!important;}
+  .main{margin-left:0!important;}
+}
