@@ -53,9 +53,9 @@
    $('#runSystemCheck')&&($('#runSystemCheck').onclick=check);
    $('#clearPageCache')&&($('#clearPageCache').onclick=clearCache);
    const footer=document.querySelector('footer');
-   if(footer)footer.textContent='ETE Professor José Luiz de Mendonça • Criado por Felipe Camargo • Versão 62';
+   if(footer)footer.textContent='ETE Professor José Luiz de Mendonça • Criado por Felipe Camargo • Versão 66.6 Supabase';
    const box=$('#changelogBox');
-   if(box)box.innerHTML='<h3>Versão 62 estável</h3><p class="hint">Código limpo, remoção da TRI, módulos consolidados, verificação do sistema e foco no fluxo principal: avaliação → diagnóstico → evolução → intervenção → ficha → impressão.</p>';
+   if(box)box.innerHTML='<h3>Versão 66.6 Supabase estável</h3><p class="hint">Consolidação Supabase: avaliação com atualização segura, histórico institucional, evolução entre aplicações, painel gestor e cache renovado.</p>';
  }
  document.addEventListener('DOMContentLoaded',()=>setTimeout(bind,100));
  window.SistemaETE={check,clearCache};

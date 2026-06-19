@@ -161,39 +161,124 @@
       try{link=await this.ensureTurmaForAssessment();}
       catch(e){this.setStatus('Erro ao localizar/criar turma no Supabase: '+e.message,'error');return null;}
       if(!link){this.setStatus('Selecione ou informe uma turma antes de salvar.','error');return null;}
-      A().syncMetaFromInputs?.(); const a=A().state.assessment;
+
+      A().syncMetaFromInputs?.();
+      const a=A().state.assessment;
       if(!a.questions?.length||!a.students?.length){this.setStatus('Importe e analise uma avaliação antes de salvar.','error');return null;}
+
       const disciplina=this.uiDiscToDb(a.discipline);
       const titulo=(document.querySelector('#cloudAssessmentTitle')?.value||a.title||'Avaliação').trim();
       const tipo=document.querySelector('#cloudAssessmentType')?.value||a.tipo||'diagnostica';
       const data_avaliacao=document.querySelector('#cloudAssessmentDate')?.value||a.date||new Date().toISOString().slice(0,10);
       this.setStatus('Salvando diagnóstico na nuvem...', 'work');
-      const payload={nome:titulo,titulo,tipo,disciplina,turma_id:link.turma.id,professor_id:this.profile.id,data_aplicacao:data_avaliacao,data_avaliacao,questoes_json:a.questions,descritores_json:a.descriptors,gabarito_json:a.key};
-      const {data:av,error:avErr}=await this.client.from('avaliacoes').insert(payload).select().single();
-      if(avErr){this.setStatus('Erro ao salvar avaliação: '+avErr.message,'error');return null;}
+
+      const payload={
+        nome:titulo,
+        titulo,
+        tipo,
+        disciplina,
+        turma_id:link.turma.id,
+        professor_id:this.profile.id,
+        data_aplicacao:data_avaliacao,
+        data_avaliacao,
+        questoes_json:a.questions,
+        descritores_json:a.descriptors,
+        gabarito_json:a.key
+      };
+
+      // V66.6: evitar duplicação de avaliações.
+      // Se a avaliação já tiver cloud_avaliacao_id, atualiza esse registro.
+      // Caso contrário, procura por turma + disciplina + tipo + título + data.
+      let av=null, existingId=a.cloud_avaliacao_id||null;
+      if(existingId){
+        const chk=await this.client.from('avaliacoes').select('id').eq('id',existingId).maybeSingle();
+        if(chk.error){console.warn('Não foi possível conferir avaliação existente:', chk.error.message);}
+        if(!chk.error && chk.data?.id) existingId=chk.data.id; else existingId=null;
+      }
+      if(!existingId){
+        const q=await this.client.from('avaliacoes')
+          .select('id,criado_em')
+          .eq('turma_id',link.turma.id)
+          .eq('disciplina',disciplina)
+          .eq('tipo',tipo)
+          .eq('titulo',titulo)
+          .eq('data_aplicacao',data_avaliacao)
+          .order('criado_em',{ascending:false})
+          .limit(1);
+        if(q.error){console.warn('Não foi possível procurar duplicidade de avaliação:', q.error.message);}
+        if(!q.error && q.data?.[0]?.id) existingId=q.data[0].id;
+      }
+
+      if(existingId){
+        const up=await this.client.from('avaliacoes').update(payload).eq('id',existingId).select().single();
+        if(up.error){this.setStatus('Erro ao atualizar avaliação: '+up.error.message,'error');return null;}
+        av=up.data;
+        // Limpa filhos antes de reinserir, evitando resultados e respostas duplicadas.
+        const delRes=await this.client.from('resultados_alunos').delete().eq('avaliacao_id',av.id);
+        if(delRes.error){this.setStatus('Avaliação atualizada, mas houve erro ao limpar resultados anteriores: '+delRes.error.message,'error');return av;}
+        const delResp=await this.client.from('respostas').delete().eq('avaliacao_id',av.id);
+        if(delResp.error){console.warn('Erro ao limpar respostas anteriores:', delResp.error.message);}
+      }else{
+        const ins=await this.client.from('avaliacoes').insert(payload).select().single();
+        if(ins.error){this.setStatus('Erro ao salvar avaliação: '+ins.error.message,'error');return null;}
+        av=ins.data;
+      }
+
       const r=A().getResults();
       const rows=[];
       const respostas=[];
       for(const s of r.students){
         const aluno_id=await this.ensureAluno(s.name,link.turma.id);
-        const weak={}; (s.correct||[]).forEach((c,i)=>{if(!c){const d=a.descriptors[i]||'Sem descritor';weak[d]=(weak[d]||0)+1;}});
+        const weak={};
+        (s.correct||[]).forEach((c,i)=>{
+          if(!c){
+            const d=a.descriptors[i]||'Sem descritor';
+            weak[d]=(weak[d]||0)+1;
+          }
+        });
         const crit=Object.entries(weak).sort((x,y)=>y[1]-x[1]).slice(0,5).map(([d,n])=>({descritor:d,erros:n}));
-        rows.push({avaliacao_id:av.id,aluno_id,aluno_nome:s.name,respostas_json:s.answers||[],acertos:s.total,total:r.summary.nQuestions,percentual:s.percent,descritores_criticos:crit,relatorio_individual:window.Relatorios?.individual?.(s.index)||null});
-        (s.answers||[]).forEach((resp,i)=>respostas.push({avaliacao_id:av.id,aluno_id,questao_id:null,resposta:resp||null,acertou:!!(s.correct||[])[i]}));
+        rows.push({
+          avaliacao_id:av.id,
+          aluno_id,
+          aluno_nome:s.name,
+          respostas_json:s.answers||[],
+          acertos:s.total,
+          total:r.summary.nQuestions,
+          percentual:s.percent,
+          descritores_criticos:crit,
+          relatorio_individual:window.Relatorios?.individual?.(s.index)||null
+        });
+        (s.answers||[]).forEach((resp,i)=>respostas.push({
+          avaliacao_id:av.id,
+          aluno_id,
+          questao_id:null,
+          resposta:resp||null,
+          acertou:!!(s.correct||[])[i]
+        }));
       }
-      const {error:resErr}=await this.client.from('resultados_alunos').insert(rows);
-      if(resErr){this.setStatus('Avaliação salva, mas houve erro nos resultados: '+resErr.message,'error');return av;}
+
+      if(rows.length){
+        const {error:resErr}=await this.client.from('resultados_alunos').insert(rows);
+        if(resErr){this.setStatus('Avaliação salva, mas houve erro nos resultados: '+resErr.message,'error');return av;}
+      }
       if(respostas.length){
         const {error:respErr}=await this.client.from('respostas').insert(respostas);
         if(respErr) console.warn('Erro ao salvar respostas item a item:', respErr.message);
       }
+
       try{
         A().state.assessment.cloud_avaliacao_id=av.id;
         A().state.assessment.cloud_saved_at=new Date().toISOString();
-        A().saveAssessmentRecord?.(false); A().save?.();
+        A().state.assessment.title=titulo;
+        A().state.assessment.tipo=tipo;
+        A().state.assessment.date=data_avaliacao;
+        A().saveAssessmentRecord?.(false);
+        A().save?.();
       }catch(e){console.warn('Falha ao registrar ID da nuvem no estado local',e);}
-      this.setStatus('Diagnóstico salvo na nuvem com sucesso.','ok');
+
+      this.setStatus(existingId?'Diagnóstico atualizado na nuvem com sucesso.':'Diagnóstico salvo na nuvem com sucesso.','ok');
       await this.listAssessments(false);
+      try{window.Evolucao?.loadCloudHistory?.(true);}catch(e){}
       return av;
     },
     async autoSaveCurrentAssessment(){
