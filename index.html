@@ -7,37 +7,48 @@
 <meta content="#0f2e5f" name="theme-color"/>
 <title>ETE Professor José Luiz de Mendonça | Diagnóstico Pedagógico V65</title>
 <link href="manifest.webmanifest" rel="manifest"/>
-<link href="css/style.css?v=65.3" rel="stylesheet"/>
+<link href="css/style.css?v=66.6" rel="stylesheet"/>
 <style>body.app-ready .view{display:none}body.app-ready .view.active{display:block}</style>
 </head>
 <body class="app-ready auth-locked">
 
 <div id="loginScreen" class="login-screen">
-  <div class="login-card">
-    <img src="assets/logo-ete.png" alt="Logo ETE" class="login-logo"/>
-    <h1>Diagnóstico Pedagógico</h1>
-    <p>ETE Professor José Luiz de Mendonça</p>
-    <label>Usuário
-      <input id="loginUser" autocomplete="username" placeholder="Digite seu usuário"/>
-    </label>
-    <label>Senha
-      <input id="loginPass" type="password" autocomplete="current-password" placeholder="Digite sua senha"/>
-    </label>
-    <label class="remember-line"><input type="checkbox" id="loginRemember" checked/> Lembrar de mim</label>
-    <button id="loginBtn">Entrar</button>
-    <div id="loginMsg" class="login-msg"></div>
-    
+  <div class="login-card login-card-v655">
+    <section class="login-visual" aria-label="Identidade do sistema">
+      <img src="assets/logo-ete.png" alt="Logo ETE" class="login-logo"/>
+      <span class="login-kicker">Sistema Inteligente de Diagnóstico Educacional</span>
+      <h1>Diagnóstico Pedagógico</h1>
+      <p>ETE Professor José Luiz de Mendonça</p>
+      <div class="login-chips">
+        <span>Diagnóstico</span><span>Intervenção</span><span>Relatórios</span>
+      </div>
+    </section>
+    <section class="login-form" aria-label="Acesso ao sistema">
+      <h2>Acessar plataforma</h2>
+      <p class="login-subtitle">Entre com seu e-mail institucional e senha cadastrados no Supabase.</p>
+      <label>Usuário
+        <input id="loginUser" autocomplete="username" placeholder="Digite seu e-mail institucional"/>
+      </label>
+      <label>Senha
+        <input id="loginPass" type="password" autocomplete="current-password" placeholder="Digite sua senha"/>
+      </label>
+      <div class="login-options">
+        <label class="remember-line"><input type="checkbox" id="loginRemember" checked/> <span>Lembrar de mim</span></label>
+      </div>
+      <button id="loginBtn">Entrar</button>
+      <div id="loginMsg" class="login-msg"></div>
+    </section>
   </div>
 </div>
 
 <div class="topbar"><button aria-label="Abrir menu" class="menuBtn" id="openMenu">☰ Menu</button><strong>ETE Professor José Luiz de Mendonça</strong><span class="cloud-mini" id="cloudStatusMini">Modo local</span><span class="auth-badge" id="authUserBadge"></span><button class="logoutBtn" id="logoutBtn">Sair</button></div>
 <aside class="sidebar" id="sidebar">
-<div class="brand"><img alt="Logo ETE" class="brand-logo" src="assets/logo-ete.png"/><div><strong>ETE Prof. José Luiz</strong><small>Diagnóstico Educacional V65.4</small></div></div>
+<div class="brand"><img alt="Logo ETE" class="brand-logo" src="assets/logo-ete.png"/><div><strong>ETE Prof. José Luiz</strong><small>Diagnóstico Educacional V65.6</small></div></div>
 <button aria-label="Fechar menu" class="closeMenu" id="closeMenu">×</button>
-<nav><button class="nav active" data-view="importar"><span>📁</span> Avaliações</button><button class="nav" data-view="diagnostico"><span>📊</span> Análises</button><button class="nav" data-view="evolucao"><span>📈</span> Evolução</button><button class="nav" data-view="alunos"><span>👨‍🎓</span> Alunos</button><button class="nav" data-view="turmasAlunos"><span>📋</span> Turmas</button><button class="nav" data-view="bancoQuestoes"><span>📚</span> Banco</button><button class="nav" data-view="intervencoes"><span>🧠</span> Intervenções</button><button class="nav" data-view="recuperacao"><span>📄</span> Fichas</button><button class="nav" data-view="impressao"><span>🖨️</span> Impressão</button><button class="nav professor-nav" data-view="minhasTurmas"><span>📌</span> Minhas Turmas</button><button class="nav" data-view="coordenacao"><span>🏫</span> Gestão</button><button class="nav admin-only" data-view="usuariosAdmin"><span>👥</span> Usuários</button><button class="nav" data-view="config"><span>⚙️</span> Configurações</button></nav>
+<nav><button class="nav active" data-view="importar"><span class="nav-icon">AV</span> Avaliações</button><button class="nav" data-view="diagnostico"><span class="nav-icon">AN</span> Análises</button><button class="nav" data-view="evolucao"><span class="nav-icon">EV</span> Evolução</button><button class="nav" data-view="alunos"><span class="nav-icon">AL</span> Alunos</button><button class="nav" data-view="turmasAlunos"><span class="nav-icon">TU</span> Turmas</button><button class="nav" data-view="bancoQuestoes"><span class="nav-icon">BQ</span> Banco</button><button class="nav" data-view="intervencoes"><span class="nav-icon">IN</span> Intervenções</button><button class="nav" data-view="recuperacao"><span class="nav-icon">FI</span> Fichas</button><button class="nav" data-view="impressao"><span class="nav-icon">IM</span> Impressão</button><button class="nav professor-nav" data-view="minhasTurmas"><span class="nav-icon">MT</span> Minhas Turmas</button><button class="nav" data-view="coordenacao"><span class="nav-icon">GE</span> Gestão</button><button class="nav admin-only" data-view="usuariosAdmin"><span class="nav-icon">US</span> Usuários</button><button class="nav" data-view="config"><span class="nav-icon">CF</span> Configurações</button></nav>
 <div class="sidebar-session" aria-label="Sessão do usuário">
-  <div class="sidebar-user" id="sidebarUserBadge">👤 Usuário logado</div>
-  <button class="sidebarLogoutBtn" id="logoutBtnSide" type="button">🚪 Sair</button>
+  <div class="sidebar-user" id="sidebarUserBadge">Usuário logado</div>
+  <button class="sidebarLogoutBtn" id="logoutBtnSide" type="button">Sair</button>
 </div>
 </aside>
 <main class="main">
@@ -45,9 +56,9 @@
 <div class="hero-title">
 <img alt="Logo ETE Professor José Luiz de Mendonça" class="hero-logo" src="assets/logo-ete.png"/>
 <div>
-<p class="eyebrow">Sistema Inteligente de Diagnóstico Educacional V65.4</p>
+<p class="eyebrow">Sistema Inteligente de Diagnóstico Educacional V65.6</p>
 <h1>ETE Professor José Luiz de Mendonça</h1>
-<p>SAEB • SAEPE • BNCC • Projeto ENEM</p>
+<p>Plataforma de Inteligência Pedagógica</p>
 <p class="creator">Criado por Felipe Camargo</p>
 </div>
 </div>
@@ -56,7 +67,7 @@
 <section class="view active" id="importar">
 <h2>📥 Importação</h2>
 <p class="hint">Escolha um caminho. O modelo recomendado é: 1ª linha = questões; 2ª linha = descritores; 3ª linha = gabarito; demais linhas = respostas dos alunos.</p>
-<div class="panel modelbox"><h3>1. Identificação da avaliação</h3><p class="hint">Preencha e salve estes dados antes de importar a planilha. Cada combinação de turma, disciplina, tipo e data cria uma avaliação independente. Para simulados, use Simulado 1 até Simulado 10 ou informe um título personalizado, evitando que a planilha de uma turma apague a outra.</p><div class="grid2"><label>Título da avaliação *<input id="assessmentTitle" placeholder="Ex.: Simulado 3, SAEPE 1, Revisão ENEM"/></label><label>Turma *<select id="assessmentClass"><option value="">Selecione a turma</option></select></label><label>Disciplina *<select id="assessmentDiscipline"><option value="Língua Portuguesa">Língua Portuguesa</option><option value="Matemática">Matemática</option></select></label><label>Tipo *<select id="assessmentType"><option value="diagnostica">Avaliação Diagnóstica</option><option value="simulado1">Simulado 1</option><option value="simulado2">Simulado 2</option><option value="simulado3">Simulado 3</option><option value="simulado4">Simulado 4</option><option value="simulado5">Simulado 5</option><option value="simulado6">Simulado 6</option><option value="simulado7">Simulado 7</option><option value="simulado8">Simulado 8</option><option value="simulado9">Simulado 9</option><option value="simulado10">Simulado 10</option><option value="recuperacao">Recuperação</option><option value="bimestral">Avaliação Bimestral</option><option value="personalizada">Personalizada</option></select></label><label>Data da avaliação *<input id="assessmentDate" type="date"/></label><label>Professor responsável<input id="assessmentTeacher" placeholder="Ex.: Felipe Camargo"/></label></div><div class="statusbox status-work" id="assessmentSaveStatus">Nenhuma avaliação ativa. Salve a avaliação para liberar a importação.</div><div class="actions"><button id="saveAssessmentMeta">Salvar avaliação</button><button class="secondary" id="newAssessment">Nova avaliação</button></div></div>
+<div class="panel modelbox"><h3>1. Identificação da avaliação</h3><p class="hint">Preencha e salve estes dados antes de importar a planilha. Cada combinação de turma, disciplina, tipo e data cria uma avaliação independente. Para simulados, use Simulado 1 até Simulado 10 ou informe um título personalizado, evitando que a planilha de uma turma apague a outra.</p><div class="grid2"><label>Título da avaliação *<input id="assessmentTitle" placeholder="Ex.: Simulado 3, Diagnóstico 1, Revisão"/></label><label>Turma *<select id="assessmentClass"><option value="">Selecione a turma</option></select></label><label>Disciplina *<select id="assessmentDiscipline"><option value="Língua Portuguesa">Língua Portuguesa</option><option value="Matemática">Matemática</option></select></label><label>Tipo *<select id="assessmentType"><option value="diagnostica">Avaliação Diagnóstica</option><option value="simulado1">Simulado 1</option><option value="simulado2">Simulado 2</option><option value="simulado3">Simulado 3</option><option value="simulado4">Simulado 4</option><option value="simulado5">Simulado 5</option><option value="simulado6">Simulado 6</option><option value="simulado7">Simulado 7</option><option value="simulado8">Simulado 8</option><option value="simulado9">Simulado 9</option><option value="simulado10">Simulado 10</option><option value="recuperacao">Recuperação</option><option value="bimestral">Avaliação Bimestral</option><option value="personalizada">Personalizada</option></select></label><label>Data da avaliação *<input id="assessmentDate" type="date"/></label><label>Professor responsável<input id="assessmentTeacher" placeholder="Ex.: Felipe Camargo"/></label></div><div class="statusbox status-work" id="assessmentSaveStatus">Nenhuma avaliação ativa. Salve a avaliação para liberar a importação.</div><div class="actions"><button id="saveAssessmentMeta">Salvar avaliação</button><button class="secondary" id="newAssessment">Nova avaliação</button></div></div>
 <div class="panel activeAssessmentPanel"><h3>Avaliação atual</h3><div class="statusbox status-work" id="activeAssessmentBox">Nenhuma avaliação salva selecionada.</div></div>
 <div class="panel"><h3>Histórico de avaliações</h3><p class="hint">Abra avaliações já salvas. O histórico preserva diagnósticas, simulados e recuperações já importadas.</p><div class="assessment-history" id="assessmentHistory"></div></div>
 <div class="panel validationGate"><h3>Conferência obrigatória</h3><p class="hint">Depois de ler ou digitar os dados, o sistema precisa confirmar se encontrou questões, descritores, gabarito e alunos.</p><div class="statusbox status-work" id="importGate">Aguardando importação ou validação.</div><div class="actions"><button class="secondary" id="validateDataGate">1. Validar estrutura</button><button disabled="" id="confirmImport">2. Confirmar e analisar</button></div></div>
@@ -148,7 +159,7 @@
 </section>
 
 <section class="view" id="alunos"><h2>👨‍🎓 Alunos</h2><p class="hint">Selecione um aluno para ver diagnóstico individual, descritores críticos, perfil cognitivo e evolução histórica.</p><div class="split"><div><input id="studentSearch" placeholder="Buscar aluno..."/><label class="student-level-filter">Filtrar por nível<select id="studentLevelFilter"><option value="">Todos</option><option value="Elementar I">Elementar I</option><option value="Elementar II">Elementar II</option><option value="Básico">Básico</option><option value="Desejável">Desejável</option></select></label><div class="list" id="studentList"></div></div><div class="panel empty" id="studentDetail">Selecione um aluno.</div></div></section>
-<section class="view" id="descritores"><h2>🧩 Descritores</h2><p class="hint">Consulta por disciplina com descrição, BNCC relacionada, erros comuns, estratégias e questões associadas.</p><div class="toolbar"><select id="descriptorDiscipline"><option value="Língua Portuguesa">Língua Portuguesa</option><option value="Matemática">Matemática</option><option value="todos">Português e Matemática</option></select><input id="descriptorSearch" placeholder="Buscar por D1, inferir, porcentagem..."/></div><div id="descriptorList"></div></section>
+<section class="view" id="descritores"><h2>🧩 Descritores</h2><p class="hint">Consulta por disciplina com descrição, habilidades relacionadas, erros comuns, estratégias e questões associadas.</p><div class="toolbar"><select id="descriptorDiscipline"><option value="Língua Portuguesa">Língua Portuguesa</option><option value="Matemática">Matemática</option><option value="todos">Português e Matemática</option></select><input id="descriptorSearch" placeholder="Buscar por D1, inferir, porcentagem..."/></div><div id="descriptorList"></div></section>
 
 <section class="view" id="intervencoes"><h2>🧠 Intervenções Pedagógicas</h2><p class="hint">IA pedagógica offline: banco local de recomendações, atividades e sequências didáticas por descritor. Não usa API paga, funciona no modo local e pode ser alimentado pela coordenação e pelos professores.</p>
 <div class="panel"><h3>1. Painel do banco de intervenções</h3><div class="bankStats" id="interventionStats"></div><p class="hint">As intervenções cadastradas aqui são sugeridas automaticamente quando um descritor aparece como prioritário na turma ou no aluno.</p></div>
@@ -252,13 +263,13 @@
 </section>
 
 <section class="view" id="bancoQuestoes"><h2>📚 Banco Inteligente de Questões</h2><p class="hint">Cadastre, importe, filtre e exporte questões por disciplina, descritor e dificuldade. As questões cadastradas passam automaticamente a alimentar fichas, simulados e recuperação.</p>
-<div class="panel bank-v56-panel"><h3>1. Cadastrar questão</h3><div class="bank-form bank-v56-form"><select id="bankDisc"><option value="Língua Portuguesa">Língua Portuguesa</option><option value="Matemática">Matemática</option></select><input id="bankDesc" placeholder="Descritor, ex.: D15"/><select id="bankDiff"><option>Fácil</option><option selected="">Média</option><option>Difícil</option></select><select id="bankKey"><option>A</option><option>B</option><option>C</option><option>D</option><option>E</option></select><input id="bankSource" placeholder="Fonte, ex.: SAEB, SAEPE, autoral"/><input id="bankBncc" placeholder="Habilidade BNCC (opcional)"/><input id="bankTime" type="number" min="1" placeholder="Tempo estimado (min)"/><textarea id="bankBase" placeholder="Texto-base ou situação-problema (opcional)"></textarea><textarea id="bankText" placeholder="Enunciado da questão"></textarea><textarea id="bankAlts" placeholder="A) ...
+<div class="panel bank-v56-panel"><h3>1. Cadastrar questão</h3><div class="bank-form bank-v56-form"><select id="bankDisc"><option value="Língua Portuguesa">Língua Portuguesa</option><option value="Matemática">Matemática</option></select><input id="bankDesc" placeholder="Descritor, ex.: D15"/><select id="bankDiff"><option>Fácil</option><option selected="">Média</option><option>Difícil</option></select><select id="bankKey"><option>A</option><option>B</option><option>C</option><option>D</option><option>E</option></select><input id="bankSource" placeholder="Fonte, ex.: autoral, institucional, livro"/><input id="bankBncc" placeholder="Habilidade/competência (opcional)"/><input id="bankTime" type="number" min="1" placeholder="Tempo estimado (min)"/><textarea id="bankBase" placeholder="Texto-base ou situação-problema (opcional)"></textarea><textarea id="bankText" placeholder="Enunciado da questão"></textarea><textarea id="bankAlts" placeholder="A) ...
 B) ...
 C) ...
 D) ...
 E) ..."></textarea></div><div class="actions"><button id="addBankQuestion">Adicionar ao banco</button><button class="secondary" id="clearBankForm">Limpar formulário</button></div></div>
-<div class="panel"><h3>2. Importar e exportar banco</h3><p class="hint">Modelo aceito em Excel/CSV: Disciplina, Descritor, Nivel, TextoBase, Enunciado, A, B, C, D, E, Gabarito, Fonte, BNCC, Tempo.</p><div class="actions"><input accept=".xlsx,.xls,.csv,.json" id="importBank" type="file"/><button class="secondary" id="downloadBankTemplate">Baixar modelo CSV</button><button class="secondary" id="exportBank">Exportar JSON</button><button class="secondary" id="exportBankCsv">Exportar CSV</button></div><div class="statusbox" id="bankImportStatus">Nenhum arquivo importado nesta sessão.</div></div>
-<div class="panel"><h3>3. Filtros e cobertura</h3><div class="grid2"><label>Disciplina<select id="bankFilterDisc"><option value="">Todas</option><option value="Língua Portuguesa">Língua Portuguesa</option><option value="Matemática">Matemática</option></select></label><label>Descritor<input id="bankFilterDesc" placeholder="Ex.: D4"/></label><label>Dificuldade<select id="bankFilterDiff"><option value="">Todas</option><option>Fácil</option><option>Média</option><option>Difícil</option></select></label><label>Buscar<input id="bankSearch" placeholder="Texto, fonte, BNCC..."/></label></div><div id="smartBankPanel"></div><div id="bankList"></div></div>
+<div class="panel"><h3>2. Importar e exportar banco</h3><p class="hint">Modelo aceito em Excel/CSV: Disciplina, Descritor, Nivel, TextoBase, Enunciado, A, B, C, D, E, Gabarito, Fonte, Habilidade, Tempo.</p><div class="actions"><input accept=".xlsx,.xls,.csv,.json" id="importBank" type="file"/><button class="secondary" id="downloadBankTemplate">Baixar modelo CSV</button><button class="secondary" id="exportBank">Exportar JSON</button><button class="secondary" id="exportBankCsv">Exportar CSV</button></div><div class="statusbox" id="bankImportStatus">Nenhum arquivo importado nesta sessão.</div></div>
+<div class="panel"><h3>3. Filtros e cobertura</h3><div class="grid2"><label>Disciplina<select id="bankFilterDisc"><option value="">Todas</option><option value="Língua Portuguesa">Língua Portuguesa</option><option value="Matemática">Matemática</option></select></label><label>Descritor<input id="bankFilterDesc" placeholder="Ex.: D4"/></label><label>Dificuldade<select id="bankFilterDiff"><option value="">Todas</option><option>Fácil</option><option>Média</option><option>Difícil</option></select></label><label>Buscar<input id="bankSearch" placeholder="Texto, fonte, habilidade..."/></label></div><div id="smartBankPanel"></div><div id="bankList"></div></div>
 <div class="panel"><h3>4. Testar sorteio aleatório</h3><p class="hint">Use para conferir se o banco está escolhendo questões variadas por descritor.</p><div class="grid2"><label>Disciplina<select id="bankPreviewDisc"><option value="Língua Portuguesa">Língua Portuguesa</option><option value="Matemática">Matemática</option></select></label><label>Descritores prioritários<input id="bankPreviewDesc" placeholder="Ex.: D4, D7, D12"/></label><label>Quantidade<input id="bankPreviewCount" type="number" min="1" max="30" value="10"/></label><label>Balancear dificuldade<select id="bankPreviewBalance"><option value="sim">Sim</option><option value="nao">Não</option></select></label></div><div class="actions"><button id="previewBankQuestions">Sortear questões</button></div><div id="bankPreviewOutput" class="question-grid"></div></div></section>
 
 <section class="view" id="impressao">
@@ -403,7 +414,7 @@ E) ..."></textarea></div><div class="actions"><button id="addBankQuestion">Adici
 <div class="cloud-user" id="cloudUserBox"></div>
 <div class="grid2">
 <label>Turma vinculada<select id="cloudTurma"><option value="">Faça login para carregar turmas</option></select></label>
-<label>Título da avaliação<input id="cloudAssessmentTitle" placeholder="Ex.: Simulado 3, SAEPE 1, Revisão ENEM"/></label><label>Data da avaliação<input id="cloudAssessmentDate" type="date"/></label>
+<label>Título da avaliação<input id="cloudAssessmentTitle" placeholder="Ex.: Simulado 3, Diagnóstico 1, Revisão"/></label><label>Data da avaliação<input id="cloudAssessmentDate" type="date"/></label>
 </div>
 <label>Tipo de avaliação<select id="cloudAssessmentType"><option value="diagnostica">Avaliação Diagnóstica</option><option value="simulado1">Simulado 1</option><option value="simulado2">Simulado 2</option><option value="recuperacao">Recuperação</option><option value="bimestral">Avaliação Bimestral</option></select></label>
 <div class="actions">
@@ -420,7 +431,7 @@ E) ..."></textarea></div><div class="actions"><button id="addBankQuestion">Adici
 <div id="systemCheckOutput" class="statusbox status-work">Aguardando teste.</div>
 </div>
 <div class="panel" id="changelogBox"></div></section>
-<footer>ETE Professor José Luiz de Mendonça • Criado por Felipe Camargo • Versão 62</footer>
+<footer>ETE Professor José Luiz de Mendonça • Criado por Felipe Camargo • Versão 66 Supabase</footer>
 </main>
 <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
@@ -428,27 +439,27 @@ E) ..."></textarea></div><div class="actions"><button id="addBankQuestion">Adici
 <script src="https://cdn.jsdelivr.net/npm/pptxgenjs@3.12.0/dist/pptxgen.bundle.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/html2pdf.js@0.10.1/dist/html2pdf.bundle.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/docx@8.5.0/build/index.umd.js"></script>
-<script src="js/app.js?v=65"></script>
-<script src="js/descritores.js?v=65"></script>
-<script src="js/turmas.js?v=65"></script>
-<script src="js/importacao.js?v=65"></script>
-<script src="js/diagnostico.js?v=65"></script>
-<script src="js/evolucao.js?v=65"></script>
-<script src="js/relatorios.js?v=65"></script>
-<script src="js/exportacao.js?v=65"></script>
-<script src="js/banco-questoes.js?v=65"></script>
-<script src="js/fichas.js?v=65"></script>
-<script src="js/intervencoes.js?v=65"></script>
-<script src="js/impressao.js?v=65"></script>
-<script src="js/supabase-sync.js?v=65"></script>
-<script src="js/pedagogico-avancado.js?v=65"></script>
-<script src="js/sistema.js?v=65"></script>
-<script src="js/correcoes-v605.js?v=65"></script>
-<script src="js/melhorias-v606.js?v=65"></script>
-<script src="js/exportacoes-v607.js?v=65"></script>
-<script src="js/coordenacao-v608.js?v=65"></script>
-<script src="js/exportacoes-v609.js?v=65"></script>
-<script src="js/institucional-v62.js?v=65"></script>
-<script src="js/auth-v63.js?v=65"></script>
-<script src="js/v64-estabilidade.js?v=65"></script></body>
+<script src="js/app.js?v=66"></script>
+<script src="js/descritores.js?v=66"></script>
+<script src="js/turmas.js?v=66"></script>
+<script src="js/importacao.js?v=66"></script>
+<script src="js/diagnostico.js?v=66"></script>
+<script src="js/evolucao.js?v=66"></script>
+<script src="js/relatorios.js?v=66"></script>
+<script src="js/exportacao.js?v=66"></script>
+<script src="js/banco-questoes.js?v=66"></script>
+<script src="js/fichas.js?v=66"></script>
+<script src="js/intervencoes.js?v=66"></script>
+<script src="js/impressao.js?v=66"></script>
+<script src="js/supabase-sync.js?v=66"></script>
+<script src="js/pedagogico-avancado.js?v=66"></script>
+<script src="js/sistema.js?v=66"></script>
+<script src="js/correcoes-v605.js?v=66"></script>
+<script src="js/melhorias-v606.js?v=66"></script>
+<script src="js/exportacoes-v607.js?v=66"></script>
+<script src="js/coordenacao-v608.js?v=66"></script>
+<script src="js/exportacoes-v609.js?v=66"></script>
+<script src="js/institucional-v62.js?v=66"></script>
+<script src="js/auth-v63.js?v=66"></script>
+<script src="js/v64-estabilidade.js?v=66"></script></body>
 </html>

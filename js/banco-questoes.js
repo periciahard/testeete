@@ -36,7 +36,7 @@
   q.difficulty=norm(get('Nivel','Nível','Dificuldade','difficulty'))||'Média';
   q.key=(norm(get('Gabarito','Resposta','key')).toUpperCase().match(/[A-E]/)||['C'])[0];
   q.source=norm(get('Fonte','source'))||'Importado';
-  q.bncc=norm(get('BNCC','Habilidade','Habilidade BNCC'));
+  q.bncc=norm(get('Habilidades','Habilidade','Habilidade Habilidades'));
   q.time=Number(get('Tempo','Tempo estimado','time'))||3;
   q.textBase=norm(get('TextoBase','Texto-base','Texto base','Contexto'));
   q.enunciado=norm(get('Enunciado','Questao','Questão','Pergunta','Texto'));
@@ -47,7 +47,7 @@
  }
  function csvEscape(v){v=String(v??'');return /[;"\n]/.test(v)?'"'+v.replace(/"/g,'""')+'"':v;}
  function bankToCSV(list=userBank()){
-  const head=['ID','Disciplina','Descritor','Nivel','TextoBase','Enunciado','A','B','C','D','E','Gabarito','Fonte','BNCC','Tempo'];
+  const head=['ID','Disciplina','Descritor','Nivel','TextoBase','Enunciado','A','B','C','D','E','Gabarito','Fonte','Habilidades','Tempo'];
   const rows=list.map(q=>[q.id,q.discipline,q.descriptor,q.difficulty,q.textBase,q.enunciado,...letras.map((l,i)=>(q.alts||[])[i]||''),q.key,q.source,q.bncc,q.time]);
   return [head,...rows].map(r=>r.map(csvEscape).join(';')).join('\n');
  }
@@ -102,7 +102,7 @@
   box.innerHTML=`<h3>Mapa da Mina — ${safe(s.name)}</h3><div class="map-summary"><div><b>${s.percent}%</b><br>desempenho</div><div><b>${safe(s.level)}</b><br>status</div><div><b>${s.total}/${r.summary.nQuestions}</b><br>acertos</div><div><b>${pr.length}</b><br>descritores prioritários</div></div><p><b>Diagnóstico:</b> ${safe(plan.tom)} Meta: ${safe(plan.meta)}</p><p><b>Ritmo sugerido:</b> ${safe(plan.ritmo)}. Regras pedagógicas locais; não usa IA paga.</p><h4>Prioridades do aluno</h4>${top}<h4>Cronograma de 4 semanas</h4>`+weeks.map(w=>`<div class="question-card"><b>Semana ${w.n} — ${safe(w.p.descriptor)} • ${safe(w.foco)}</b><p><b>1h de estudo:</b> revisar ${safe(w.info.texto)} com exemplos resolvidos e análise dos erros.</p><p><b>1h de exercícios:</b> resolver ${w.qtd} a ${w.qtd+2} questões do descritor ${safe(w.p.descriptor)}.</p></div>`).join('');
  }
  function fillForm(q={}){const app=A();[['#bankDisc',q.discipline||'Língua Portuguesa'],['#bankDesc',q.descriptor||''],['#bankDiff',q.difficulty||'Média'],['#bankKey',q.key||'C'],['#bankSource',q.source||''],['#bankBncc',q.bncc||''],['#bankTime',q.time||''],['#bankBase',q.textBase||''],['#bankText',q.enunciado||''],['#bankAlts',(q.alts||[]).join('\n')]].forEach(([sel,val])=>{const e=app.$(sel); if(e)e.value=val;});}
- function addQuestion(){const app=A(); const q=normalizeQuestion({Disciplina:app.$('#bankDisc')?.value,Descritor:app.$('#bankDesc')?.value,Nivel:app.$('#bankDiff')?.value,Gabarito:app.$('#bankKey')?.value,Fonte:app.$('#bankSource')?.value,BNCC:app.$('#bankBncc')?.value,Tempo:app.$('#bankTime')?.value,TextoBase:app.$('#bankBase')?.value,Enunciado:app.$('#bankText')?.value,A:(app.$('#bankAlts')?.value||'').split(/\n+/)[0],B:(app.$('#bankAlts')?.value||'').split(/\n+/)[1],C:(app.$('#bankAlts')?.value||'').split(/\n+/)[2],D:(app.$('#bankAlts')?.value||'').split(/\n+/)[3],E:(app.$('#bankAlts')?.value||'').split(/\n+/)[4]}); if(!q)return alert('Informe pelo menos o descritor e o enunciado.'); q.id=uid(); userBank().push(q); app.save(); fillForm({}); render();}
+ function addQuestion(){const app=A(); const q=normalizeQuestion({Disciplina:app.$('#bankDisc')?.value,Descritor:app.$('#bankDesc')?.value,Nivel:app.$('#bankDiff')?.value,Gabarito:app.$('#bankKey')?.value,Fonte:app.$('#bankSource')?.value,Habilidades:app.$('#bankBncc')?.value,Tempo:app.$('#bankTime')?.value,TextoBase:app.$('#bankBase')?.value,Enunciado:app.$('#bankText')?.value,A:(app.$('#bankAlts')?.value||'').split(/\n+/)[0],B:(app.$('#bankAlts')?.value||'').split(/\n+/)[1],C:(app.$('#bankAlts')?.value||'').split(/\n+/)[2],D:(app.$('#bankAlts')?.value||'').split(/\n+/)[3],E:(app.$('#bankAlts')?.value||'').split(/\n+/)[4]}); if(!q)return alert('Informe pelo menos o descritor e o enunciado.'); q.id=uid(); userBank().push(q); app.save(); fillForm({}); render();}
  async function importBankFile(e){
   const f=e.target.files?.[0]; if(!f)return; let arr=[];
   try{
@@ -134,7 +134,7 @@
   app.$('#addBankQuestion')&&(app.$('#addBankQuestion').onclick=addQuestion); app.$('#clearBankForm')&&(app.$('#clearBankForm').onclick=()=>fillForm({})); app.$('#importBank')&&(app.$('#importBank').onchange=importBankFile);
   app.$('#exportBank')&&(app.$('#exportBank').onclick=()=>download('banco-questoes-v56.json',JSON.stringify(userBank(),null,2),'application/json'));
   app.$('#exportBankCsv')&&(app.$('#exportBankCsv').onclick=()=>download('banco-questoes-v56.csv',bankToCSV(),'text/csv;charset=utf-8'));
-  app.$('#downloadBankTemplate')&&(app.$('#downloadBankTemplate').onclick=()=>download('modelo-banco-questoes.csv','Disciplina;Descritor;Nivel;TextoBase;Enunciado;A;B;C;D;E;Gabarito;Fonte;BNCC;Tempo\nLíngua Portuguesa;D1;Fácil;Texto-base de teste;Enunciado da questão;Alternativa A;Alternativa B;Alternativa C;Alternativa D;Alternativa E;A;Autoral;;3','text/csv;charset=utf-8'));
+  app.$('#downloadBankTemplate')&&(app.$('#downloadBankTemplate').onclick=()=>download('modelo-banco-questoes.csv','Disciplina;Descritor;Nivel;TextoBase;Enunciado;A;B;C;D;E;Gabarito;Fonte;Habilidades;Tempo\nLíngua Portuguesa;D1;Fácil;Texto-base de teste;Enunciado da questão;Alternativa A;Alternativa B;Alternativa C;Alternativa D;Alternativa E;A;Autoral;;3','text/csv;charset=utf-8'));
   ['#bankFilterDisc','#bankFilterDesc','#bankFilterDiff','#bankSearch'].forEach(sel=>app.$(sel)&&(app.$(sel).oninput=app.$(sel).onchange=render)); app.$('#previewBankQuestions')&&(app.$('#previewBankQuestions').onclick=previewRandom);
  }
  window.BancoQuestoes={render,generateSheet,generateMap,priorityDescriptors,allBank,builtIn,selectQuestions,stats}; document.addEventListener('DOMContentLoaded',bind);
