@@ -97,6 +97,7 @@
       if(!profile)throw new Error('Usuário autenticado, mas sem perfil na tabela perfis.');
       this.profile=profile;
       await this.loadTurmas();
+      try{await window.TurmasETE?.syncFromSupabase?.();}catch(e){console.warn('Falha ao sincronizar turmas/alunos',e);}
       this.renderUserBox();
       this.setStatus(`Conectado como ${profile.nome} (${profile.perfil}).`,'ok');
       await this.listAssessments(false);
