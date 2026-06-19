@@ -5,9 +5,9 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1" name="viewport"/>
 <meta content="#0f2e5f" name="theme-color"/>
-<title>ETE Professor José Luiz de Mendonça | Diagnóstico Pedagógico V65</title>
+<title>ETE Professor José Luiz de Mendonça | Diagnóstico Pedagógico V65.7</title>
 <link href="manifest.webmanifest" rel="manifest"/>
-<link href="css/style.css?v=66.3.6" rel="stylesheet"/>
+<link href="css/style.css?v=65.7" rel="stylesheet"/>
 <style>body.app-ready .view{display:none}body.app-ready .view.active{display:block}</style>
 </head>
 <body class="app-ready auth-locked">
@@ -25,9 +25,9 @@
     </section>
     <section class="login-form" aria-label="Acesso ao sistema">
       <h2>Acessar plataforma</h2>
-      <p class="login-subtitle">Entre com seu e-mail institucional e senha cadastrados no Supabase.</p>
+      <p class="login-subtitle">Entre com seu usuário e senha para continuar.</p>
       <label>Usuário
-        <input id="loginUser" autocomplete="username" placeholder="Digite seu e-mail institucional"/>
+        <input id="loginUser" autocomplete="username" placeholder="Digite seu usuário"/>
       </label>
       <label>Senha
         <input id="loginPass" type="password" autocomplete="current-password" placeholder="Digite sua senha"/>
@@ -41,22 +41,21 @@
   </div>
 </div>
 
-<div class="topbar"><button aria-label="Abrir menu" class="menuBtn" id="openMenu">☰ Menu</button><strong>ETE Professor José Luiz de Mendonça</strong><span class="cloud-mini" id="cloudStatusMini">Modo local</span><span class="auth-badge" id="authUserBadge"></span><button class="logoutBtn" id="logoutBtn">Sair</button></div>
-<aside class="sidebar" id="sidebar">
-<div class="brand"><img alt="Logo ETE" class="brand-logo" src="assets/logo-ete.png"/><div><strong>ETE Prof. José Luiz</strong><small>Diagnóstico Educacional V66.3</small></div></div>
-<button aria-label="Fechar menu" class="closeMenu" id="closeMenu">×</button>
-<nav><button class="nav active" data-view="importar"><span class="nav-icon">AV</span> Avaliações</button><button class="nav" data-view="diagnostico"><span class="nav-icon">AN</span> Análises</button><button class="nav" data-view="evolucao"><span class="nav-icon">EV</span> Evolução</button><button class="nav" data-view="alunos"><span class="nav-icon">AL</span> Alunos</button><button class="nav" data-view="turmasAlunos"><span class="nav-icon">TU</span> Turmas</button><button class="nav" data-view="bancoQuestoes"><span class="nav-icon">BQ</span> Banco</button><button class="nav" data-view="intervencoes"><span class="nav-icon">IN</span> Intervenções</button><button class="nav" data-view="recuperacao"><span class="nav-icon">FI</span> Fichas</button><button class="nav" data-view="impressao"><span class="nav-icon">IM</span> Impressão</button><button class="nav professor-nav" data-view="minhasTurmas"><span class="nav-icon">MT</span> Minhas Turmas</button><button class="nav" data-view="coordenacao"><span class="nav-icon">GE</span> Gestão</button><button class="nav admin-only" data-view="usuariosAdmin"><span class="nav-icon">US</span> Usuários</button><button class="nav" data-view="config"><span class="nav-icon">CF</span> Configurações</button></nav>
-<div class="sidebar-session" aria-label="Sessão do usuário">
-  <div class="sidebar-user" id="sidebarUserBadge">Usuário logado</div>
-  <button class="sidebarLogoutBtn" id="logoutBtnSide" type="button">Sair</button>
+<div class="topbar">
+  <div class="topbar-left"><button aria-label="Abrir menu" class="menuBtn" id="openMenu">☰ Menu</button><strong>ETE Professor José Luiz de Mendonça</strong><span class="cloud-mini" id="cloudStatusMini">Modo local</span></div>
+  <div class="topbar-user"><span class="auth-badge" id="authUserBadge"></span><button class="logoutBtn" id="logoutBtn">Sair</button></div>
 </div>
+<aside class="sidebar" id="sidebar">
+<div class="brand"><img alt="Logo ETE" class="brand-logo" src="assets/logo-ete.png"/><div><strong>ETE Prof. José Luiz</strong><small>Diagnóstico Educacional V65.7</small></div></div>
+<button aria-label="Fechar menu" class="closeMenu" id="closeMenu">×</button>
+<nav><button class="nav active" data-view="importar"><span class="nav-icon">▣</span> Avaliações</button><button class="nav" data-view="diagnostico"><span class="nav-icon">◇</span> Análises</button><button class="nav" data-view="evolucao"><span class="nav-icon">↗</span> Evolução</button><button class="nav" data-view="alunos"><span class="nav-icon">◉</span> Alunos</button><button class="nav" data-view="turmasAlunos"><span class="nav-icon">▦</span> Turmas</button><button class="nav" data-view="bancoQuestoes"><span class="nav-icon">▤</span> Banco</button><button class="nav" data-view="intervencoes"><span class="nav-icon">✦</span> Intervenções</button><button class="nav" data-view="recuperacao"><span class="nav-icon">□</span> Fichas</button><button class="nav" data-view="impressao"><span class="nav-icon">⎙</span> Impressão</button><button class="nav professor-nav" data-view="minhasTurmas"><span class="nav-icon">◎</span> Minhas Turmas</button><button class="nav" data-view="coordenacao"><span class="nav-icon">⚙</span> Gestão</button><button class="nav admin-only" data-view="usuariosAdmin"><span class="nav-icon">☷</span> Usuários</button><button class="nav" data-view="config"><span class="nav-icon">⌘</span> Configurações</button></nav>
 </aside>
 <main class="main">
 <header class="hero">
 <div class="hero-title">
 <img alt="Logo ETE Professor José Luiz de Mendonça" class="hero-logo" src="assets/logo-ete.png"/>
 <div>
-<p class="eyebrow">Sistema Inteligente de Diagnóstico Educacional V66.3</p>
+<p class="eyebrow">Sistema Inteligente de Diagnóstico Educacional V65.7</p>
 <h1>ETE Professor José Luiz de Mendonça</h1>
 <p>Plataforma de Inteligência Pedagógica</p>
 <p class="creator">Criado por Felipe Camargo</p>
@@ -82,7 +81,7 @@
 <div class="panel"><h3>Mapeamento das questões</h3><p class="hint">Após importar, confira se cada questão está ligada ao descritor correto da disciplina escolhida.</p><div class="question-grid" id="questionMap"></div></div>
 </section>
 <section class="view" id="diagnostico">
-<h2>📊 Diagnóstico</h2><p class="hint">Resultado geral, níveis pedagógicos, gráficos, descritores críticos, mapa de calor e sugestões objetivas para intervenção.</p><div class="panel quick-actions" id="analysisQuickAccess"><h3>Acessos rápidos de análise</h3><p class="hint">Use estes atalhos para entrar nas análises específicas sem criar novas abas no menu principal.</p><div class="actions compact"><button data-go="diagnostico">Resultado da turma</button><button class="secondary" data-go="descritores">Descritores</button><button class="secondary" data-go="evolucao">Evolução</button><button class="secondary" data-go="recuperacao">Recuperação e fichas</button><button class="secondary" id="generatePptxReport">Gerar apresentação profissional</button><button class="secondary" id="coordenacaoPptxBtn">PowerPoint profissional</button><button class="secondary" id="cloudQuickSave">Salvar diagnóstico na nuvem</button></div></div>
+<h2>📊 Diagnóstico</h2><p class="hint">Resultado geral, níveis pedagógicos, gráficos, descritores críticos, mapa de calor e sugestões objetivas para intervenção.</p><div class="panel quick-actions" id="analysisQuickAccess"><h3>Acessos rápidos de análise</h3><p class="hint">Use estes atalhos para entrar nas análises específicas sem criar novas abas no menu principal.</p><div class="actions compact"><button data-go="diagnostico">Resultado da turma</button><button class="secondary" data-go="descritores">Descritores</button><button class="secondary" data-go="evolucao">Evolução</button><button class="secondary" data-go="recuperacao">Recuperação e fichas</button><button class="secondary" id="generatePptxReport">Gerar apresentação profissional</button><button class="secondary" id="coordenacaoPptxBtn">PowerPoint profissional</button></div></div>
 <div class="panel diagnostic-selector">
 <h3>Escolher turma/avaliação para visualizar</h3>
 <p class="hint">Selecione a avaliação salva que deseja analisar. Isso permite alternar entre turmas sem apagar os dados já importados.</p>
@@ -92,7 +91,7 @@
 </div>
 <div class="comparison-box" id="diagnosticComparison"></div>
 </div>
-<div class="statusbox status-work" id="cloudQuickStatus" style="display:none">Aguardando salvamento na nuvem.</div><div id="classReport"></div>
+<div id="classReport"></div>
 <div id="turmaProfile"></div><div id="classCognitivePanel"></div>
 <div id="descriptorRadar"></div>
 <div id="resultCharts"></div>
@@ -431,7 +430,7 @@ E) ..."></textarea></div><div class="actions"><button id="addBankQuestion">Adici
 <div id="systemCheckOutput" class="statusbox status-work">Aguardando teste.</div>
 </div>
 <div class="panel" id="changelogBox"></div></section>
-<footer>ETE Professor José Luiz de Mendonça • Criado por Felipe Camargo • Versão 66.1 Supabase</footer>
+<footer>ETE Professor José Luiz de Mendonça • Criado por Felipe Camargo • Versão 62</footer>
 </main>
 <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
@@ -439,27 +438,27 @@ E) ..."></textarea></div><div class="actions"><button id="addBankQuestion">Adici
 <script src="https://cdn.jsdelivr.net/npm/pptxgenjs@3.12.0/dist/pptxgen.bundle.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/html2pdf.js@0.10.1/dist/html2pdf.bundle.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/docx@8.5.0/build/index.umd.js"></script>
-<script src="js/app.js?v=66.3"></script>
-<script src="js/descritores.js?v=66.3"></script>
-<script src="js/turmas.js?v=66.3"></script>
-<script src="js/importacao.js?v=66.3"></script>
-<script src="js/diagnostico.js?v=66.3"></script>
-<script src="js/evolucao.js?v=66.3"></script>
-<script src="js/relatorios.js?v=66.3"></script>
-<script src="js/exportacao.js?v=66.3"></script>
-<script src="js/banco-questoes.js?v=66.3"></script>
-<script src="js/fichas.js?v=66.3"></script>
-<script src="js/intervencoes.js?v=66.3"></script>
-<script src="js/impressao.js?v=66.3"></script>
-<script src="js/supabase-sync.js?v=66.3"></script>
-<script src="js/pedagogico-avancado.js?v=66.3"></script>
-<script src="js/sistema.js?v=66.3"></script>
-<script src="js/correcoes-v605.js?v=66.3"></script>
-<script src="js/melhorias-v606.js?v=66.3"></script>
-<script src="js/exportacoes-v607.js?v=66.3"></script>
-<script src="js/coordenacao-v608.js?v=66.3"></script>
-<script src="js/exportacoes-v609.js?v=66.3"></script>
-<script src="js/institucional-v62.js?v=66.3"></script>
-<script src="js/auth-v63.js?v=66.3"></script>
-<script src="js/v64-estabilidade.js?v=66.3"></script></body>
+<script src="js/app.js?v=65"></script>
+<script src="js/descritores.js?v=65"></script>
+<script src="js/turmas.js?v=65"></script>
+<script src="js/importacao.js?v=65"></script>
+<script src="js/diagnostico.js?v=65"></script>
+<script src="js/evolucao.js?v=65"></script>
+<script src="js/relatorios.js?v=65"></script>
+<script src="js/exportacao.js?v=65"></script>
+<script src="js/banco-questoes.js?v=65"></script>
+<script src="js/fichas.js?v=65"></script>
+<script src="js/intervencoes.js?v=65"></script>
+<script src="js/impressao.js?v=65"></script>
+<script src="js/supabase-sync.js?v=65"></script>
+<script src="js/pedagogico-avancado.js?v=65"></script>
+<script src="js/sistema.js?v=65"></script>
+<script src="js/correcoes-v605.js?v=65"></script>
+<script src="js/melhorias-v606.js?v=65"></script>
+<script src="js/exportacoes-v607.js?v=65"></script>
+<script src="js/coordenacao-v608.js?v=65"></script>
+<script src="js/exportacoes-v609.js?v=65"></script>
+<script src="js/institucional-v62.js?v=65"></script>
+<script src="js/auth-v63.js?v=65"></script>
+<script src="js/v64-estabilidade.js?v=65"></script></body>
 </html>

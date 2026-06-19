@@ -517,74 +517,6 @@
  function saveArchive(data){localStorage.setItem(ARCHIVE,JSON.stringify(data));}
  let turmas=load();
  let arquivadas=loadArchive();
- let cloudMode=false;
- let turmaIdByName={};
- let alunoIdByKey={};
- const keyAluno=(turma,nome)=>String(turma||'')+'||'+String(nome||'').toUpperCase();
- function cloud(){const C=window.ETESupabase; return (C&&C.client&&C.session)?C:null;}
- async function refreshCloud(){
-   const C=cloud();
-   if(!C)return false;
-   try{
-     const {data:trs,error:tErr}=await C.client.from('turmas').select('id,nome,serie').order('nome');
-     if(tErr)throw tErr;
-     const local={}; turmaIdByName={}; alunoIdByKey={};
-     (trs||[]).forEach(t=>{const nome=t.nome||'Turma sem nome'; local[nome]=[]; turmaIdByName[nome]=t.id;});
-     const {data:als,error:aErr}=await C.client.from('alunos').select('id,nome,turma_id,turmas(nome)').order('nome');
-     if(aErr)throw aErr;
-     (als||[]).forEach(a=>{const tn=a.turmas?.nome || (trs||[]).find(t=>t.id===a.turma_id)?.nome; if(!tn)return; local[tn]=local[tn]||[]; local[tn].push(String(a.nome||'').toUpperCase()); alunoIdByKey[keyAluno(tn,a.nome)]=a.id;});
-     Object.keys(local).forEach(t=>local[t].sort((a,b)=>a.localeCompare(b,'pt-BR')));
-     if(Object.keys(local).length){turmas=local; cloudMode=true; save(turmas); render(); setStatus('Turmas e alunos sincronizados com o Supabase.','ok');}
-     return true;
-   }catch(e){setStatus('Erro ao sincronizar alunos com Supabase: '+e.message,'error'); return false;}
- }
- async function ensureCloudTurma(nome){
-   const C=cloud(); if(!C)return null;
-   if(turmaIdByName[nome])return turmaIdByName[nome];
-   const serie=(String(nome).match(/^(\dº|\dª|\d+º|\d+)/)||[''])[0] || 'Não informada';
-   const {data,error}=await C.client.from('turmas').insert({nome,serie}).select('id').single();
-   if(error)throw error; turmaIdByName[nome]=data.id; return data.id;
- }
- async function cloudAddAluno(turma,nome){
-   const C=cloud(); if(!C)return false;
-   const turma_id=await ensureCloudTurma(turma);
-   const clean=String(nome||'').trim().toUpperCase();
-   const {data:exists,error:e1}=await C.client.from('alunos').select('id').eq('turma_id',turma_id).eq('nome',clean).maybeSingle();
-   if(e1)throw e1;
-   if(exists?.id){alunoIdByKey[keyAluno(turma,clean)]=exists.id; return true;}
-   const {data,error}=await C.client.from('alunos').insert({nome:clean,turma_id}).select('id').single();
-   if(error)throw error; alunoIdByKey[keyAluno(turma,clean)]=data.id; return true;
- }
- async function cloudUpdateAluno(turma,oldNome,newNome){
-   const C=cloud(); if(!C)return false;
-   let id=alunoIdByKey[keyAluno(turma,oldNome)];
-   if(!id){const turma_id=await ensureCloudTurma(turma); const r=await C.client.from('alunos').select('id').eq('turma_id',turma_id).eq('nome',String(oldNome).toUpperCase()).maybeSingle(); if(r.error)throw r.error; id=r.data?.id;}
-   if(!id)return false;
-   const {error}=await C.client.from('alunos').update({nome:String(newNome).toUpperCase()}).eq('id',id);
-   if(error)throw error; delete alunoIdByKey[keyAluno(turma,oldNome)]; alunoIdByKey[keyAluno(turma,newNome)]=id; return true;
- }
- async function cloudDeleteAluno(turma,nome){
-   const C=cloud(); if(!C)return false;
-   let id=alunoIdByKey[keyAluno(turma,nome)];
-   if(!id){const turma_id=await ensureCloudTurma(turma); const r=await C.client.from('alunos').select('id').eq('turma_id',turma_id).eq('nome',String(nome).toUpperCase()).maybeSingle(); if(r.error)throw r.error; id=r.data?.id;}
-   if(!id)return false;
-   const {error}=await C.client.from('alunos').delete().eq('id',id);
-   if(error)throw error; delete alunoIdByKey[keyAluno(turma,nome)]; return true;
- }
- async function cloudTransferAluno(origem,destino,nome){
-   const C=cloud(); if(!C)return false;
-   let id=alunoIdByKey[keyAluno(origem,nome)];
-   if(!id){const turma_id=await ensureCloudTurma(origem); const r=await C.client.from('alunos').select('id').eq('turma_id',turma_id).eq('nome',String(nome).toUpperCase()).maybeSingle(); if(r.error)throw r.error; id=r.data?.id;}
-   if(!id)return false;
-   const destino_id=await ensureCloudTurma(destino);
-   const {error}=await C.client.from('alunos').update({turma_id:destino_id}).eq('id',id);
-   if(error)throw error; delete alunoIdByKey[keyAluno(origem,nome)]; alunoIdByKey[keyAluno(destino,nome)]=id; return true;
- }
- async function cloudCreateTurma(nome){
-   const C=cloud(); if(!C)return false;
-   await ensureCloudTurma(nome); return true;
- }
-
  function orderedKeys(obj=turmas){return Object.keys(obj).sort((a,b)=>a.localeCompare(b,'pt-BR',{numeric:true}));}
  function getTurmas(){return turmas;}
  function getArquivadas(){return arquivadas;}
@@ -607,21 +539,21 @@
  `<ol class="student-roster editable-roster">`+rows.map(x=>`<li><span>${safe(x.n)}</span><div class="mini-actions"><button class="secondary" data-edit-student="${x.i}">Editar</button><button class="secondary" data-transfer-student="${x.i}">Transferir</button><button class="danger" data-delete-student="${x.i}">Excluir</button></div></li>`).join('')+`</ol>`;
  }
  function render(){renderSelects(); renderStats(); renderList();}
- async function createTurma(){const name=norm($('#novaTurmaNome')?.value||''); if(!name)return setStatus('Informe o nome da nova turma.','error'); if(turmas[name])return setStatus('Essa turma já existe.','error'); try{if(cloud())await cloudCreateTurma(name);}catch(e){return setStatus('Erro ao criar turma no Supabase: '+e.message,'error');} turmas[name]=turmas[name]||[]; save(turmas); $('#novaTurmaNome').value=''; render(); setStatus('Turma criada: '+safe(name)+(cloud()?' e salva no Supabase.':''),'ok');}
+ function createTurma(){const name=norm($('#novaTurmaNome')?.value||''); if(!name)return setStatus('Informe o nome da nova turma.','error'); if(turmas[name])return setStatus('Essa turma já existe.','error'); turmas[name]=[]; save(turmas); $('#novaTurmaNome').value=''; render(); setStatus('Turma criada: '+safe(name),'ok');}
  function renameTurma(){const old=currentTurma(); const name=norm($('#renomearTurmaNome')?.value||''); if(!old)return; if(!name)return setStatus('Informe o novo nome da turma.','error'); if(turmas[name])return setStatus('Já existe uma turma com esse nome.','error'); turmas[name]=turmas[old]; delete turmas[old]; save(turmas); $('#renomearTurmaNome').value=''; render(); $('#turmaCadastroSelect').value=name; render(); setStatus('Turma renomeada.','ok');}
  function archiveTurma(){const turma=currentTurma(); if(!turma)return; if(!confirm(`Arquivar a turma "${turma}"? O histórico será preservado e ela deixará de aparecer como turma ativa.`))return; arquivadas[turma]=turmas[turma]||[]; delete turmas[turma]; save(turmas); saveArchive(arquivadas); render(); setStatus('Turma arquivada com sucesso.','ok');}
  function restoreTurma(){const t=$('#turmaArquivadaSelect')?.value; if(!t)return setStatus('Nenhuma turma arquivada selecionada.','error'); let name=t; if(turmas[name]) name=t+' - Reativada'; turmas[name]=arquivadas[t]; delete arquivadas[t]; save(turmas); saveArchive(arquivadas); render(); setStatus('Turma reativada.','ok');}
- async function addAluno(){const turma=currentTurma(); const name=norm($('#novoAlunoNome')?.value||''); if(!turma)return; if(!name)return setStatus('Informe o nome do aluno.','error'); if((turmas[turma]||[]).some(n=>n.toUpperCase()===name.toUpperCase()))return setStatus('Aluno já cadastrado nessa turma.','error'); try{if(cloud())await cloudAddAluno(turma,name);}catch(e){return setStatus('Erro ao salvar aluno no Supabase: '+e.message,'error');} turmas[turma].push(name.toUpperCase()); turmas[turma].sort((a,b)=>a.localeCompare(b,'pt-BR')); save(turmas); $('#novoAlunoNome').value=''; render(); setStatus('Aluno adicionado'+(cloud()?' e salvo no Supabase.':'.'),'ok');}
- async function editAluno(idx){const turma=currentTurma(); const old=turmas[turma]?.[idx]; if(!old)return; const name=norm(prompt('Editar nome do aluno:', old)); if(!name)return; try{if(cloud())await cloudUpdateAluno(turma,old,name);}catch(e){return setStatus('Erro ao editar aluno no Supabase: '+e.message,'error');} turmas[turma][idx]=name.toUpperCase(); turmas[turma].sort((a,b)=>a.localeCompare(b,'pt-BR')); save(turmas); render(); setStatus('Aluno editado'+(cloud()?' no Supabase.':'.'),'ok');}
- async function deleteAluno(idx){const turma=currentTurma(); const old=turmas[turma]?.[idx]; if(!old)return; if(!confirm('Excluir aluno da turma atual?\n\n'+old))return; try{if(cloud())await cloudDeleteAluno(turma,old);}catch(e){return setStatus('Erro ao excluir aluno no Supabase: '+e.message,'error');} turmas[turma].splice(idx,1); save(turmas); render(); setStatus('Aluno excluído'+(cloud()?' do Supabase.':' da turma.'),'ok');}
- async function transferAluno(idx){const turma=currentTurma(); const old=turmas[turma]?.[idx]; if(!old)return; const destino=$('#alunoTransferTurma')?.value || prompt('Transferir para qual turma?'); if(!destino||!turmas[destino])return setStatus('Turma de destino inválida.','error'); try{if(cloud())await cloudTransferAluno(turma,destino,old);}catch(e){return setStatus('Erro ao transferir aluno no Supabase: '+e.message,'error');} turmas[turma].splice(idx,1); if(!turmas[destino].some(n=>n.toUpperCase()===old.toUpperCase()))turmas[destino].push(old); turmas[destino].sort((a,b)=>a.localeCompare(b,'pt-BR')); save(turmas); render(); setStatus('Aluno transferido para '+safe(destino)+(cloud()?' no Supabase.':'.'),'ok');}
+ function addAluno(){const turma=currentTurma(); const name=norm($('#novoAlunoNome')?.value||''); if(!turma)return; if(!name)return setStatus('Informe o nome do aluno.','error'); if((turmas[turma]||[]).some(n=>n.toUpperCase()===name.toUpperCase()))return setStatus('Aluno já cadastrado nessa turma.','error'); turmas[turma].push(name.toUpperCase()); turmas[turma].sort((a,b)=>a.localeCompare(b,'pt-BR')); save(turmas); $('#novoAlunoNome').value=''; render(); setStatus('Aluno adicionado.','ok');}
+ function editAluno(idx){const turma=currentTurma(); const old=turmas[turma]?.[idx]; if(!old)return; const name=norm(prompt('Editar nome do aluno:', old)); if(!name)return; turmas[turma][idx]=name.toUpperCase(); turmas[turma].sort((a,b)=>a.localeCompare(b,'pt-BR')); save(turmas); render(); setStatus('Aluno editado.','ok');}
+ function deleteAluno(idx){const turma=currentTurma(); const old=turmas[turma]?.[idx]; if(!old)return; if(!confirm('Excluir aluno da turma atual?\n\n'+old))return; turmas[turma].splice(idx,1); save(turmas); render(); setStatus('Aluno excluído da turma.','ok');}
+ function transferAluno(idx){const turma=currentTurma(); const old=turmas[turma]?.[idx]; if(!old)return; const destino=$('#alunoTransferTurma')?.value || prompt('Transferir para qual turma?'); if(!destino||!turmas[destino])return setStatus('Turma de destino inválida.','error'); turmas[turma].splice(idx,1); if(!turmas[destino].some(n=>n.toUpperCase()===old.toUpperCase()))turmas[destino].push(old); turmas[destino].sort((a,b)=>a.localeCompare(b,'pt-BR')); save(turmas); render(); setStatus('Aluno transferido para '+safe(destino)+'.','ok');}
  function applyAssessment(){const turma=currentTurma(); const A=window.ETE; if(!A||!turma)return; const a=A.state.assessment||{}; a.turma=turma; if(!(a.students||[]).length) a.students=(turmas[turma]||[]).map(name=>({name,answers:[]})); A.state.assessment=a; const input=$('#assessmentClass'); if(input) input.value=turma; A.save?.(); A.renderAll?.(); setStatus('Turma aplicada à avaliação atual.','ok');}
  function buildTemplateRows(){const turma=currentTurma(); const n=Math.max(1,Math.min(100,Number($('#templateQuestionsCount')?.value)||26)); const rows=[]; rows.push(['Nome do aluno',...Array.from({length:n},(_,i)=>'Q'+(i+1))]); rows.push(['Descritor',...Array.from({length:n},()=> '')]); rows.push(['Gabarito',...Array.from({length:n},()=> '')]); (turmas[turma]||[]).forEach(name=>rows.push([name,...Array.from({length:n},()=> '')])); return rows;}
  function downloadTemplate(){const turma=currentTurma(); const rows=buildTemplateRows(); const filename=`modelo_respostas_${turma.replace(/\W+/g,'_')}.xlsx`; if(window.XLSX){const ws=XLSX.utils.aoa_to_sheet(rows); const wb=XLSX.utils.book_new(); XLSX.utils.book_append_sheet(wb,ws,'Respostas'); XLSX.writeFile(wb,filename); setStatus('Planilha modelo Excel gerada.','ok');} else {download(filename.replace('.xlsx','.csv'),toCsv(rows),'text/csv;charset=utf-8'); setStatus('Biblioteca Excel indisponível. Modelo CSV gerado.','ok');}}
  function parseCsvLine(line){const out=[]; let cur='',q=false; for(let i=0;i<line.length;i++){const ch=line[i]; if(ch==='"'&&line[i+1]==='"'){cur+='"';i++;} else if(ch==='"')q=!q; else if((ch===','||ch===';'||ch==='\t')&&!q){out.push(cur.trim());cur='';} else cur+=ch;} out.push(cur.trim()); return out;}
- async function importListText(text){const rows=text.split(/\r?\n/).map(parseCsvLine).filter(r=>r.some(Boolean)); if(!rows.length)return; const header=rows[0].map(x=>x.toLowerCase()); const turmaIdx=header.findIndex(x=>x.includes('turma')); const alunoIdx=header.findIndex(x=>x.includes('aluno')||x.includes('nome')); const current=currentTurma(); let added=0;
- for(const r of rows.slice(1)){const turma=norm(turmaIdx>=0?r[turmaIdx]:current); const aluno=norm(alunoIdx>=0?r[alunoIdx]:r[0]); if(!turma||!aluno)continue; turmas[turma]=turmas[turma]||[]; if(!turmas[turma].some(n=>n.toUpperCase()===aluno.toUpperCase())){try{if(cloud())await cloudAddAluno(turma,aluno);}catch(e){return setStatus('Erro ao importar aluno no Supabase: '+e.message,'error');} turmas[turma].push(aluno.toUpperCase()); added++;} }
- Object.keys(turmas).forEach(t=>turmas[t].sort((a,b)=>a.localeCompare(b,'pt-BR'))); save(turmas); render(); setStatus(`${added} aluno(s) importado(s)${cloud()?' e salvos no Supabase':''}.`,'ok');}
+ function importListText(text){const rows=text.split(/\r?\n/).map(parseCsvLine).filter(r=>r.some(Boolean)); if(!rows.length)return; const header=rows[0].map(x=>x.toLowerCase()); const turmaIdx=header.findIndex(x=>x.includes('turma')); const alunoIdx=header.findIndex(x=>x.includes('aluno')||x.includes('nome')); const current=currentTurma(); let added=0;
+ rows.slice(1).forEach(r=>{const turma=norm(turmaIdx>=0?r[turmaIdx]:current); const aluno=norm(alunoIdx>=0?r[alunoIdx]:r[0]); if(!turma||!aluno)return; turmas[turma]=turmas[turma]||[]; if(!turmas[turma].some(n=>n.toUpperCase()===aluno.toUpperCase())){turmas[turma].push(aluno.toUpperCase()); added++;} });
+ Object.keys(turmas).forEach(t=>turmas[t].sort((a,b)=>a.localeCompare(b,'pt-BR'))); save(turmas); render(); setStatus(`${added} aluno(s) importado(s).`,'ok');}
  async function importRosterFile(file){if(!file)return; if(/\.xlsx?$/i.test(file.name)&&window.XLSX){const buf=await file.arrayBuffer(); const wb=XLSX.read(buf,{type:'array'}); const ws=wb.Sheets[wb.SheetNames[0]]; const rows=XLSX.utils.sheet_to_json(ws,{header:1,raw:false,defval:''}); importListText(rows.map(r=>r.join(',')).join('\n'));} else {importListText(await file.text());}}
  function bind(){ 
    $('#turmaCadastroSelect')&&($('#turmaCadastroSelect').onchange=render);
@@ -639,6 +571,6 @@
    $('#importTurmaFile')&&($('#importTurmaFile').onchange=e=>importRosterFile(e.target.files?.[0]));
    document.addEventListener('click',e=>{const b=e.target.closest('[data-edit-student],[data-delete-student],[data-transfer-student]'); if(!b)return; const idx=Number(b.dataset.editStudent??b.dataset.deleteStudent??b.dataset.transferStudent); if(b.dataset.editStudent!=null)editAluno(idx); if(b.dataset.deleteStudent!=null)deleteAluno(idx); if(b.dataset.transferStudent!=null)transferAluno(idx);});
  }
- window.TurmasETE={getTurmas,getArquivadas,getAlunos,render,downloadTemplate,applyAssessment,syncFromSupabase:refreshCloud,refreshCloud};
- document.addEventListener('DOMContentLoaded',()=>{bind();render(); setTimeout(()=>{refreshCloud();},1200);});
+ window.TurmasETE={getTurmas,getArquivadas,getAlunos,render,downloadTemplate,applyAssessment};
+ document.addEventListener('DOMContentLoaded',()=>{bind();render();});
 })();

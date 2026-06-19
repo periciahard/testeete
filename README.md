@@ -14,3 +14,9 @@ Versão de refatoração e estabilidade.
 
 ## Observação
 O login ainda é local/provisório. Para segurança real e compartilhamento de dados entre professores e coordenação, a próxima etapa deve ser Supabase.
+
+
+## V65.7
+- Botão Sair no cabeçalho superior direito.
+- Menu lateral mais limpo.
+- Logo da tela inicial ampliada.
