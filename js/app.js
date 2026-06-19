@@ -1,6 +1,6 @@
 (function(){
   'use strict';
-  const VERSION='62';
+  const VERSION='64';
   const STORE='ete_diagnostico_atual';
   const DEFAULT_STATE={
     version:VERSION,

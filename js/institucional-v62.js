@@ -90,7 +90,7 @@ function documentStyle(){
  return `@page{size:A4;margin:10mm}*{box-sizing:border-box}body{font-family:Arial,Helvetica,sans-serif;font-size:10.5pt;color:#111;margin:0;background:#fff}.v62-page{width:190mm;margin:0 auto;background:#fff}.v62-header{position:relative;width:190mm;height:48mm;margin:0 0 5mm 0;overflow:hidden}.v62-header-img{position:absolute;left:0;top:0;width:190mm;height:48mm;object-fit:fill}.v62-overlay{position:absolute;left:8mm;right:8mm;top:25mm;font-size:9.8pt;line-height:1.1}.v62-overlay .row{margin:1.3mm 0;font-weight:400}.v62-overlay .row span{float:right}.v62-overlay .disc{float:none;margin-left:21mm}.v62-overlay .prof{float:none;margin-left:24mm}.v62-overlay .atividade{position:absolute;left:0;right:0;top:19.2mm;border:1px solid #222;text-align:center;font-weight:bold;padding:1.8mm 0;background:#fff}.v62-questions{column-count:2;column-gap:8mm;column-rule:1px solid #111;text-align:justify}.v62-question{break-inside:avoid;margin:0 0 5mm 0}.v62-question p{margin:0 0 2.2mm 0}.texto-base,.qitem,.print-question{background:transparent!important;border:0!important;padding:0!important}@media print{body{margin:0}.v62-page{width:auto}.v62-questions{column-count:2}}`;
 }
 function downloadBlob(name,blob){const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=name;document.body.appendChild(a);a.click();setTimeout(()=>{URL.revokeObjectURL(a.href);a.remove()},900)}
-async function gerarPdfV62(){
+async function gerarPdfV64(){
  const html=fichaHtml();
  const holder=document.createElement('iframe');
  holder.style.position='fixed'; holder.style.left='-10000px'; holder.style.top='0'; holder.style.width='210mm'; holder.style.height='297mm';
@@ -107,7 +107,7 @@ async function gerarPdfV62(){
  holder.remove();
 }
 async function fetchBuffer(url){const r=await fetch(url);if(!r.ok)throw new Error(url);return await r.arrayBuffer()}
-async function gerarWordV62(){
+async function gerarWordV64(){
  const a=assessment(), info=infoFromTurma(a.turma), student=currentStudentName(), qs=extractQuestions(), date=a.date?a.date.split('-').reverse().join(' / '):'___ / ___ / 2026';
  if(!window.docx){
    downloadBlob('ficha-institucional-ete-v62.doc', new Blob([fichaHtml(student)],{type:'application/msword;charset=utf-8'})); return;
@@ -142,7 +142,7 @@ async function gerarWordV62(){
 function avaliacoes(){return (A()?.state?.assessments||[]).filter(x=>(x.students||[]).length&&(x.questions||[]).length)}
 function avg(arr){return arr.length?Math.round(arr.reduce((a,b)=>a+b,0)/arr.length*10)/10:0}
 function byLatestTurma(avals){const m={};avals.forEach(a=>{if(!m[a.turma]||(a.date||'')>=(m[a.turma].date||''))m[a.turma]=a});return Object.values(m).map(a=>({a,r:compute(a)})).sort((x,y)=>y.r.summary.avg-x.r.summary.avg)}
-async function gerarPptV62(){
+async function gerarPptV64(){
  if(!window.PptxGenJS){alert('PowerPoint não carregou.');return}
  const pptx=new PptxGenJS(); pptx.layout='LAYOUT_WIDE'; pptx.author='ETE Professor José Luiz de Mendonça';
  const blue='0B2146', yellow='F4C430', green='198754', red='C1121F', orange='F77F00', light='F6F8FB', gray='5B6472';
@@ -183,10 +183,10 @@ async function gerarPptV62(){
  await pptx.writeFile({fileName:'diagnostico-pedagogico-ete-v62.pptx'});
 }
 function bind(){
- ['#v57Print','#v59Print','#printSheet','#printMap'].forEach(id=>{const e=$(id); if(e)e.onclick=gerarPdfV62});
- ['#v57Doc','#v59Word'].forEach(id=>{const e=$(id); if(e)e.onclick=gerarWordV62});
- ['#generatePptxReport','#coordenacaoPptxBtn','#coordV608Pptx'].forEach(id=>{const e=$(id); if(e)e.onclick=gerarPptV62});
+ ['#v57Print','#v59Print','#printSheet','#printMap'].forEach(id=>{const e=$(id); if(e)e.onclick=gerarPdfV64});
+ ['#v57Doc','#v59Word'].forEach(id=>{const e=$(id); if(e)e.onclick=gerarWordV64});
+ ['#generatePptxReport','#coordenacaoPptxBtn','#coordV608Pptx'].forEach(id=>{const e=$(id); if(e)e.onclick=gerarPptV64});
 }
 document.addEventListener('DOMContentLoaded',()=>setTimeout(bind,1200));
-window.InstitucionalV62={gerarPdfV62,gerarWordV62,gerarPptV62,fichaHtml};
+window.InstitucionalV64={gerarPdfV64,gerarWordV64,gerarPptV64,fichaHtml};
 })();

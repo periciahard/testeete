@@ -1,16 +1,16 @@
-# Diagnóstico Pedagógico ETE — V62
+# Diagnóstico Pedagógico ETE — V64
 
-Versão de padronização institucional.
+Versão de refatoração e estabilidade.
 
 ## Implementado
-- Aba Painel removida.
-- Avaliações passa a ser a tela inicial.
-- Cabeçalho institucional extraído do PDF modelo oficial da ETE.
-- PDF em duas colunas, com cabeçalho no padrão da escola.
-- Word .docx com cabeçalho institucional e questões em duas colunas.
-- PowerPoint redesenhado em estilo de apresentação pedagógica, com menos texto, cards e barras mais limpas.
-- Remoção do sombreamento das questões.
-- Cache atualizado para V62.
+- Correção definitiva do `service-worker.js`, incluindo lista `ASSETS` definida.
+- Tela **Minhas Turmas** específica para professor.
+- Professor por série + disciplina consegue visualizar suas turmas, comparar médias, acompanhar evolução e abrir diagnósticos permitidos.
+- Coordenação e administrador mantêm visão geral.
+- Usuários de teste ocultados da tela de login.
+- Autoria inicial aplicada ao banco de questões local.
+- Filtros de turma/disciplina reforçados para professor.
+- Cache atualizado para `ete-diagnostico-v64`.
 
 ## Observação
-O layout do PDF/Word foi reconstruído a partir do modelo oficial enviado: cabeçalho da ETE, campos de estudante/turma/série/curso/data/disciplina/professor e caixa da atividade.
+O login ainda é local/provisório. Para segurança real e compartilhamento de dados entre professores e coordenação, a próxima etapa deve ser Supabase.

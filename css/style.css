@@ -145,7 +145,7 @@ button:disabled{opacity:.45;cursor:not-allowed;filter:grayscale(.2);transform:no
 .fileBtn{display:inline-flex;align-items:center;justify-content:center;padding:10px 14px;border-radius:10px;background:#0f2e5f;color:#fff;font-weight:700;cursor:pointer}
 
 
-/* V62 impressão em lote e limpeza */
+/* V64 impressão em lote e limpeza */
 .v59-panel{border-left:6px solid var(--yellow)}
 .print-preview{background:#f8fbff;border:1px dashed var(--line);border-radius:18px;padding:16px;max-height:680px;overflow:auto}
 .print-sheet{background:#fff;border:1px solid var(--line);border-radius:18px;margin:14px 0;padding:22px;box-shadow:0 8px 20px rgba(16,42,86,.08);color:#111}
@@ -169,12 +169,12 @@ button:disabled{opacity:.45;cursor:not-allowed;filter:grayscale(.2);transform:no
   .page-break{page-break-after:always;border:0;margin:0}
 }
 
-/* V62 Turmas e Alunos */
+/* V64 Turmas e Alunos */
 .student-roster{columns:2;column-gap:32px;margin-top:12px}
 .student-roster li{break-inside:avoid;padding:6px 0;border-bottom:1px solid #eef2f7}
 @media(max-width:800px){.student-roster{columns:1}}
 
-/* V62 Gerenciador de turmas */
+/* V64 Gerenciador de turmas */
 .roster-head{display:flex;justify-content:space-between;align-items:center;gap:12px}
 .editable-roster{columns:1!important;list-style-position:inside}
 .editable-roster li{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:8px 0;border-bottom:1px solid #eef2f7}
@@ -183,7 +183,7 @@ button:disabled{opacity:.45;cursor:not-allowed;filter:grayscale(.2);transform:no
 .mini-actions button{padding:6px 9px;border-radius:10px;font-size:12px}
 @media(max-width:800px){.editable-roster li{display:block}.mini-actions{margin-top:6px}}
 
-/* V62 Evolução e comparação de simulados */
+/* V64 Evolução e comparação de simulados */
 .evo-table .preview-row{grid-template-columns:1.5fr .7fr .7fr .8fr 1.4fr}
 .evo-bar{position:relative;height:20px;background:#eaf0f8;border-radius:999px;overflow:hidden;min-width:120px}
 .evo-bar span{display:block;height:100%;background:linear-gradient(90deg,var(--green),#7ed957)}
@@ -192,10 +192,10 @@ button:disabled{opacity:.45;cursor:not-allowed;filter:grayscale(.2);transform:no
 .card.ok{border-left:6px solid var(--green)}.card.bad{border-left:6px solid var(--red)}
 @media(max-width:900px){.evo-table .preview-row{grid-template-columns:1fr}.evo-table .preview-row span{padding:4px 0}}
 
-/* V62 estabilidade */
+/* V64 estabilidade */
 .home-insights{border-left:6px solid var(--green)}
 
-/* V62 correções estruturais */
+/* V64 correções estruturais */
 .hidden-tecnico{display:none!important}
 #sheetOutput,#v59Output{display:none!important}
 #importar .modelbox{border-left:6px solid var(--green)}
@@ -208,12 +208,12 @@ button:disabled{opacity:.45;cursor:not-allowed;filter:grayscale(.2);transform:no
   #v59Preview,.print-preview,.ficha-preview{display:block!important;max-height:none!important;overflow:visible!important}
 }
 
-/* V62 refinamentos */
+/* V64 refinamentos */
 .v606-checklist{border-left:6px solid var(--blue)}
 .v606-checklist ol{margin:8px 0 0 20px;line-height:1.7}
 #evoConsolidado,#quickBackupBtn{background:#0f2e5f;color:white}
 
-/* V62 - documentos institucionais e correção de exportações */
+/* V64 - documentos institucionais e correção de exportações */
 .ficha-preview .texto-base,
 .print-preview .texto-base,
 .texto-base{
@@ -252,12 +252,12 @@ button:disabled{opacity:.45;cursor:not-allowed;filter:grayscale(.2);transform:no
   background:#eef7ff;
 }
 
-/* V62 corrigida - coordenação pedagógica */
+/* V64 corrigida - coordenação pedagógica */
 .coordenacao-v608{border-left:6px solid var(--green)}
 .coord-table .preview-row{grid-template-columns:1.2fr 1fr 1.2fr .6fr .6fr .8fr}
 #coordenacaoPptxBtn,#coordV608Pptx{background:#1d6b42;color:#fff}
 
-/* V62 - correção real de PDF, Word e PowerPoint */
+/* V64 - correção real de PDF, Word e PowerPoint */
 .texto-base,.qitem,.print-question,.print-textbase{
   background:transparent!important;
   border:0!important;
@@ -272,7 +272,39 @@ button:disabled{opacity:.45;cursor:not-allowed;filter:grayscale(.2);transform:no
   color:#111;
 }
 
-/* V62 - Padronização institucional */
+/* V64 - Padronização institucional */
 .texto-base,.qitem,.print-question{background:transparent!important;border:0!important;box-shadow:none!important}
 body.app-ready .view#inicio{display:none!important}
 .v62-question{break-inside:avoid}
+
+/* V64 - Login e perfis */
+.auth-locked .topbar,.auth-locked .sidebar,.auth-locked .main{filter:blur(3px);pointer-events:none;user-select:none}
+.login-screen{position:fixed;inset:0;z-index:999999;background:linear-gradient(135deg,#0f2e5f,#0b1f3f);display:none;align-items:center;justify-content:center;padding:24px}
+.login-card{width:min(430px,95vw);background:#fff;border-radius:24px;padding:28px;box-shadow:0 24px 80px rgba(0,0,0,.35)}
+.login-logo{width:86px;height:86px;object-fit:contain;display:block;margin:0 auto 12px}
+.login-card h1{text-align:center;margin:0;color:#0f2e5f;font-size:26px}
+.login-card p{text-align:center;color:#5b6472;margin:6px 0 20px}
+.login-card label{display:block;margin:12px 0;font-weight:700;color:#263238}
+.login-card input:not([type=checkbox]){width:100%;padding:13px;border:1px solid #ccd6e3;border-radius:12px;margin-top:6px;font-size:16px}
+.login-card button{width:100%;padding:13px;border:0;border-radius:14px;background:#0f2e5f;color:white;font-weight:900;font-size:16px;margin-top:10px}
+.login-msg{color:#b42318;font-weight:800;margin-top:10px;text-align:center}
+.remember-line{font-weight:500!important;display:flex!important;align-items:center;gap:8px}
+.login-help{margin-top:14px;background:#f6f8fb;padding:10px 12px;border-radius:12px;font-size:13px}
+.auth-badge{background:#eef7ff;border:1px solid #c9dff7;color:#0f2e5f;border-radius:999px;padding:6px 10px;font-weight:800}
+.auth-badge small{font-weight:600;color:#64748b;margin-left:4px}
+.logoutBtn{border:0;border-radius:999px;padding:7px 11px;background:#ffd23f;color:#0f2e5f;font-weight:900}
+.role-professor .admin-only{display:none!important}
+.role-professor #config,.role-professor #turmasAlunos,.role-professor #alunos{display:none!important}
+
+/* V64 */
+.professor-panel{background:#fff;border:1px solid #dbe3ef;border-radius:16px;padding:16px;margin-bottom:16px}
+
+/* V64 - estabilidade, minhas turmas e autoria */
+.v64-table .preview-row{grid-template-columns:1.1fr 1fr 1.2fr .6fr .7fr 1.4fr}
+.v64-bar{position:relative;height:20px;background:#e9eef6;border-radius:999px;overflow:hidden;min-width:120px}
+.v64-bar span{display:block;height:100%;background:#1d6b42}
+.v64-bar b{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:12px;color:#102033}
+.professor-nav{display:none}
+.role-professor .professor-nav{display:block}
+.role-professor [data-view="coordenacao"]{display:none!important}
+.login-help{display:none!important}

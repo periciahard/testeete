@@ -1,4 +1,4 @@
-# V62
+# V64
 
 Melhorias planejadas para coordenação pedagógica:
 
@@ -9,4 +9,4 @@ Melhorias planejadas para coordenação pedagógica:
 - Relatórios da coordenação.
 - Melhorias de exportação.
 
-Esta versão foi preparada como base V62.
+Esta versão foi preparada como base V64.

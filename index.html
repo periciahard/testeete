@@ -5,24 +5,43 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1" name="viewport"/>
 <meta content="#0f2e5f" name="theme-color"/>
-<title>ETE Professor José Luiz de Mendonça | Diagnóstico Pedagógico V62</title>
+<title>ETE Professor José Luiz de Mendonça | Diagnóstico Pedagógico V64</title>
 <link href="manifest.webmanifest" rel="manifest"/>
-<link href="css/style.css?v=62" rel="stylesheet"/>
+<link href="css/style.css?v=64" rel="stylesheet"/>
 <style>body.app-ready .view{display:none}body.app-ready .view.active{display:block}</style>
 </head>
-<body class="app-ready">
-<div class="topbar"><button aria-label="Abrir menu" class="menuBtn" id="openMenu">☰ Menu</button><strong>ETE Professor José Luiz de Mendonça</strong><span class="cloud-mini" id="cloudStatusMini">Modo local</span></div>
+<body class="app-ready auth-locked">
+
+<div id="loginScreen" class="login-screen">
+  <div class="login-card">
+    <img src="assets/logo-ete.png" alt="Logo ETE" class="login-logo"/>
+    <h1>Diagnóstico Pedagógico</h1>
+    <p>ETE Professor José Luiz de Mendonça</p>
+    <label>Usuário
+      <input id="loginUser" autocomplete="username" placeholder="Digite seu usuário"/>
+    </label>
+    <label>Senha
+      <input id="loginPass" type="password" autocomplete="current-password" placeholder="Digite sua senha"/>
+    </label>
+    <label class="remember-line"><input type="checkbox" id="loginRemember" checked/> Lembrar de mim</label>
+    <button id="loginBtn">Entrar</button>
+    <div id="loginMsg" class="login-msg"></div>
+    
+  </div>
+</div>
+
+<div class="topbar"><button aria-label="Abrir menu" class="menuBtn" id="openMenu">☰ Menu</button><strong>ETE Professor José Luiz de Mendonça</strong><span class="cloud-mini" id="cloudStatusMini">Modo local</span><span class="auth-badge" id="authUserBadge"></span><button class="logoutBtn" id="logoutBtn">Sair</button></div>
 <aside class="sidebar" id="sidebar">
-<div class="brand"><img alt="Logo ETE" class="brand-logo" src="assets/logo-ete.png"/><div><strong>ETE Prof. José Luiz</strong><small>Diagnóstico Educacional V62</small></div></div>
+<div class="brand"><img alt="Logo ETE" class="brand-logo" src="assets/logo-ete.png"/><div><strong>ETE Prof. José Luiz</strong><small>Diagnóstico Educacional V64</small></div></div>
 <button aria-label="Fechar menu" class="closeMenu" id="closeMenu">×</button>
-<nav><button class="nav active" data-view="importar"><span>📁</span> Avaliações</button><button class="nav" data-view="diagnostico"><span>📊</span> Análises</button><button class="nav" data-view="evolucao"><span>📈</span> Evolução</button><button class="nav" data-view="alunos"><span>👨‍🎓</span> Alunos</button><button class="nav" data-view="turmasAlunos"><span>📋</span> Turmas</button><button class="nav" data-view="bancoQuestoes"><span>📚</span> Banco</button><button class="nav" data-view="intervencoes"><span>🧠</span> Intervenções</button><button class="nav" data-view="recuperacao"><span>📄</span> Fichas</button><button class="nav" data-view="impressao"><span>🖨️</span> Impressão</button><button class="nav" data-view="coordenacao"><span>🏫</span> Gestão</button><button class="nav" data-view="config"><span>⚙️</span> Configurações</button></nav>
+<nav><button class="nav active" data-view="importar"><span>📁</span> Avaliações</button><button class="nav" data-view="diagnostico"><span>📊</span> Análises</button><button class="nav" data-view="evolucao"><span>📈</span> Evolução</button><button class="nav" data-view="alunos"><span>👨‍🎓</span> Alunos</button><button class="nav" data-view="turmasAlunos"><span>📋</span> Turmas</button><button class="nav" data-view="bancoQuestoes"><span>📚</span> Banco</button><button class="nav" data-view="intervencoes"><span>🧠</span> Intervenções</button><button class="nav" data-view="recuperacao"><span>📄</span> Fichas</button><button class="nav" data-view="impressao"><span>🖨️</span> Impressão</button><button class="nav professor-nav" data-view="minhasTurmas"><span>📌</span> Minhas Turmas</button><button class="nav" data-view="coordenacao"><span>🏫</span> Gestão</button><button class="nav" data-view="config"><span>⚙️</span> Configurações</button></nav>
 </aside>
 <main class="main">
 <header class="hero">
 <div class="hero-title">
 <img alt="Logo ETE Professor José Luiz de Mendonça" class="hero-logo" src="assets/logo-ete.png"/>
 <div>
-<p class="eyebrow">Sistema Inteligente de Diagnóstico Educacional V62</p>
+<p class="eyebrow">Sistema Inteligente de Diagnóstico Educacional V64</p>
 <h1>ETE Professor José Luiz de Mendonça</h1>
 <p>SAEB • SAEPE • BNCC • Projeto ENEM</p>
 <p class="creator">Criado por Felipe Camargo</p>
@@ -299,6 +318,28 @@ E) ..."></textarea></div><div class="actions"><button id="addBankQuestion">Adici
 </div>
 </section>
 
+
+<section class="view" id="minhasTurmas">
+<h2>📌 Minhas Turmas</h2>
+<p class="hint">Área do professor para comparar as turmas vinculadas à sua série e disciplina, acompanhar evolução e abrir diagnósticos.</p>
+<div class="panel">
+  <h3>Resumo do meu perfil</h3>
+  <div class="cards small" id="minhasTurmasCards"></div>
+</div>
+<div class="panel">
+  <h3>Comparação das minhas turmas</h3>
+  <div id="minhasTurmasComparacao"></div>
+</div>
+<div class="panel">
+  <h3>Evolução das minhas turmas</h3>
+  <div id="minhasTurmasEvolucao"></div>
+</div>
+<div class="panel">
+  <h3>Avaliações disponíveis para mim</h3>
+  <div id="minhasTurmasAvaliacoes"></div>
+</div>
+</section>
+
 <section class="view" id="coordenacao">
 <div class="panel coordenacao-v608" id="painelCoordenacaoV608">
 <h3>🏫 Painel da coordenação pedagógica</h3>
@@ -311,7 +352,8 @@ E) ..."></textarea></div><div class="actions"><button id="addBankQuestion">Adici
 </div>
 <div id="coordV608Detalhes"></div>
 </div><h2>🏫 Coordenação</h2><p class="hint">Área para leitura gestora: turmas críticas, descritores críticos, alunos prioritários e evolução geral.</p><div class="panel coord-ux-note" id="coordUxNote"><h3>Leitura executiva</h3><p class="hint">Os painéis abaixo foram organizados para leitura rápida: primeiro veja alertas e turmas críticas; depois aprofunde por descritores, evolução e relatórios. Clique nos títulos para recolher ou abrir blocos.</p></div><div class="panel coord-filter-panel"><h3>Selecionar turma para análise gestora</h3><p class="hint">Escolha uma turma para ver a leitura da coordenação. Use a comparação para observar diferenças entre turmas, médias, níveis e descritores prioritários.</p><div class="grid2"><label>Turma analisada<select id="coordClassSelect"><option value="todas">Todas as turmas</option></select></label><label>Comparar com<select id="coordCompareClassSelect"><option value="">Selecione outra turma</option></select></label></div><div class="coord-class-comparison" id="coordClassComparison"></div></div><div id="coordExecutivePanel"></div><div id="coordDashboard"></div><div id="coordDescriptorComparePanel"></div><div id="coordLongitudinalPanel"></div><div id="schoolRiskPanel"></div><div id="autoConselhoPanel"></div><div class="panel" id="disciplineComparison"></div><div class="panel" id="cloudCoordDashboard"></div><div class="panel"><h3>Histórico de avaliações</h3><p class="hint">Salve momentos como Avaliação Diagnóstica, Simulado 1, Simulado 2 ou Recuperação.</p><input id="snapshotName" placeholder="Nome da avaliação, ex.: Simulado 1"/><div class="actions"><button id="saveSnapshot">Salvar diagnóstico atual</button><button class="danger" id="clearSnapshots">Limpar histórico</button></div><div id="history"></div></div><div class="panel"><h3>Relatórios</h3><label>Aluno para relatório individual<select id="reportStudent"><option value="0">Primeiro aluno</option></select></label><div class="cards small"><button data-report="turma">Turma</button><button data-report="individual">Individual</button><button data-report="familia">Pais</button><button data-report="conselho">Conselho</button><button data-report="coordenacao">Coordenação</button></div><textarea class="report-output" id="reportOutput" placeholder="O relatório aparecerá aqui." readonly=""></textarea><div class="actions"><button id="copyReport">Copiar</button><button id="downloadReport">Baixar TXT</button><button id="exportReportPdf">Exportar PDF</button></div></div></section>
-<section class="view" id="config"><h2>⚙️ Configurações</h2><div class="panel"><p>Os dados ficam salvos no navegador deste aparelho. Só são apagados se você solicitar.</p><label>Disciplina padrão<select id="configDiscipline"><option value="Língua Portuguesa">Língua Portuguesa</option><option value="Matemática">Matemática</option></select></label><div class="actions"><button id="quickBackupBtn">Baixar backup do sistema</button><button id="exportJson" class="secondary">Backup técnico</button><button class="secondary" id="exportFullBackup">Backup completo</button><button class="secondary" id="exportExcelBackup">Backup Excel</button><input accept=".json" id="importJson" type="file"/><input accept=".json" id="importFullBackup" type="file"/><button class="secondary" id="restoreBackup">Restaurar backup completo</button><button class="danger" id="clearAll">Apagar todos os dados</button></div><p class="hint" id="backupStatus"></p></div>
+<section class="view" id="config">
+<div class="panel admin-only" id="usuariosV64Panel"><h3>👥 Usuários e permissões locais</h3><p class="hint">Login provisório local. Na versão com Supabase, estes perfis poderão ser migrados para autenticação em nuvem.</p><div id="usuariosV64Lista"></div></div><h2>⚙️ Configurações</h2><div class="panel"><p>Os dados ficam salvos no navegador deste aparelho. Só são apagados se você solicitar.</p><label>Disciplina padrão<select id="configDiscipline"><option value="Língua Portuguesa">Língua Portuguesa</option><option value="Matemática">Matemática</option></select></label><div class="actions"><button id="quickBackupBtn">Baixar backup do sistema</button><button id="exportJson" class="secondary">Backup técnico</button><button class="secondary" id="exportFullBackup">Backup completo</button><button class="secondary" id="exportExcelBackup">Backup Excel</button><input accept=".json" id="importJson" type="file"/><input accept=".json" id="importFullBackup" type="file"/><button class="secondary" id="restoreBackup">Restaurar backup completo</button><button class="danger" id="clearAll">Apagar todos os dados</button></div><p class="hint" id="backupStatus"></p></div>
 <div class="panel cloud-panel">
 <h3>Modo institucional</h3>
 <p class="hint">O sistema continua funcionando localmente. Ao fazer login, você poderá salvar avaliações na nuvem, carregar turmas vinculadas e permitir que outros professores visualizem seus dados sem alterá-los.</p>
@@ -354,25 +396,27 @@ E) ..."></textarea></div><div class="actions"><button id="addBankQuestion">Adici
 <script src="https://cdn.jsdelivr.net/npm/pptxgenjs@3.12.0/dist/pptxgen.bundle.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/html2pdf.js@0.10.1/dist/html2pdf.bundle.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/docx@8.5.0/build/index.umd.js"></script>
-<script src="js/app.js?v=62"></script>
-<script src="js/descritores.js?v=62"></script>
-<script src="js/turmas.js?v=62"></script>
-<script src="js/importacao.js?v=62"></script>
-<script src="js/diagnostico.js?v=62"></script>
-<script src="js/evolucao.js?v=62"></script>
-<script src="js/relatorios.js?v=62"></script>
-<script src="js/exportacao.js?v=62"></script>
-<script src="js/banco-questoes.js?v=62"></script>
-<script src="js/fichas.js?v=62"></script>
-<script src="js/intervencoes.js?v=62"></script>
-<script src="js/impressao.js?v=62"></script>
-<script src="js/supabase-sync.js?v=62"></script>
-<script src="js/pedagogico-avancado.js?v=62"></script>
-<script src="js/sistema.js?v=62"></script>
-<script src="js/correcoes-v605.js?v=62"></script>
-<script src="js/melhorias-v606.js?v=62"></script>
-<script src="js/exportacoes-v607.js?v=62"></script>
-<script src="js/coordenacao-v608.js?v=62"></script>
-<script src="js/exportacoes-v609.js?v=62"></script>
-<script src="js/institucional-v62.js?v=62"></script></body>
+<script src="js/app.js?v=64"></script>
+<script src="js/descritores.js?v=64"></script>
+<script src="js/turmas.js?v=64"></script>
+<script src="js/importacao.js?v=64"></script>
+<script src="js/diagnostico.js?v=64"></script>
+<script src="js/evolucao.js?v=64"></script>
+<script src="js/relatorios.js?v=64"></script>
+<script src="js/exportacao.js?v=64"></script>
+<script src="js/banco-questoes.js?v=64"></script>
+<script src="js/fichas.js?v=64"></script>
+<script src="js/intervencoes.js?v=64"></script>
+<script src="js/impressao.js?v=64"></script>
+<script src="js/supabase-sync.js?v=64"></script>
+<script src="js/pedagogico-avancado.js?v=64"></script>
+<script src="js/sistema.js?v=64"></script>
+<script src="js/correcoes-v605.js?v=64"></script>
+<script src="js/melhorias-v606.js?v=64"></script>
+<script src="js/exportacoes-v607.js?v=64"></script>
+<script src="js/coordenacao-v608.js?v=64"></script>
+<script src="js/exportacoes-v609.js?v=64"></script>
+<script src="js/institucional-v62.js?v=64"></script>
+<script src="js/auth-v63.js?v=64"></script>
+<script src="js/v64-estabilidade.js?v=64"></script></body>
 </html>
