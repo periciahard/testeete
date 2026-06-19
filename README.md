@@ -1,15 +1,28 @@
-# Diagnóstico Pedagógico ETE — V60.7
+# Diagnóstico Pedagógico ETE — V60.8 Corrigida
 
-Versão focada na correção das exportações institucionais.
+Versão institucional da coordenação pedagógica.
 
-## Correções principais
-- PowerPoint corrigido: usa `PptxGenJS`, que é o objeto real carregado pela biblioteca.
-- Correção do PDF em branco: geração passa a usar html2pdf quando disponível.
-- Botões de PDF passam a gerar conteúdo real a partir da prévia/documento.
-- Word institucional: cabeçalho no modelo enviado pelo professor.
-- Remoção do sombreamento dos enunciados/textos-base.
-- Ajustes de exportação em lote.
+## Implementado de verdade nesta versão
+- Painel da coordenação na aba Gestão.
+- Resumo institucional: avaliações, turmas, alunos, média geral, melhor turma e turma de atenção.
+- Ranking das turmas pela última avaliação.
+- Relatório da coordenação em TXT.
+- PowerPoint institucional expandido com mais de 10 slides:
+  1. Capa
+  2. Resumo institucional
+  3. Ranking das turmas
+  4. Evolução por turma/disciplina
+  5. Avaliação ativa
+  6. Distribuição pedagógica
+  7. Descritores críticos
+  8. Descritores fortes
+  9. Evolução por descritor
+  10. Estudantes abaixo da meta
+  11. Plano de intervenção
+  12. Síntese para tomada de decisão
+- Botões de PowerPoint integrados à aba Análises e Gestão.
+- Cache do Service Worker atualizado para v608.
 - Verificação de sintaxe JavaScript sem erros.
 
 ## Observação
-O modelo Word foi reproduzido no gerador institucional da plataforma, com campos de estudante, turma, série, curso, data, disciplina, professor e nome da atividade.
+Esta versão usa os dados já salvos no navegador. Para visão institucional entre vários professores, o próximo passo é sincronização em nuvem.
