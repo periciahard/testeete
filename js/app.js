@@ -4,7 +4,7 @@
   const STORE='ete_diagnostico_atual';
   const DEFAULT_STATE={
     version:VERSION,
-    settings:{discipline:'Língua Portuguesa', supabaseUrl:'', supabaseAnonKey:''},
+    settings:{discipline:'Língua Portuguesa', supabaseUrl:'https://shqnaeatdkdtnheswggq.supabase.co', supabaseAnonKey:'sb_publishable_ByueLBjkkGNOW0Wt2yD7hg_n0YDvMqi'},
     assessment:{id:null, savedSignature:'', discipline:'Língua Portuguesa', turma:'', tipo:'diagnostica', date:'', teacher:'', questions:[], descriptors:[], key:[], students:[], title:'Avaliação atual'},
     assessments:[], activeAssessmentId:null, bank:[], snapshots:[], selectedStudent:null, currentReport:''
   };

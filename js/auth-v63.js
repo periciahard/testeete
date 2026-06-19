@@ -79,15 +79,44 @@ function unlock(user){
  applyPermissions();
  setTimeout(()=>window.ETE?.renderAll?.(),400);
 }
-function login(){
- const user=findUser($('#loginUser')?.value,$('#loginPass')?.value);
+async function login(){
+ const loginValue=$('#loginUser')?.value;
+ const passValue=$('#loginPass')?.value;
  const msg=$('#loginMsg');
- if(!user){ if(msg)msg.textContent='Usuário ou senha inválidos.'; return; }
+ if(msg)msg.textContent='Entrando...';
+ // Login institucional Supabase: use e-mail completo.
+ if(String(loginValue||'').includes('@') && window.ETESupabase){
+   try{
+     const profile=await window.ETESupabase.mainLogin(String(loginValue||'').trim(), passValue);
+     const role=String(profile?.perfil||'professor').toLowerCase();
+     const u={
+       login:profile.email,
+       nome:profile.nome||profile.email,
+       perfil:profile.perfil||'professor',
+       role:role==='admin'?'admin':(role.includes('coord')?'coord':'prof'),
+       anos:['1','2','3'],
+       disciplinas:['Língua Portuguesa','Matemática'],
+       all:role==='admin'||role.includes('coord'),
+       ativo:true
+     };
+     saveUser(u,$('#loginRemember')?.checked!==false);
+     unlock(u);
+     if(msg)msg.textContent='';
+     return;
+   }catch(e){
+     if(msg)msg.textContent='Erro no login institucional: '+e.message;
+     return;
+   }
+ }
+ // Login local de contingência, mantido para testes/offline.
+ const user=findUser(loginValue,passValue);
+ if(!user){ if(msg)msg.textContent='Usuário ou senha inválidos. Use o e-mail institucional cadastrado no Supabase.'; return; }
  saveUser(user,$('#loginRemember')?.checked!==false);
  unlock(user);
 }
-function logout(){
+async function logout(){
  if(!confirm('Deseja sair do sistema?')) return;
+ try{ await window.ETESupabase?.logout?.(); }catch(e){}
  localStorage.removeItem(STORE);
  sessionStorage.removeItem(STORE);
  location.reload();
