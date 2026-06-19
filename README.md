@@ -1,15 +1,16 @@
-# Diagnóstico Pedagógico ETE — V60.9
+# Diagnóstico Pedagógico ETE — V62
 
-Versão focada na correção real das exportações institucionais.
+Versão de padronização institucional.
 
-## Corrigido
-- PDF deixa de usar janela `about:blank` e passa a gerar documento por container HTML renderizado com html2pdf.
-- Word passa a usar a biblioteca `docx` quando carregada, gerando `.docx` verdadeiro.
-- Cabeçalho Word reproduz o modelo institucional com logos extraídas do arquivo enviado.
-- PowerPoint redesenhado visualmente com capa, cards, barras, cores institucionais e layout mais profissional.
-- Corrigida a exibição de "Avaliação: Avaliação", usando o tipo/título real da avaliação.
-- Sombreamento de texto-base removido.
-- Cache atualizado para v609.
+## Implementado
+- Aba Painel removida.
+- Avaliações passa a ser a tela inicial.
+- Cabeçalho institucional extraído do PDF modelo oficial da ETE.
+- PDF em duas colunas, com cabeçalho no padrão da escola.
+- Word .docx com cabeçalho institucional e questões em duas colunas.
+- PowerPoint redesenhado em estilo de apresentação pedagógica, com menos texto, cards e barras mais limpas.
+- Remoção do sombreamento das questões.
+- Cache atualizado para V62.
 
-## Logos extraídas do modelo
-modelo-logo-1.png, modelo-logo-2.png
+## Observação
+O layout do PDF/Word foi reconstruído a partir do modelo oficial enviado: cabeçalho da ETE, campos de estudante/turma/série/curso/data/disciplina/professor e caixa da atividade.

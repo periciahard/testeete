@@ -138,7 +138,7 @@
    const w=window.open('','_blank');
    if(!w){alert('Permita pop-ups para imprimir.');return;}
    const css=document.querySelector('link[href*="style.css"]')?.outerHTML||'';
-   w.document.write(`<!doctype html><html><head><meta charset="utf-8"><title>Impressão V60.9</title>${css}<style>body{background:#fff}.print-sheet{box-shadow:none;border:1px solid #ddd;margin:0 0 18px}.page-break{page-break-after:always}@media print{button{display:none}.print-sheet{page-break-inside:avoid}}</style></head><body>${content}</body></html>`);
+   w.document.write(`<!doctype html><html><head><meta charset="utf-8"><title>Impressão V62</title>${css}<style>body{background:#fff}.print-sheet{box-shadow:none;border:1px solid #ddd;margin:0 0 18px}.page-break{page-break-after:always}@media print{button{display:none}.print-sheet{page-break-inside:avoid}}</style></head><body>${content}</body></html>`);
    w.document.close(); setTimeout(()=>w.print(),500);
  }
  function downloadWord(){
@@ -152,7 +152,7 @@
  }
  function summary(){
    const r=results(); const pr=classPriorities(); const a=assessment();
-   const txt=`RELATÓRIO DE IMPRESSÃO / RECUPERAÇÃO - V60.9\n\nTurma: ${a.turma||''}\nDisciplina: ${a.discipline||''}\nAvaliação: ${a.title||''}\nAlunos: ${r.summary?.nStudents||0}\nQuestões da avaliação: ${r.summary?.nQuestions||0}\nMédia: ${r.summary?.avg||0}%\n\nDescritores prioritários:\n${pr.map(p=>'- '+p.descriptor+' - '+descriptorText(a.discipline,p.descriptor)).join('\n')}\n\nAções sugeridas:\n${interventionText(pr,a.discipline)}\n`;
+   const txt=`RELATÓRIO DE IMPRESSÃO / RECUPERAÇÃO - V62\n\nTurma: ${a.turma||''}\nDisciplina: ${a.discipline||''}\nAvaliação: ${a.title||''}\nAlunos: ${r.summary?.nStudents||0}\nQuestões da avaliação: ${r.summary?.nQuestions||0}\nMédia: ${r.summary?.avg||0}%\n\nDescritores prioritários:\n${pr.map(p=>'- '+p.descriptor+' - '+descriptorText(a.discipline,p.descriptor)).join('\n')}\n\nAções sugeridas:\n${interventionText(pr,a.discipline)}\n`;
    $('#v59Output')&&($('#v59Output').value=txt);
    $('#v59Preview')&&($('#v59Preview').innerHTML='<pre class="print-report">'+safe(txt)+'</pre>');
    window.__IMPRESSAO_LAST={html:'<pre>'+safe(txt)+'</pre>',text:txt,count:1,sheets:[]};

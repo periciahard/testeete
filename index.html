@@ -5,24 +5,24 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1" name="viewport"/>
 <meta content="#0f2e5f" name="theme-color"/>
-<title>ETE Professor José Luiz de Mendonça | Diagnóstico Pedagógico V60.9</title>
+<title>ETE Professor José Luiz de Mendonça | Diagnóstico Pedagógico V62</title>
 <link href="manifest.webmanifest" rel="manifest"/>
-<link href="css/style.css?v=60.9" rel="stylesheet"/>
+<link href="css/style.css?v=62" rel="stylesheet"/>
 <style>body.app-ready .view{display:none}body.app-ready .view.active{display:block}</style>
 </head>
 <body class="app-ready">
 <div class="topbar"><button aria-label="Abrir menu" class="menuBtn" id="openMenu">☰ Menu</button><strong>ETE Professor José Luiz de Mendonça</strong><span class="cloud-mini" id="cloudStatusMini">Modo local</span></div>
 <aside class="sidebar" id="sidebar">
-<div class="brand"><img alt="Logo ETE" class="brand-logo" src="assets/logo-ete.png"/><div><strong>ETE Prof. José Luiz</strong><small>Diagnóstico Educacional V60.9</small></div></div>
+<div class="brand"><img alt="Logo ETE" class="brand-logo" src="assets/logo-ete.png"/><div><strong>ETE Prof. José Luiz</strong><small>Diagnóstico Educacional V62</small></div></div>
 <button aria-label="Fechar menu" class="closeMenu" id="closeMenu">×</button>
-<nav><button class="nav active" data-view="inicio"><span>🏠</span> Painel</button><button class="nav" data-view="importar"><span>📁</span> Avaliações</button><button class="nav" data-view="diagnostico"><span>📊</span> Análises</button><button class="nav" data-view="evolucao"><span>📈</span> Evolução</button><button class="nav" data-view="alunos"><span>👨‍🎓</span> Alunos</button><button class="nav" data-view="turmasAlunos"><span>📋</span> Turmas</button><button class="nav" data-view="bancoQuestoes"><span>📚</span> Banco</button><button class="nav" data-view="intervencoes"><span>🧠</span> Intervenções</button><button class="nav" data-view="recuperacao"><span>📄</span> Fichas</button><button class="nav" data-view="impressao"><span>🖨️</span> Impressão</button><button class="nav" data-view="coordenacao"><span>🏫</span> Gestão</button><button class="nav" data-view="config"><span>⚙️</span> Configurações</button></nav>
+<nav><button class="nav active" data-view="importar"><span>📁</span> Avaliações</button><button class="nav" data-view="diagnostico"><span>📊</span> Análises</button><button class="nav" data-view="evolucao"><span>📈</span> Evolução</button><button class="nav" data-view="alunos"><span>👨‍🎓</span> Alunos</button><button class="nav" data-view="turmasAlunos"><span>📋</span> Turmas</button><button class="nav" data-view="bancoQuestoes"><span>📚</span> Banco</button><button class="nav" data-view="intervencoes"><span>🧠</span> Intervenções</button><button class="nav" data-view="recuperacao"><span>📄</span> Fichas</button><button class="nav" data-view="impressao"><span>🖨️</span> Impressão</button><button class="nav" data-view="coordenacao"><span>🏫</span> Gestão</button><button class="nav" data-view="config"><span>⚙️</span> Configurações</button></nav>
 </aside>
 <main class="main">
 <header class="hero">
 <div class="hero-title">
 <img alt="Logo ETE Professor José Luiz de Mendonça" class="hero-logo" src="assets/logo-ete.png"/>
 <div>
-<p class="eyebrow">Sistema Inteligente de Diagnóstico Educacional V60.9</p>
+<p class="eyebrow">Sistema Inteligente de Diagnóstico Educacional V62</p>
 <h1>ETE Professor José Luiz de Mendonça</h1>
 <p>SAEB • SAEPE • BNCC • Projeto ENEM</p>
 <p class="creator">Criado por Felipe Camargo</p>
@@ -30,41 +30,7 @@
 </div>
 <div class="savebox"><span id="saveStatus">Salvamento automático ativo</span><small id="lastSave">Ainda não salvo</small></div>
 </header>
-<section class="view active" id="inicio">
-<div class="cards" id="summaryCards"></div><div class="panel home-insights" id="homeInsights">Selecione uma avaliação para visualizar o resumo.</div>
-<div class="panel v606-checklist" id="v606Checklist">
-<h3>Checklist rápido de uso</h3>
-<ol>
-<li>Selecione a turma e a disciplina.</li>
-<li>Cadastre a avaliação ou simulado.</li>
-<li>Importe a planilha preenchida.</li>
-<li>Confirme a estrutura da avaliação.</li>
-<li>Abra Diagnóstico ou Evolução para analisar os resultados.</li>
-<li>Gere fichas e impressão em lote quando necessário.</li>
-</ol>
-</div>
-<div class="panel heroPanel">
-<h2>Transforme resultados em ações pedagógicas</h2>
-<p>O sistema foi reorganizado em módulos para evitar excesso de botões na mesma tela. Comece pela importação, confira os dados e avance para diagnóstico, evolução, recuperação e coordenação.</p>
-<div class="module-grid compact-modules">
-<button data-go="importar">📥 1. Importar e validar</button>
-<button data-go="diagnostico">📊 2. Diagnóstico e níveis</button>
-<button data-go="recuperacao">📚 3. Recuperação individual</button>
-<button data-go="intervencoes">🧠 4. Intervenções pedagógicas</button><button data-go="impressao">🖨️ 5. Impressão em lote</button>
-</div>
-</div>
-<div class="panel flow-panel">
-<h3>Fluxo recomendado</h3>
-<div class="flow-steps">
-<button data-go="importar"><b>1</b><span>Importar avaliação</span></button>
-<button data-go="diagnostico"><b>2</b><span>Conferir diagnóstico</span></button>
-<button data-go="alunos"><b>3</b><span>Analisar alunos</span></button>
-<button data-go="recuperacao"><b>4</b><span>Intervir e gerar ficha</span></button>
-<button data-go="impressao"><b>5</b><span>Imprimir em lote</span></button><button data-go="config"><b>6</b><span>Salvar neste dispositivo</span></button>
-</div>
-</div>
-</section>
-<section class="view" id="importar">
+<section class="view active" id="importar">
 <h2>📥 Importação</h2>
 <p class="hint">Escolha um caminho. O modelo recomendado é: 1ª linha = questões; 2ª linha = descritores; 3ª linha = gabarito; demais linhas = respostas dos alunos.</p>
 <div class="panel modelbox"><h3>1. Identificação da avaliação</h3><p class="hint">Preencha e salve estes dados antes de importar a planilha. Cada combinação de turma, disciplina, tipo e data cria uma avaliação independente. Para simulados, use Simulado 1 até Simulado 10 ou informe um título personalizado, evitando que a planilha de uma turma apague a outra.</p><div class="grid2"><label>Título da avaliação *<input id="assessmentTitle" placeholder="Ex.: Simulado 3, SAEPE 1, Revisão ENEM"/></label><label>Turma *<select id="assessmentClass"><option value="">Selecione a turma</option></select></label><label>Disciplina *<select id="assessmentDiscipline"><option value="Língua Portuguesa">Língua Portuguesa</option><option value="Matemática">Matemática</option></select></label><label>Tipo *<select id="assessmentType"><option value="diagnostica">Avaliação Diagnóstica</option><option value="simulado1">Simulado 1</option><option value="simulado2">Simulado 2</option><option value="simulado3">Simulado 3</option><option value="simulado4">Simulado 4</option><option value="simulado5">Simulado 5</option><option value="simulado6">Simulado 6</option><option value="simulado7">Simulado 7</option><option value="simulado8">Simulado 8</option><option value="simulado9">Simulado 9</option><option value="simulado10">Simulado 10</option><option value="recuperacao">Recuperação</option><option value="bimestral">Avaliação Bimestral</option><option value="personalizada">Personalizada</option></select></label><label>Data da avaliação *<input id="assessmentDate" type="date"/></label><label>Professor responsável<input id="assessmentTeacher" placeholder="Ex.: Felipe Camargo"/></label></div><div class="statusbox status-work" id="assessmentSaveStatus">Nenhuma avaliação ativa. Salve a avaliação para liberar a importação.</div><div class="actions"><button id="saveAssessmentMeta">Salvar avaliação</button><button class="secondary" id="newAssessment">Nova avaliação</button></div></div>
@@ -82,7 +48,7 @@
 <div class="panel"><h3>Mapeamento das questões</h3><p class="hint">Após importar, confira se cada questão está ligada ao descritor correto da disciplina escolhida.</p><div class="question-grid" id="questionMap"></div></div>
 </section>
 <section class="view" id="diagnostico">
-<h2>📊 Diagnóstico</h2><p class="hint">Resultado geral, níveis pedagógicos, gráficos, descritores críticos, mapa de calor e sugestões objetivas para intervenção.</p><div class="panel quick-actions" id="analysisQuickAccess"><h3>Acessos rápidos de análise</h3><p class="hint">Use estes atalhos para entrar nas análises específicas sem criar novas abas no menu principal.</p><div class="actions compact"><button data-go="diagnostico">Resultado da turma</button><button class="secondary" data-go="descritores">Descritores</button><button class="secondary" data-go="evolucao">Evolução</button><button class="secondary" data-go="recuperacao">Recuperação e fichas</button><button class="secondary" id="generatePptxReport">Gerar PowerPoint profissional</button><button class="secondary" id="coordenacaoPptxBtn">PowerPoint profissional</button></div></div>
+<h2>📊 Diagnóstico</h2><p class="hint">Resultado geral, níveis pedagógicos, gráficos, descritores críticos, mapa de calor e sugestões objetivas para intervenção.</p><div class="panel quick-actions" id="analysisQuickAccess"><h3>Acessos rápidos de análise</h3><p class="hint">Use estes atalhos para entrar nas análises específicas sem criar novas abas no menu principal.</p><div class="actions compact"><button data-go="diagnostico">Resultado da turma</button><button class="secondary" data-go="descritores">Descritores</button><button class="secondary" data-go="evolucao">Evolução</button><button class="secondary" data-go="recuperacao">Recuperação e fichas</button><button class="secondary" id="generatePptxReport">Gerar apresentação profissional</button><button class="secondary" id="coordenacaoPptxBtn">PowerPoint profissional</button></div></div>
 <div class="panel diagnostic-selector">
 <h3>Escolher turma/avaliação para visualizar</h3>
 <p class="hint">Selecione a avaliação salva que deseja analisar. Isso permite alternar entre turmas sem apagar os dados já importados.</p>
@@ -167,7 +133,7 @@
 <div class="panel"><h3>3. Sugestões automáticas para a avaliação atual</h3><p class="hint">Escolha turma ou aluno. O sistema lê os descritores prioritários e busca recomendações no banco local.</p><div class="grid2"><label>Disciplina<select id="intSuggestDisc"><option value="Língua Portuguesa">Língua Portuguesa</option><option value="Matemática">Matemática</option></select></label><label>Modo<select id="intSuggestMode"><option value="turma">Descritores críticos da turma</option><option value="aluno">Descritores críticos do aluno</option></select></label><label>Aluno<select id="intSuggestStudent"><option value="">Selecione</option></select></label><label>Descritores manuais<input id="intSuggestManual" placeholder="Opcional: D4, D7, D12"/></label></div><div id="interventionSuggestions"></div></div>
 <div class="panel"><h3>4. Consultar banco de intervenções</h3><div class="toolbar"><select id="intFilterDisc"><option value="">Todas as disciplinas</option><option value="Língua Portuguesa">Língua Portuguesa</option><option value="Matemática">Matemática</option><option value="Todas">Todas</option></select><input id="intFilterDesc" placeholder="Descritor, ex.: D4"/><input id="intSearch" placeholder="Buscar por texto, recurso, tipo..."/></div><div id="interventionList"></div></div></section>
 <section class="view" id="recuperacao"><h2>📄 Recuperação e Fichas</h2><p class="hint">Gere fichas individualizadas, fichas da turma e kits de recuperação a partir dos descritores prioritários. A seleção usa o Banco Inteligente de Questões da escola, com sorteio aleatório, balanceamento de dificuldade e opção de evitar repetição.</p>
-<div class="panel ficha-v57-main"><h3>Gerador automático de fichas</h3><p class="hint">Use esta área para transformar diagnóstico em ação pedagógica. O sistema identifica os descritores mais frágeis do aluno ou da turma e monta uma ficha pronta para imprimir.</p><div class="grid2"><label>Tipo de geração<select id="v57Scope"><option value="individual">Ficha individual</option><option value="turma">Todas as fichas da turma</option><option value="risco">Apenas alunos abaixo da meta</option><option value="descritor">Ficha por descritor da turma</option></select></label><label>Aluno<select id="sheetStudent"><option value="">Selecione</option></select></label><label>Quantidade de questões<input id="v57Count" type="number" min="1" max="40" value="10"/></label><label>Meta mínima para alunos em risco (%)<input id="v57Threshold" type="number" min="0" max="100" value="60"/></label><label>Descritores manuais (opcional)<input id="v57ManualDesc" placeholder="Ex.: D4, D7, D12"/></label><label>Dificuldade<select id="v57Difficulty"><option value="balanceada">Balanceada</option><option value="facil">Priorizar fáceis</option><option value="media">Priorizar médias</option><option value="dificil">Priorizar difíceis</option></select></label></div><div class="checks-v57"><label><input id="v57AvoidUsed" type="checkbox" checked/> Evitar questões já utilizadas pelo aluno</label><label><input id="v57IncludeKey" type="checkbox" checked/> Incluir gabarito ao final</label><label><input id="v57IncludePlan" type="checkbox" checked/> Incluir orientação pedagógica</label></div><div class="actions compact"><button id="v57Generate">Gerar ficha(s)</button><button class="secondary" id="v57Print">Gerar PDF</button><button class="secondary" id="v57Doc">Baixar Word com cabeçalho</button><button class="secondary" id="v57Txt">Baixar TXT</button><button class="secondary" id="v57ClearUsage">Limpar histórico de questões usadas</button></div><div class="statusbox status-work" id="v57Status">Aguardando geração.</div><div id="v57Preview" class="ficha-preview empty">A ficha aparecerá aqui.</div><textarea class="report-output" id="sheetOutput" readonly=""></textarea></div>
+<div class="panel ficha-v57-main"><h3>Gerador automático de fichas</h3><p class="hint">Use esta área para transformar diagnóstico em ação pedagógica. O sistema identifica os descritores mais frágeis do aluno ou da turma e monta uma ficha pronta para imprimir.</p><div class="grid2"><label>Tipo de geração<select id="v57Scope"><option value="individual">Ficha individual</option><option value="turma">Todas as fichas da turma</option><option value="risco">Apenas alunos abaixo da meta</option><option value="descritor">Ficha por descritor da turma</option></select></label><label>Aluno<select id="sheetStudent"><option value="">Selecione</option></select></label><label>Quantidade de questões<input id="v57Count" type="number" min="1" max="40" value="10"/></label><label>Meta mínima para alunos em risco (%)<input id="v57Threshold" type="number" min="0" max="100" value="60"/></label><label>Descritores manuais (opcional)<input id="v57ManualDesc" placeholder="Ex.: D4, D7, D12"/></label><label>Dificuldade<select id="v57Difficulty"><option value="balanceada">Balanceada</option><option value="facil">Priorizar fáceis</option><option value="media">Priorizar médias</option><option value="dificil">Priorizar difíceis</option></select></label></div><div class="checks-v57"><label><input id="v57AvoidUsed" type="checkbox" checked/> Evitar questões já utilizadas pelo aluno</label><label><input id="v57IncludeKey" type="checkbox" checked/> Incluir gabarito ao final</label><label><input id="v57IncludePlan" type="checkbox" checked/> Incluir orientação pedagógica</label></div><div class="actions compact"><button id="v57Generate">Gerar ficha(s)</button><button class="secondary" id="v57Print">Gerar PDF</button><button class="secondary" id="v57Doc">Baixar Word institucional</button><button class="secondary" id="v57Txt">Baixar TXT</button><button class="secondary" id="v57ClearUsage">Limpar histórico de questões usadas</button></div><div class="statusbox status-work" id="v57Status">Aguardando geração.</div><div id="v57Preview" class="ficha-preview empty">A ficha aparecerá aqui.</div><textarea class="report-output" id="sheetOutput" readonly=""></textarea></div>
 <div class="panel"><h3>Mapa da Mina</h3><label>Escolha o aluno<select id="mapStudent"><option value="">Selecione um aluno</option></select></label><div class="actions compact"><button id="generateMap">Gerar Mapa da Mina</button><button class="secondary" id="printMap">Exportar PDF</button><button class="secondary" data-go="bancoQuestoes">Abrir Banco de Questões</button></div><div class="map-output empty" id="mapaOutput">Selecione um aluno.</div></div>
 <div class="panel"><h3>Ficha rápida individualizada</h3><p class="hint">Atalho herdado da V56. Para impressão em lote e Word, use o gerador acima.</p><div class="actions compact"><button id="generateSheet">Gerar ficha rápida</button><button class="secondary" id="printSheet">Exportar PDF</button><button class="secondary" id="downloadSheet">Baixar TXT</button></div></div></section>
 
@@ -318,7 +284,7 @@ E) ..."></textarea></div><div class="actions"><button id="addBankQuestion">Adici
   <div class="actions compact">
     <button id="v59Generate">Gerar pacote</button>
     <button class="secondary" id="v59Print">Gerar PDF</button>
-    <button class="secondary" id="v59Word">Baixar Word com cabeçalho</button>
+    <button class="secondary" id="v59Word">Baixar Word institucional</button>
     <button class="secondary" id="v59Txt">Baixar TXT</button>
     <button class="secondary" id="v59Summary">Relatório da coordenação</button>
   </div>
@@ -340,7 +306,7 @@ E) ..."></textarea></div><div class="actions"><button id="addBankQuestion">Adici
 <div id="coordV608Resumo" class="cards small"></div>
 <div class="actions compact">
 <button id="coordV608Atualizar">Atualizar painel</button>
-<button class="secondary" id="coordV608Pptx">Gerar PowerPoint profissional</button>
+<button class="secondary" id="coordV608Pptx">Gerar apresentação profissional</button>
 <button class="secondary" id="coordV608Txt">Baixar relatório da coordenação</button>
 </div>
 <div id="coordV608Detalhes"></div>
@@ -380,7 +346,7 @@ E) ..."></textarea></div><div class="actions"><button id="addBankQuestion">Adici
 <div id="systemCheckOutput" class="statusbox status-work">Aguardando teste.</div>
 </div>
 <div class="panel" id="changelogBox"></div></section>
-<footer>ETE Professor José Luiz de Mendonça • Criado por Felipe Camargo • Versão 60.9</footer>
+<footer>ETE Professor José Luiz de Mendonça • Criado por Felipe Camargo • Versão 62</footer>
 </main>
 <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
@@ -388,24 +354,25 @@ E) ..."></textarea></div><div class="actions"><button id="addBankQuestion">Adici
 <script src="https://cdn.jsdelivr.net/npm/pptxgenjs@3.12.0/dist/pptxgen.bundle.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/html2pdf.js@0.10.1/dist/html2pdf.bundle.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/docx@8.5.0/build/index.umd.js"></script>
-<script src="js/app.js?v=60.9"></script>
-<script src="js/descritores.js?v=60.9"></script>
-<script src="js/turmas.js?v=60.9"></script>
-<script src="js/importacao.js?v=60.9"></script>
-<script src="js/diagnostico.js?v=60.9"></script>
-<script src="js/evolucao.js?v=60.9"></script>
-<script src="js/relatorios.js?v=60.9"></script>
-<script src="js/exportacao.js?v=60.9"></script>
-<script src="js/banco-questoes.js?v=60.9"></script>
-<script src="js/fichas.js?v=60.9"></script>
-<script src="js/intervencoes.js?v=60.9"></script>
-<script src="js/impressao.js?v=60.9"></script>
-<script src="js/supabase-sync.js?v=60.9"></script>
-<script src="js/pedagogico-avancado.js?v=60.9"></script>
-<script src="js/sistema.js?v=60.9"></script>
-<script src="js/correcoes-v605.js?v=60.9"></script>
-<script src="js/melhorias-v606.js?v=60.9"></script>
-<script src="js/exportacoes-v607.js?v=60.9"></script>
-<script src="js/coordenacao-v608.js?v=60.9"></script>
-<script src="js/exportacoes-v609.js?v=60.9"></script></body>
+<script src="js/app.js?v=62"></script>
+<script src="js/descritores.js?v=62"></script>
+<script src="js/turmas.js?v=62"></script>
+<script src="js/importacao.js?v=62"></script>
+<script src="js/diagnostico.js?v=62"></script>
+<script src="js/evolucao.js?v=62"></script>
+<script src="js/relatorios.js?v=62"></script>
+<script src="js/exportacao.js?v=62"></script>
+<script src="js/banco-questoes.js?v=62"></script>
+<script src="js/fichas.js?v=62"></script>
+<script src="js/intervencoes.js?v=62"></script>
+<script src="js/impressao.js?v=62"></script>
+<script src="js/supabase-sync.js?v=62"></script>
+<script src="js/pedagogico-avancado.js?v=62"></script>
+<script src="js/sistema.js?v=62"></script>
+<script src="js/correcoes-v605.js?v=62"></script>
+<script src="js/melhorias-v606.js?v=62"></script>
+<script src="js/exportacoes-v607.js?v=62"></script>
+<script src="js/coordenacao-v608.js?v=62"></script>
+<script src="js/exportacoes-v609.js?v=62"></script>
+<script src="js/institucional-v62.js?v=62"></script></body>
 </html>
