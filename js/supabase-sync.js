@@ -208,21 +208,33 @@
     async listAssessments(showStatus=true){
       if(!this.profile){if(showStatus)this.setStatus('Faça login para listar avaliações.','error');return;}
       if(showStatus)this.setStatus('Carregando avaliações...', 'work');
-      const {data,error}=await this.client.from('avaliacoes').select('id,nome,titulo,tipo,disciplina,data_aplicacao,data_avaliacao,criado_em,professor_id,questoes_json,descritores_json,gabarito_json,turmas(nome),perfis(nome,email)').order('criado_em',{ascending:false}).limit(200);
+      const {data,error}=await this.client.from('avaliacoes').select('id,nome,titulo,tipo,disciplina,data_aplicacao,data_avaliacao,criado_em,professor_id,questoes_json,descritores_json,gabarito_json,turmas(nome)').order('criado_em',{ascending:false}).limit(200);
       if(error){this.setStatus('Erro ao listar avaliações: '+error.message,'error');return;}
-      this.assessments=data||[]; this.renderAssessments(); this.renderCoordCloudDashboard(); if(showStatus)this.setStatus(`${this.assessments.length} avaliação(ões) carregada(s).`,'ok');
+      let rows=data||[];
+      // V66.3: não usar relacionamento automático avaliacoes -> perfis.
+      // O banco possui professor_id, mas não FK formal para perfis; buscamos os nomes separadamente.
+      const ids=[...new Set(rows.map(x=>x.professor_id).filter(Boolean))];
+      let profMap={};
+      if(ids.length){
+        try{
+          const {data:profs,error:pErr}=await this.client.from('perfis').select('id,nome,email').in('id',ids);
+          if(!pErr){(profs||[]).forEach(p=>profMap[p.id]=p);}
+        }catch(e){console.warn('Não foi possível carregar nomes dos professores:', e.message);}
+      }
+      this.assessments=rows.map(av=>({...av, professor: profMap[av.professor_id]||null}));
+      this.renderAssessments(); this.renderCoordCloudDashboard(); if(showStatus)this.setStatus(`${this.assessments.length} avaliação(ões) carregada(s).`,'ok');
     },
     renderAssessments(){
       const box=document.querySelector('#cloudAssessmentsList'); if(!box)return;
       if(!this.assessments.length){box.innerHTML='<p class="hint">Nenhuma avaliação salva na nuvem.</p>';return;}
-      box.innerHTML=this.assessments.map(av=>{const title=av.titulo||av.nome||'Avaliação';return `<div class="cloud-assessment"><div><b>${A().safe(title)}</b><br><small>${A().safe(av.turmas?.nome||'-')} • ${A().safe(this.dbDiscToUi(av.disciplina))} • ${A().safe(av.perfis?.nome||'Professor')}</small><br><small>${A().safe(av.data_avaliacao||av.data_aplicacao||'sem data')} • ${av.criado_em?new Date(av.criado_em).toLocaleString('pt-BR'):''}</small></div><button data-cloud-load="${av.id}">Carregar</button></div>`;}).join('');
+      box.innerHTML=this.assessments.map(av=>{const title=av.titulo||av.nome||'Avaliação';return `<div class="cloud-assessment"><div><b>${A().safe(title)}</b><br><small>${A().safe(av.turmas?.nome||'-')} • ${A().safe(this.dbDiscToUi(av.disciplina))} • ${A().safe(av.professor?.nome||'Professor')}</small><br><small>${A().safe(av.data_avaliacao||av.data_aplicacao||'sem data')} • ${av.criado_em?new Date(av.criado_em).toLocaleString('pt-BR'):''}</small></div><button data-cloud-load="${av.id}">Carregar</button></div>`;}).join('');
       box.querySelectorAll('[data-cloud-load]').forEach(btn=>btn.onclick=()=>this.loadAssessment(btn.dataset.cloudLoad));
     },
     renderCoordCloudDashboard(){
       const box=document.querySelector('#cloudCoordDashboard'); if(!box)return;
       if(!this.profile){box.innerHTML='<h3>Painel institucional</h3><p class="hint">Faça login para visualizar dados salvos na nuvem.</p>';return;}
       const byTurma={}, byDisc={}, byProf={};
-      this.assessments.forEach(av=>{const turma=av.turmas?.nome||'Sem turma'; const disc=this.dbDiscToUi(av.disciplina); const prof=av.perfis?.nome||'Professor'; byTurma[turma]=(byTurma[turma]||0)+1; byDisc[disc]=(byDisc[disc]||0)+1; byProf[prof]=(byProf[prof]||0)+1;});
+      this.assessments.forEach(av=>{const turma=av.turmas?.nome||'Sem turma'; const disc=this.dbDiscToUi(av.disciplina); const prof=av.professor?.nome||'Professor'; byTurma[turma]=(byTurma[turma]||0)+1; byDisc[disc]=(byDisc[disc]||0)+1; byProf[prof]=(byProf[prof]||0)+1;});
       const list=o=>Object.entries(o).sort((a,b)=>b[1]-a[1]).map(([k,v])=>`<li>${A().safe(k)} — ${v}</li>`).join('')||'<li>Nenhum dado</li>';
       box.innerHTML=`<h3>Painel institucional da nuvem</h3><div class="cards"><div class="card"><span>Avaliações</span><b>${this.assessments.length}</b></div><div class="card"><span>Turmas</span><b>${Object.keys(byTurma).length}</b></div><div class="card"><span>Professores</span><b>${Object.keys(byProf).length}</b></div><div class="card"><span>Disciplinas</span><b>${Object.keys(byDisc).length}</b></div></div><div class="grid3"><div><h4>Turmas</h4><ul>${list(byTurma)}</ul></div><div><h4>Disciplinas</h4><ul>${list(byDisc)}</ul></div><div><h4>Professores</h4><ul>${list(byProf)}</ul></div></div>`;
     },
