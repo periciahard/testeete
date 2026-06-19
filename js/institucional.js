@@ -180,7 +180,7 @@ async function gerarPptInstitucional(){
  sl=base('Descritores críticos','Prioridades para intervenção'); y=1.15; (r.descriptorStats||[]).slice(0,10).forEach(d=>{bar(sl,d.descritor,d.percent,0.9,y,7.8,d.percent<50?red:d.percent<70?orange:green); y+=0.48});
  sl=base('Estudantes abaixo da meta','Lista de atenção pedagógica'); y=1.15; (r.students||[]).filter(s=>(s.percent||0)<60).sort((a,b)=>a.percent-b.percent).slice(0,12).forEach((s,i)=>{sl.addText(`${i+1}. ${s.name||s.nome||''}`,{x:0.8,y,w:5.4,h:0.25,fontSize:9,bold:true,color:'243447',fit:'shrink'}); sl.addText(s.level||'',{x:6.2,y,w:1.4,h:0.25,fontSize:8,color:gray}); bar(sl,'',s.percent,7.4,y,3.5,s.percent<40?red:orange); y+=0.43});
  sl=base('Plano de intervenção','Encaminhamentos objetivos para o próximo ciclo'); y=1.25; (r.descriptorStats||[]).slice(0,5).forEach((d,i)=>{sl.addShape(pptx.ShapeType.roundRect,{x:0.8,y:y-0.05,w:11.6,h:0.48,rectRadius:0.05,fill:{color:light},line:{color:'DCE3EF'}}); sl.addText(`${i+1}. ${d.descritor}`,{x:1.0,y,w:0.8,h:0.22,fontSize:12,bold:true,color:blue}); sl.addText(`Retomar a habilidade, resolver itens guiados e aplicar verificação curta. Aproveitamento atual: ${d.percent}%.`,{x:1.8,y,w:10.2,h:0.22,fontSize:10,color:'243447',fit:'shrink'}); y+=0.65}); sl.addText('Próximo passo: gerar fichas, organizar grupos por descritor e comparar evolução no próximo simulado.',{x:0.9,y:5.4,w:11,h:0.4,fontSize:15,bold:true,color:green});
- await pptx.writeFile({fileName:'vetor-diagnostico-v68-6.pptx'});
+ await pptx.writeFile({fileName:'vetor-diagnostico-v68-7.pptx'});
 }
 function bind(){
  ['#v57Print','#v59Print','#printSheet','#printMap'].forEach(id=>{const e=$(id); if(e)e.onclick=gerarPdfInstitucional});

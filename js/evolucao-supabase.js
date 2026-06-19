@@ -157,9 +157,9 @@
     box.innerHTML=`<h4>${safe(name)}</h4><div class="preview-table evo-table"><div class="preview-row"><span>Avaliação</span><span>Data</span><span>Desempenho</span><span>Nível</span><span>Evolução visual</span></div>`+arr.map(x=>`<div class="preview-row"><span><b>${safe(typeLabel(x.a.tipo))}</b><br>${safe(x.a.turma)} • ${safe(x.a.title)}</span><span>${safe(x.a.date||'-')}</span><span>${x.score.percent}% (${x.score.acertos}/${x.score.total})</span><span>${safe(x.score.level)}</span><span>${bar(x.score.percent)}</span></div>`).join('')+'</div>';
   }
   function exportTxt(){
-    const arr=filtered(); let txt='RELATÓRIO DE HISTÓRICO E EVOLUÇÃO - VETOR V68.6\nFonte: Supabase institucional\n\n';
+    const arr=filtered(); let txt='RELATÓRIO DE HISTÓRICO E EVOLUÇÃO - VETOR V68.7\nFonte: Supabase institucional\n\n';
     txt+=arr.map(a=>`${label(a)} | alunos: ${a.summary.nStudents} | média: ${a.summary.avg}%`).join('\n');
-    A()?.download?.('relatorio-historico-evolucao-vetor-v68-6.txt',txt);
+    A()?.download?.('relatorio-historico-evolucao-vetor-v68-7.txt',txt);
   }
   function renderCloud(){
     ensureControls(); renderSelects(); renderTimeline(); directCompare(); renderClassCompare(); renderStudent(); renderDescriptor();
@@ -170,7 +170,7 @@
     const arr=state.assessments; const by={}; arr.forEach(a=>(by[a.turma]??=[]).push(a));
     const rows=Object.entries(by).map(([turma,avs])=>{avs.sort((a,b)=>String(a.date).localeCompare(String(b.date))||String(a.createdAt).localeCompare(String(b.createdAt))); const first=avs[0], last=avs[avs.length-1]; return {turma,n:avs.length,first:first.summary.avg,last:last.summary.avg,diff:Math.round((last.summary.avg-first.summary.avg)*10)/10,alunos:last.summary.nStudents,elem:(last.summary.levels['Elementar I']||0)+(last.summary.levels['Elementar II']||0)};}).sort((a,b)=>a.last-b.last);
     const totalAlunos=rows.reduce((s,r)=>s+r.alunos,0); const media=arr.length?Math.round((arr.reduce((s,a)=>s+a.summary.avg,0)/arr.length)*10)/10:0;
-    box.innerHTML=`<h3>Painel institucional da nuvem — Histórico e Evolução V68.6</h3><p class="hint">Leitura feita diretamente das tabelas <b>avaliacoes</b> e <b>resultados_alunos</b> do Supabase.</p><div class="cards small"><div class="card"><span>Avaliações</span><b>${arr.length}</b></div><div class="card"><span>Turmas</span><b>${rows.length}</b></div><div class="card"><span>Alunos na última leitura</span><b>${totalAlunos}</b></div><div class="card"><span>Média histórica</span><b>${media}%</b></div></div><div class="preview-table"><div class="preview-row"><span>Turma</span><span>Avaliações</span><span>1ª média</span><span>Última média</span><span>Evolução</span><span>Elementar I/II</span></div>${rows.map(r=>`<div class="preview-row"><span><b>${safe(r.turma)}</b></span><span>${r.n}</span><span>${r.first}%</span><span>${r.last}%</span><span class="${r.diff>=0?'oktext':'badtext'}">${r.diff>0?'+':''}${r.diff} p.p.</span><span>${r.elem}</span></div>`).join('')}</div>`;
+    box.innerHTML=`<h3>Painel institucional da nuvem — Histórico e Evolução V68.7</h3><p class="hint">Leitura feita diretamente das tabelas <b>avaliacoes</b> e <b>resultados_alunos</b> do Supabase.</p><div class="cards small"><div class="card"><span>Avaliações</span><b>${arr.length}</b></div><div class="card"><span>Turmas</span><b>${rows.length}</b></div><div class="card"><span>Alunos na última leitura</span><b>${totalAlunos}</b></div><div class="card"><span>Média histórica</span><b>${media}%</b></div></div><div class="preview-table"><div class="preview-row"><span>Turma</span><span>Avaliações</span><span>1ª média</span><span>Última média</span><span>Evolução</span><span>Elementar I/II</span></div>${rows.map(r=>`<div class="preview-row"><span><b>${safe(r.turma)}</b></span><span>${r.n}</span><span>${r.first}%</span><span>${r.last}%</span><span class="${r.diff>=0?'oktext':'badtext'}">${r.diff>0?'+':''}${r.diff} p.p.</span><span>${r.elem}</span></div>`).join('')}</div>`;
   }
   async function render(){
     ensureControls();

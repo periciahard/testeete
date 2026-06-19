@@ -1,4 +1,4 @@
--- VETOR V68.6 - Produção Final
+-- VETOR V68.7.1 - Produção Final
 -- Estrutura, índices e políticas RLS institucionais.
 -- Execute no SQL Editor do Supabase.
 

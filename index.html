@@ -5,9 +5,9 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1" name="viewport"/>
 <meta content="#0f2e5f" name="theme-color"/>
-<title>VETOR | V68.6 Produção Final</title>
+<title>VETOR | V68.7 Administração Institucional</title>
 <link href="manifest.webmanifest" rel="manifest"/>
-<link href="css/style.css?v=68-6" rel="stylesheet"/>
+<link href="css/style.css?v=68-7" rel="stylesheet"/>
 <style>body.app-ready .view{display:none}body.app-ready .view.active{display:block}</style>
 </head>
 <body class="app-ready auth-locked">
@@ -352,7 +352,7 @@ E) ..."></textarea></div><div class="actions"><button id="addBankQuestion">Adici
 </div>
 </section>
 <section class="view" id="inteligencia">
-<h2>🧠 Inteligência Pedagógica V68.6</h2>
+<h2>🧠 Inteligência Pedagógica V68.7</h2>
 <p class="hint">Painel institucional baseado diretamente no Supabase. Organiza metas pedagógicas, alertas, descritores críticos, alunos prioritários e plano de intervenção.</p>
 <div class="panel">
 <h3>Controle da inteligência</h3>
@@ -372,21 +372,63 @@ E) ..."></textarea></div><div class="actions"><button id="addBankQuestion">Adici
 </section>
 <section class="view" id="coordenacao">
 <div class="vetor-hero management-hero"><div class="hero-copy"><span class="eyebrow">Gestão Escolar</span><h2>🏫 Resumo da Escola</h2><p>Visão executiva para coordenação: acompanhe médias, turmas prioritárias, alunos em risco e descritores críticos a partir dos dados salvos no Supabase.</p></div><div class="flow-steps"><div><b>1</b><span>Veja alertas</span></div><div><b>2</b><span>Compare turmas</span></div><div><b>3</b><span>Defina intervenção</span></div></div></div>
-<div class="panel" id="vetorCoordPanel"><h3>🧠 Inteligência Pedagógica V68.6</h3><div class="statusbox status-work" id="vetorStatusCoord">Aguardando leitura da nuvem.</div></div><h2>🏫 Coordenação</h2><p class="hint">Área para leitura gestora: turmas críticas, descritores críticos, alunos prioritários e evolução geral.</p><div class="panel coord-ux-note" id="coordUxNote"><h3>Leitura executiva</h3><p class="hint">Os painéis abaixo foram organizados para leitura rápida: primeiro veja alertas e turmas críticas; depois aprofunde por descritores, evolução e relatórios. Clique nos títulos para recolher ou abrir blocos.</p></div><div class="panel coord-filter-panel"><h3>Selecionar turma para análise gestora</h3><p class="hint">Escolha uma turma para ver a leitura da coordenação. Use a comparação para observar diferenças entre turmas, médias, níveis e descritores prioritários.</p><div class="grid2"><label>Turma analisada<select id="coordClassSelect"><option value="todas">Todas as turmas</option></select></label><label>Comparar com<select id="coordCompareClassSelect"><option value="">Selecione outra turma</option></select></label></div><div class="coord-class-comparison" id="coordClassComparison"></div></div><div id="coordExecutivePanel"></div><div id="coordDashboard"></div><div id="coordDescriptorComparePanel"></div><div id="coordLongitudinalPanel"></div><div id="schoolRiskPanel"></div><div id="autoConselhoPanel"></div><div class="panel" id="disciplineComparison"></div><div class="panel" id="cloudCoordDashboard"></div><div class="panel"><h3>Histórico de avaliações</h3><p class="hint">Salve momentos como Avaliação Diagnóstica, Simulado 1, Simulado 2 ou Recuperação.</p><input id="snapshotName" placeholder="Nome da avaliação, ex.: Simulado 1"/><div class="actions"><button id="saveSnapshot">Salvar diagnóstico atual</button><button class="danger" id="clearSnapshots">Limpar histórico</button></div><div id="history"></div></div><div class="panel"><h3>Relatórios</h3><label>Aluno para relatório individual<select id="reportStudent"><option value="0">Primeiro aluno</option></select></label><div class="cards small"><button data-report="turma">Turma</button><button data-report="individual">Individual</button><button data-report="familia">Pais</button><button data-report="conselho">Conselho</button><button data-report="coordenacao">Coordenação</button></div><textarea class="report-output" id="reportOutput" placeholder="O relatório aparecerá aqui." readonly=""></textarea><div class="actions"><button id="copyReport">Copiar</button><button id="downloadReport">Baixar TXT</button><button id="exportReportPdf">Exportar PDF</button></div></div></section>
+<div class="panel" id="vetorCoordPanel"><h3>🧠 Inteligência Pedagógica V68.7</h3><div class="statusbox status-work" id="vetorStatusCoord">Aguardando leitura da nuvem.</div></div><h2>🏫 Coordenação</h2><p class="hint">Área para leitura gestora: turmas críticas, descritores críticos, alunos prioritários e evolução geral.</p><div class="panel coord-ux-note" id="coordUxNote"><h3>Leitura executiva</h3><p class="hint">Os painéis abaixo foram organizados para leitura rápida: primeiro veja alertas e turmas críticas; depois aprofunde por descritores, evolução e relatórios. Clique nos títulos para recolher ou abrir blocos.</p></div><div class="panel coord-filter-panel"><h3>Selecionar turma para análise gestora</h3><p class="hint">Escolha uma turma para ver a leitura da coordenação. Use a comparação para observar diferenças entre turmas, médias, níveis e descritores prioritários.</p><div class="grid2"><label>Turma analisada<select id="coordClassSelect"><option value="todas">Todas as turmas</option></select></label><label>Comparar com<select id="coordCompareClassSelect"><option value="">Selecione outra turma</option></select></label></div><div class="coord-class-comparison" id="coordClassComparison"></div></div><div id="coordExecutivePanel"></div><div id="coordDashboard"></div><div id="coordDescriptorComparePanel"></div><div id="coordLongitudinalPanel"></div><div id="schoolRiskPanel"></div><div id="autoConselhoPanel"></div><div class="panel" id="disciplineComparison"></div><div class="panel" id="cloudCoordDashboard"></div><div class="panel"><h3>Histórico de avaliações</h3><p class="hint">Salve momentos como Avaliação Diagnóstica, Simulado 1, Simulado 2 ou Recuperação.</p><input id="snapshotName" placeholder="Nome da avaliação, ex.: Simulado 1"/><div class="actions"><button id="saveSnapshot">Salvar diagnóstico atual</button><button class="danger" id="clearSnapshots">Limpar histórico</button></div><div id="history"></div></div><div class="panel"><h3>Relatórios</h3><label>Aluno para relatório individual<select id="reportStudent"><option value="0">Primeiro aluno</option></select></label><div class="cards small"><button data-report="turma">Turma</button><button data-report="individual">Individual</button><button data-report="familia">Pais</button><button data-report="conselho">Conselho</button><button data-report="coordenacao">Coordenação</button></div><textarea class="report-output" id="reportOutput" placeholder="O relatório aparecerá aqui." readonly=""></textarea><div class="actions"><button id="copyReport">Copiar</button><button id="downloadReport">Baixar TXT</button><button id="exportReportPdf">Exportar PDF</button></div></div></section>
 <section class="view admin-only" id="usuariosAdmin">
-<h2>👥 Administração de usuários</h2>
-<div class="panel">
-<h3>Usuários institucionais no Supabase</h3>
-<p class="hint">A V68.6 limpa usa autenticação do Supabase. Crie ou edite usuários em <b>Supabase → Authentication → Users</b> e registre o perfil correspondente na tabela <b>perfis</b>.</p>
-<div class="cards small">
-<div class="card"><span>Perfis suportados</span><b>admin, coordenacao, professor</b></div>
-<div class="card"><span>Tabela de vínculo</span><b>perfis</b></div>
-<div class="card"><span>Dados pedagógicos</span><b>Supabase</b></div>
+<h2>👥 Administração Institucional <span class="help-dot" title="Área exclusiva do admin para professores, perfis, senhas e vínculos com turmas.">?</span></h2>
+<div class="panel admin-alert">
+<h3>Centro de controle do VETOR</h3>
+<p class="hint">Use esta tela para organizar professores, coordenação, permissões e turmas. Por segurança, a criação real de contas do Supabase Auth pelo navegador exige uma <b>Edge Function administrativa</b>. Sem ela, cadastre o usuário no Supabase Auth e use esta tela para registrar o perfil.</p>
+<div class="teacher-summary-grid">
+<div class="teacher-card"><span>Perfis</span><b>admin • coordenacao • professor</b><small>Admin vê tudo; coordenação acompanha a escola; professor vê suas turmas.</small></div>
+<div class="teacher-card"><span>Senha inicial</span><b>Vetor123@</b><small>Marque senha temporária para exigir troca no primeiro login.</small></div>
+<div class="teacher-card"><span>Vínculos</span><b>Professor → Turmas</b><small>Defina quais turmas cada professor pode acessar.</small></div>
 </div>
+</div>
+<div class="grid2 admin-grid">
+<div class="panel">
+<h3>➕ Criar usuário / perfil</h3>
+<p class="hint">Preencha os dados. Se a Edge Function estiver configurada, o VETOR cria a conta no Auth. Caso contrário, crie o usuário em <b>Authentication → Users</b> e cole o UID abaixo.</p>
+<label>URL da Edge Function administrativa (opcional)<input id="adminEdgeFunctionUrl" placeholder="https://.../functions/v1/vetor-admin-user"/></label>
+<div class="grid2">
+<label>UID do Auth<input id="adminPerfilId" placeholder="Cole o UID do usuário já criado"/></label>
+<label>Nome<input id="adminPerfilNome" placeholder="Nome do professor/coordenador"/></label>
+<label>E-mail<input id="adminPerfilEmail" placeholder="ex.: professor@vetor.edu" type="email"/></label>
+<label>Senha inicial<input id="adminPerfilSenhaInicial" placeholder="Vetor123@" type="text" value="Vetor123@"/></label>
+<label>Perfil<select id="adminPerfilTipo"><option value="professor">Professor</option><option value="coordenacao">Coordenação</option><option value="admin">Admin</option></select></label>
+<label>Disciplina<select id="adminPerfilDisciplina"><option value="">Não se aplica</option><option value="Português">Português</option><option value="Matemática">Matemática</option><option value="Física">Física</option><option value="Química">Química</option><option value="Biologia">Biologia</option><option value="História">História</option><option value="Geografia">Geografia</option></select></label>
+<label>Troca obrigatória no primeiro login<select id="adminPerfilSenhaTemp"><option value="true">Sim</option><option value="false">Não</option></select></label>
+</div>
+<div class="actions"><button id="adminCriarUsuarioAuth">Criar conta + perfil</button><button class="secondary" id="adminSalvarPerfil">Salvar/atualizar perfil</button><button class="secondary" id="adminLimparPerfil">Limpar</button><button class="secondary" id="adminAtualizarUsuarios">Atualizar lista</button></div>
+<p class="hint" id="adminCreateHint">Dica: para contas @vetor.edu fictícias, prefira criar pelo Supabase com Auto Confirm ou configurar Edge Function.</p>
+</div>
+<div class="panel">
+<h3>🔐 Resetar senha</h3>
+<p class="hint">Para e-mails reais, envie link de redefinição. Para e-mails fictícios @vetor.edu, use o procedimento manual no Supabase ou a Edge Function administrativa.</p>
+<label>E-mail do usuário<input id="adminResetEmail" placeholder="professor@vetor.edu" type="email"/></label>
+<label>Senha temporária sugerida<input id="adminSenhaSugerida" value="Vetor123@"/></label>
+<div class="actions"><button id="adminEnviarResetSenha">Enviar link de redefinição</button><button class="secondary" id="adminResetSenhaEdge">Resetar via Edge Function</button><button class="secondary" id="adminCopiarInstrucaoSenha">Copiar instrução manual</button></div>
+<p class="hint">Após redefinir, marque o perfil como senha temporária para obrigar a troca no próximo acesso.</p>
+</div>
+</div>
+<div class="panel">
+<h3>📋 Perfis cadastrados</h3>
+<div class="statusbox status-work" id="adminUsersStatus">Carregue os perfis para começar.</div>
+<div class="admin-list" id="adminPerfisList"></div>
+</div>
+<div class="panel">
+<h3>🎯 Permissões e vínculos professor-turma</h3>
+<p class="hint">Escolha um professor, a disciplina e marque as turmas que ele poderá acessar.</p>
+<div class="grid2"><label>Professor<select id="adminVinculoProfessor"></select></label><label>Disciplina<select id="adminVinculoDisciplina"><option value="Português">Português</option><option value="Matemática">Matemática</option><option value="Física">Física</option><option value="Química">Química</option><option value="Biologia">Biologia</option><option value="História">História</option><option value="Geografia">Geografia</option></select></label></div>
+<div class="actions"><button id="adminCarregarVinculos">Carregar vínculos</button><button id="adminSalvarVinculos">Salvar vínculos</button></div>
+<div class="turmas-checklist" id="adminTurmasChecklist"></div>
+</div>
+<div class="panel permissions-panel">
+<h3>🛡️ Regras de acesso</h3>
+<ul class="clean-list"><li><b>Admin:</b> gerencia usuários, configurações, todas as turmas e avaliações.</li><li><b>Coordenação:</b> acompanha os dados pedagógicos da escola, sem acesso ao painel técnico de usuários/configurações.</li><li><b>Professor:</b> acessa o fluxo de Nova Análise, Resultados, Evolução e suas turmas vinculadas.</li></ul>
 </div>
 </section>
 <section class="view" id="config">
-<h2>⚙️ Configurações <span class="help-dot" title="Área técnica: backup, Supabase e preferências. Evite alterar sem necessidade.">?</span></h2><div class="panel system-health"><h3>Diagnóstico rápido do sistema</h3><div class="teacher-summary-grid"><div class="teacher-card"><span>Versão</span><b>V68.6</b><small>Produção limpa</small></div><div class="teacher-card"><span>Banco</span><b>Supabase</b><small>Dados institucionais na nuvem</small></div><div class="teacher-card"><span>Identidade</span><b>VETOR</b><small>Marca educacional própria</small></div></div></div><div class="panel"><p>Os dados institucionais são salvos no Supabase. O navegador mantém apenas preferências e rascunhos temporários.</p><label>Disciplina padrão<select id="configDiscipline"><option value="Língua Portuguesa">Língua Portuguesa</option><option value="Matemática">Matemática</option></select></label><div class="actions"><button id="quickBackupBtn">Baixar backup do sistema</button><button class="secondary" id="exportJson">Backup técnico</button><button class="secondary" id="exportFullBackup">Backup completo</button><button class="secondary" id="exportExcelBackup">Backup Excel</button><input accept=".json" id="importJson" type="file"><input accept=".json" id="importFullBackup" type="file"><button class="secondary" id="restoreBackup">Restaurar backup completo</button><button class="danger" id="clearAll">Apagar todos os dados</button></input></input></div><p class="hint" id="backupStatus"></p></div>
+<h2>⚙️ Configurações <span class="help-dot" title="Área técnica: backup, Supabase e preferências. Evite alterar sem necessidade.">?</span></h2><div class="panel system-health"><h3>Diagnóstico rápido do sistema</h3><div class="teacher-summary-grid"><div class="teacher-card"><span>Versão</span><b>V68.7</b><small>Administração institucional</small></div><div class="teacher-card"><span>Banco</span><b>Supabase</b><small>Dados institucionais na nuvem</small></div><div class="teacher-card"><span>Identidade</span><b>VETOR</b><small>Marca educacional própria</small></div></div></div><div class="panel"><p>Os dados institucionais são salvos no Supabase. O navegador mantém apenas preferências e rascunhos temporários.</p><label>Disciplina padrão<select id="configDiscipline"><option value="Língua Portuguesa">Língua Portuguesa</option><option value="Matemática">Matemática</option></select></label><div class="actions"><button id="quickBackupBtn">Baixar backup do sistema</button><button class="secondary" id="exportJson">Backup técnico</button><button class="secondary" id="exportFullBackup">Backup completo</button><button class="secondary" id="exportExcelBackup">Backup Excel</button><input accept=".json" id="importJson" type="file"><input accept=".json" id="importFullBackup" type="file"><button class="secondary" id="restoreBackup">Restaurar backup completo</button><button class="danger" id="clearAll">Apagar todos os dados</button></input></input></div><p class="hint" id="backupStatus"></p></div>
 <div class="panel cloud-panel">
 <h3>Modo institucional</h3>
 <p class="hint">O sistema trabalha em modo institucional com Supabase. Faça login para sincronizar turmas, avaliações, resultados e histórico.</p>
@@ -420,7 +462,7 @@ E) ..."></textarea></div><div class="actions"><button id="addBankQuestion">Adici
 <div class="statusbox status-work" id="systemCheckOutput">Aguardando teste.</div>
 </div>
 <div class="panel" id="changelogBox"></div></section>
-<footer>VETOR • Plataforma de Inteligência Educacional • V68.6</footer>
+<footer>VETOR • Plataforma de Inteligência Educacional • V68.7</footer>
 </main>
 <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
@@ -428,31 +470,31 @@ E) ..."></textarea></div><div class="actions"><button id="addBankQuestion">Adici
 <script src="https://cdn.jsdelivr.net/npm/pptxgenjs@3.12.0/dist/pptxgen.bundle.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/html2pdf.js@0.10.1/dist/html2pdf.bundle.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/docx@8.5.0/build/index.umd.js"></script>
-<script src="js/app.js?v=68-6"></script>
-<script src="js/descritores.js?v=68-6"></script>
-<script src="js/turmas.js?v=68-6"></script>
-<script src="js/importacao.js?v=68-6"></script>
-<script src="js/diagnostico.js?v=68-6"></script>
-<script src="js/evolucao.js?v=68-6"></script>
-<script src="js/relatorios.js?v=68-6"></script>
-<script src="js/exportacao.js?v=68-6"></script>
-<script src="js/banco-questoes.js?v=68-6"></script>
-<script src="js/fichas.js?v=68-6"></script>
-<script src="js/intervencoes.js?v=68-6"></script>
-<script src="js/impressao.js?v=68-6"></script>
-<script src="js/supabase-sync.js?v=68-6"></script>
-<script src="js/pedagogico-avancado.js?v=68-6"></script>
-<script src="js/sistema.js?v=68-6"></script>
-<script src="js/correcoes.js?v=68-6"></script>
-<script src="js/melhorias.js?v=68-6"></script>
-<script src="js/exportacoes-pdf.js?v=68-6"></script>
-<script src="js/coordenacao.js?v=68-6"></script>
-<script src="js/exportacoes-office.js?v=68-6"></script>
-<script src="js/institucional.js?v=68-6"></script>
-<script src="js/auth-supabase.js?v=68-6"></script>
-<script src="js/estabilidade.js?v=68-6"></script>
-<script src="js/evolucao-supabase.js?v=68-6"></script>
-<script src="js/inteligencia.js?v=68-6"></script>
+<script src="js/app.js?v=68-7"></script>
+<script src="js/descritores.js?v=68-7"></script>
+<script src="js/turmas.js?v=68-7"></script>
+<script src="js/importacao.js?v=68-7"></script>
+<script src="js/diagnostico.js?v=68-7"></script>
+<script src="js/evolucao.js?v=68-7"></script>
+<script src="js/relatorios.js?v=68-7"></script>
+<script src="js/exportacao.js?v=68-7"></script>
+<script src="js/banco-questoes.js?v=68-7"></script>
+<script src="js/fichas.js?v=68-7"></script>
+<script src="js/intervencoes.js?v=68-7"></script>
+<script src="js/impressao.js?v=68-7"></script>
+<script src="js/supabase-sync.js?v=68-7"></script>
+<script src="js/pedagogico-avancado.js?v=68-7"></script>
+<script src="js/sistema.js?v=68-7"></script>
+<script src="js/correcoes.js?v=68-7"></script>
+<script src="js/melhorias.js?v=68-7"></script>
+<script src="js/exportacoes-pdf.js?v=68-7"></script>
+<script src="js/coordenacao.js?v=68-7"></script>
+<script src="js/exportacoes-office.js?v=68-7"></script>
+<script src="js/institucional.js?v=68-7"></script>
+<script src="js/auth-supabase.js?v=68-7"></script>
+<script src="js/estabilidade.js?v=68-7"></script>
+<script src="js/evolucao-supabase.js?v=68-7"></script>
+<script src="js/inteligencia.js?v=68-7"></script>
 <script id="vetor-ux-v68-2">
 (function(){
   function go(view){

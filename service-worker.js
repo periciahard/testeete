@@ -1,9 +1,9 @@
-const CACHE='vetor-v68-6';
+const CACHE='vetor-v68-7';
 const ASSETS=[
   './',
-  './index.html?v=68-6',
+  './index.html?v=68-7',
   './manifest.webmanifest',
-  './css/style.css?v=68-6',
+  './css/style.css?v=68-7',
   './assets/vetor-logo.svg',
   './assets/vetor-logo.png',
   './assets/icons/icon.svg',
@@ -32,6 +32,6 @@ self.addEventListener('fetch', event=>{
       const copy=res.clone();
       caches.open(CACHE).then(cache=>cache.put(req, copy)).catch(()=>{});
       return res;
-    }).catch(()=>caches.match(req).then(cached=>cached || caches.match('./index.html?v=68-6')))
+    }).catch(()=>caches.match(req).then(cached=>cached || caches.match('./index.html?v=68-7')))
   );
 });

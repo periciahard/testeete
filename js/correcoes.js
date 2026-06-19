@@ -274,7 +274,7 @@ function generatePptx(){
  slide=pptx.addSlide();
  slide.addText('Encaminhamentos', {x:0.5,y:0.4,w:12,h:0.4,fontSize:24,bold:true,color:'0F2E5F'});
  slide.addText('1. Priorizar os descritores com menor aproveitamento.\n2. Gerar fichas por aluno ou por turma.\n3. Aplicar intervenção pedagógica.\n4. Comparar evolução no próximo simulado.\n5. Registrar evidências para coordenação.', {x:0.8,y:1.0,w:11,h:4,fontSize:18});
- pptx.writeFile({fileName:'vetor-diagnostico-v68-6.pptx'});
+ pptx.writeFile({fileName:'vetor-diagnostico-v68-7.pptx'});
 }
 
 function bind(){

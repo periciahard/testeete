@@ -82,7 +82,8 @@
       catch(e){this.setStatus('Erro no login: '+e.message,'error');}
     },
     async logout(){
-      if(this.client)await this.client.auth.signOut();
+      try{if(this.client)await this.client.auth.signOut({scope:'local'});}catch(e){console.warn('Erro ao encerrar sessão Supabase:',e.message);}
+      try{[localStorage,sessionStorage].forEach(st=>Object.keys(st).forEach(k=>{const kk=String(k).toLowerCase(); if(kk.includes('supabase.auth')||kk.startsWith('sb-')||kk.startsWith('vetor_auth')||kk.startsWith('vetor_session')) st.removeItem(k);}));}catch(e){}
       this.session=null; this.profile=null; this.turmas=[]; this.assessments=[];
       const turma=document.querySelector('#cloudTurma'); if(turma)turma.innerHTML='<option value="">Faça login para carregar turmas</option>';
       const list=document.querySelector('#cloudAssessmentsList'); if(list)list.innerHTML='';
@@ -106,14 +107,28 @@
       await this.listAssessments(false);
     },
     async loadTurmas(){
+      if(this.isCoord()){
+        const {data,error}=await this.client.from('turmas').select('*').order('nome');
+        if(error){this.setStatus('Erro ao carregar turmas: '+error.message,'error');this.turmas=[];return;}
+        this.turmas=(data||[]).map(t=>({turma:t,disciplina:null,permissao:'gerenciar'}));
+        this.renderTurmas();
+        return;
+      }
+      // Professor: preferir vínculos explícitos professor_turmas. Se a tabela ainda não existir, cai para turmas visíveis pelo RLS.
+      let rel=await this.client.from('professor_turmas').select('disciplina,turma:turmas(*)').eq('professor_id',this.profile.id).order('disciplina');
+      if(!rel.error && rel.data?.length){
+        this.turmas=rel.data.filter(x=>x.turma).map(x=>({turma:x.turma,disciplina:x.disciplina,permissao:'editar'}));
+        this.renderTurmas();
+        return;
+      }
       const {data,error}=await this.client.from('turmas').select('*').order('nome');
       if(error){this.setStatus('Erro ao carregar turmas: '+error.message,'error');this.turmas=[];return;}
-      this.turmas=(data||[]).map(t=>({turma:t,disciplina:null,permissao:this.isCoord()?'gerenciar':'editar'}));
+      this.turmas=(data||[]).map(t=>({turma:t,disciplina:null,permissao:'editar'}));
       this.renderTurmas();
     },
     renderUserBox(){
       const box=document.querySelector('#cloudUserBox'); if(!box||!this.profile)return;
-      const vinc=this.isCoord()?'Acesso de coordenação/admin: visualiza e salva dados institucionais.':`${this.turmas.length} turma(s) disponível(is).`;
+      const vinc=this.isCoord()?'Acesso de coordenação/admin: visualiza e salva dados institucionais.':`${this.turmas.length} vínculo(s) de turma disponível(is).`;
       box.innerHTML=`<div class="cloud-card"><b>${A().safe(this.profile.nome)}</b><br><span>${A().safe(this.profile.email)}</span><br><span class="badge ok">${A().safe(this.profile.perfil)}</span><p class="hint">${vinc}</p></div>`;
     },
     renderTurmas(){

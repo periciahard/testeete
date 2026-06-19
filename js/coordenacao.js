@@ -111,7 +111,7 @@ function relatorioTexto(){
   out+='\nENCAMINHAMENTOS\n1. Priorizar turmas com menor média na última avaliação.\n2. Trabalhar descritores críticos recorrentes.\n3. Gerar fichas para estudantes abaixo da meta.\n4. Reaplicar avaliação curta após intervenção.\n5. Registrar evidências para acompanhamento pedagógico.\n';
   return out;
 }
-function baixarRelatorio(){ baixar('relatorio-coordenacao-vetor-v68-6.txt', relatorioTexto()); }
+function baixarRelatorio(){ baixar('relatorio-coordenacao-vetor-v68-7.txt', relatorioTexto()); }
 
 function addBar(slide, label, value, x, y, w, color='1D6B42'){
   const pct=Math.max(0,Math.min(100,Number(value)||0));
@@ -240,7 +240,7 @@ async function gerarPowerPointInstitucional(){
   slide.addText('O objetivo do diagnóstico não é classificar estudantes, mas orientar intervenções objetivas, acompanhar evolução e apoiar o planejamento coletivo da escola.',{x:0.9,y:1.6,w:11.5,h:1.2,fontSize:24,color:blue,bold:true,fit:'shrink'});
   slide.addText('Próximo passo: aplicar intervenção focada nos descritores críticos e comparar a evolução na próxima avaliação.',{x:0.9,y:3.2,w:11.5,h:0.8,fontSize:18,color:green});
 
-  await pptx.writeFile({fileName:'vetor-diagnostico-institucional-v68-6.pptx'});
+  await pptx.writeFile({fileName:'vetor-diagnostico-institucional-v68-7.pptx'});
 }
 
 function bind(){

@@ -53,9 +53,9 @@
    $('#runSystemCheck')&&($('#runSystemCheck').onclick=check);
    $('#clearPageCache')&&($('#clearPageCache').onclick=clearCache);
    const footer=document.querySelector('footer');
-   if(footer)footer.textContent='VETOR • Plataforma de Inteligência Educacional • V68.6';
+   if(footer)footer.textContent='VETOR • Plataforma de Inteligência Educacional • V68.7';
    const box=$('#changelogBox');
-   if(box)box.innerHTML='<h3>V68.6 - Limpeza Técnica Final</h3><p class="hint">Inteligência Pedagógica: metas, alertas, descritores críticos, alunos prioritários e plano de intervenção com dados do Supabase.</p>';
+   if(box)box.innerHTML='<h3>V68.7 - Limpeza Técnica Final</h3><p class="hint">Inteligência Pedagógica: metas, alertas, descritores críticos, alunos prioritários e plano de intervenção com dados do Supabase.</p>';
  }
  document.addEventListener('DOMContentLoaded',()=>setTimeout(bind,100));
  window.SistemaVetor={check,clearCache};

@@ -208,7 +208,7 @@ function patchPowerPoint(){
     slide=titleSlide('Encaminhamentos pedagógicos','Ações recomendadas para o próximo ciclo');
     slide.addText('1. Retomar descritores críticos em aulas curtas e objetivas.\n2. Gerar fichas individualizadas para estudantes abaixo da meta.\n3. Aplicar nova verificação após a intervenção.\n4. Comparar a evolução no próximo simulado.\n5. Registrar evidências para acompanhamento da coordenação.',{x:0.9,y:1.4,w:11.5,h:4,fontSize:20,color:'222222',breakLine:false});
 
-    await pptx.writeFile({fileName:'vetor-diagnostico-v68-6.pptx'});
+    await pptx.writeFile({fileName:'vetor-diagnostico-v68-7.pptx'});
   };
 }
 

@@ -45,13 +45,13 @@ function relatorioConsolidado(){
  txt+='2. Priorizar descritores com menor aproveitamento.\n';
  txt+='3. Gerar fichas de recuperação para alunos abaixo da meta.\n';
  txt+='4. Reaplicar simulado ou atividade curta após a intervenção.\n';
- download('relatorio-consolidado-vetor-v68-6.txt', txt);
+ download('relatorio-consolidado-vetor-v68-7.txt', txt);
 }
 function backupSimples(){
  const app=A();
  if(!app)return;
  const data=JSON.stringify(app.state||{},null,2);
- download('backup-vetor-v68-6.json', data, 'application/json;charset=utf-8');
+ download('backup-vetor-v68-7.json', data, 'application/json;charset=utf-8');
 }
 function painelResumoInicial(){
  const app=A(); const box=$('#homeInsights');

@@ -25,7 +25,7 @@
     async load(show=true){
       const cloud=window.VETORSupabase;
       const c=cloud?.client;
-      if(!c || !cloud?.profile){this.renderStatus('Faça login para carregar a Inteligência Pedagógica V68.6.','work');return false;}
+      if(!c || !cloud?.profile){this.renderStatus('Faça login para carregar a Inteligência Pedagógica V68.7.','work');return false;}
       try{
         this.renderStatus('Carregando inteligência pedagógica da nuvem...', 'work');
         const [avRes,rowRes,turmaRes]=await Promise.all([
@@ -38,9 +38,9 @@
         if(turmaRes.error)throw turmaRes.error;
         this.avs=avRes.data||[]; this.rows=rowRes.data||[]; this.turmas=turmaRes.data||[]; this.loadedAt=new Date();
         this.renderAll();
-        if(show)this.renderStatus(`Inteligência V68.6 atualizada: ${this.avs.length} avaliações e ${this.rows.length} resultados lidos do Supabase.`, 'ok');
+        if(show)this.renderStatus(`Inteligência V68.7 atualizada: ${this.avs.length} avaliações e ${this.rows.length} resultados lidos do Supabase.`, 'ok');
         return true;
-      }catch(e){this.renderStatus('Erro ao carregar Inteligência V68.6: '+e.message,'error');return false;}
+      }catch(e){this.renderStatus('Erro ao carregar Inteligência V68.7: '+e.message,'error');return false;}
     },
     renderStatus(msg,type){
       ['#vetorStatus','#vetorStatusCoord','#vetorStatusEvo'].forEach(sel=>{const el=document.querySelector(sel); if(el){el.textContent=msg; el.className='statusbox '+(type==='ok'?'status-ok':type==='error'?'status-error':'status-work');}});
@@ -99,7 +99,7 @@
       const alunos=this.alunosPrioritarios().slice(0,8);
       const turmas=this.metas().slice(0,5);
       const linhas=[];
-      linhas.push('PLANO DE INTERVENÇÃO PEDAGÓGICA V68.6');
+      linhas.push('PLANO DE INTERVENÇÃO PEDAGÓGICA V68.7');
       linhas.push('Fonte: Supabase institucional');
       linhas.push('');
       linhas.push('1. Descritores prioritários');
@@ -126,7 +126,7 @@
     renderCoord(){
       const box=document.querySelector('#vetorCoordPanel'); if(!box)return;
       const r=this.buildResumo(); const metas=this.metas(); const graves=metas.filter(t=>t.media<50).length; const desc=this.rankingDescritores()[0];
-      box.innerHTML=`<h3>🧠 Inteligência Pedagógica V68.6</h3><p class="hint">Leitura institucional direta do Supabase: metas, alertas, descritores críticos e alunos prioritários.</p>${this.cardsResumo()}<div class="cards small"><div class="card"><span>Turmas em alerta</span><b>${graves}</b></div><div class="card"><span>Descritor mais crítico</span><b>${desc?safe(desc.descritor):'-'}</b></div><div class="card"><span>Alunos abaixo de 50%</span><b>${this.alunosPrioritarios().length}</b></div></div><div class="actions compact"><button id="vetorCoordRefresh">Atualizar inteligência</button><button class="secondary" id="vetorCoordExport">Baixar plano</button></div>`;
+      box.innerHTML=`<h3>🧠 Inteligência Pedagógica V68.7</h3><p class="hint">Leitura institucional direta do Supabase: metas, alertas, descritores críticos e alunos prioritários.</p>${this.cardsResumo()}<div class="cards small"><div class="card"><span>Turmas em alerta</span><b>${graves}</b></div><div class="card"><span>Descritor mais crítico</span><b>${desc?safe(desc.descritor):'-'}</b></div><div class="card"><span>Alunos abaixo de 50%</span><b>${this.alunosPrioritarios().length}</b></div></div><div class="actions compact"><button id="vetorCoordRefresh">Atualizar inteligência</button><button class="secondary" id="vetorCoordExport">Baixar plano</button></div>`;
       const btn=document.querySelector('#vetorCoordRefresh'); if(btn)btn.onclick=()=>this.load(true);
       const ex=document.querySelector('#vetorCoordExport'); if(ex)ex.onclick=()=>this.downloadPlan();
     },

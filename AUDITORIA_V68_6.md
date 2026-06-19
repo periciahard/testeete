@@ -1,10 +1,10 @@
-# Auditoria V68.6 – Produção Final
+# Auditoria V68.7 – Produção Final
 
 ## Correções executadas
 - Remoção dos arquivos de auditoria antigos.
-- Remoção/renomeação do SQL V68.6.
-- Atualização de cache, manifest e service worker para V68.6.
-- Padronização de nomes de exportação para VETOR/V68.6.
+- Remoção/renomeação do SQL V68.7.
+- Atualização de cache, manifest e service worker para V68.7.
+- Padronização de nomes de exportação para VETOR/V68.7.
 - Substituição de IDs legados de versão por nomenclatura VETOR.
 - Remoção de referências visuais antigas à identidade anterior.
 - Revisão de service worker para cache limpo e atualização automática.

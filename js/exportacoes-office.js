@@ -417,7 +417,7 @@ async function gerarPptProfissional(){
   slide.addText('O diagnóstico deve orientar ações objetivas, acompanhar evolução e apoiar o planejamento coletivo da escola.',{x:0.9,y:1.5,w:11.5,h:1.0,fontSize:26,bold:true,color:blue,fit:'shrink'});
   slide.addText('Próximo passo recomendado: intervenção focada nos descritores críticos e nova comparação no próximo simulado.',{x:0.9,y:3.2,w:11.5,h:0.6,fontSize:18,color:green,bold:true});
 
-  await pptx.writeFile({fileName:'vetor-diagnostico-profissional-v68-6.pptx'});
+  await pptx.writeFile({fileName:'vetor-diagnostico-profissional-v68-7.pptx'});
 }
 
 function bind(){

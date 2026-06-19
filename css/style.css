@@ -792,7 +792,7 @@ body.app-ready .view#inicio{display:none!important}
 }
 
 
-/* V68.6 - VETOR Experiência do Professor */
+/* V68.7.1 - VETOR Experiência do Professor */
 :root{--vetor-blue:#0f2e5f;--vetor-green:#2e8b57;--vetor-mint:#e9f7f0;--vetor-soft:#f5f8fc;--vetor-ink:#102033;}
 .login-card-vetor{border:1px solid rgba(15,46,95,.12);box-shadow:0 22px 60px rgba(15,46,95,.16)}
 .login-visual{background:linear-gradient(135deg,var(--vetor-blue),#123f7a 55%,var(--vetor-green));color:#fff;border-radius:24px;padding:28px}
@@ -823,7 +823,20 @@ body.app-ready .view#inicio{display:none!important}
 @media(max-width:760px){.vetor-hero{padding:16px;border-radius:18px}.flow-steps{grid-template-columns:1fr}.teacher-summary-grid{grid-template-columns:1fr}.vetor-hero h2{font-size:28px}}
 
 
-/* V68.6 - ajuda contextual elegante */
+/* V68.7.1 - ajuda contextual elegante */
 .vetor-tooltip{position:absolute;z-index:9999;max-width:300px;padding:12px 14px;border-radius:14px;background:#0f2e5f;color:#fff;box-shadow:0 18px 40px rgba(15,46,95,.22);font-size:13px;line-height:1.35;opacity:0;transform:translateY(-4px);pointer-events:none;transition:.18s ease}
 .vetor-tooltip.show{opacity:1;transform:translateY(0)}
 .vetor-tooltip:before{content:"";position:absolute;top:-6px;left:18px;width:12px;height:12px;background:#0f2e5f;transform:rotate(45deg)}
+
+
+/* V68.7.1.1 - autenticação, senha e administração */
+.smallTopBtn{border:0;border-radius:999px;padding:7px 11px;background:#e8eef8;color:#0f2e5f;font-weight:900;margin-left:auto}
+.sidebarPasswordBtn{width:100%;border:0;border-radius:14px;padding:12px 14px;background:#e8eef8;color:#0f2e5f;font-weight:900;margin-top:8px}
+.role-prof .admin-only,.role-professor .admin-only,.role-coord .admin-only,.role-coordenacao .admin-only{display:none!important}
+.modal.password-modal{position:fixed;inset:0;z-index:1000000;background:rgba(8,20,40,.62);display:none;align-items:center;justify-content:center;padding:22px}
+.modal.password-modal.show{display:flex}
+.modal-card{width:min(460px,94vw);background:#fff;border-radius:22px;padding:24px;box-shadow:0 24px 90px rgba(0,0,0,.35)}
+.modal-card h2{margin-top:0;color:#0f2e5f}.modal-card label{display:block;font-weight:800;margin:12px 0}.modal-card input,.modal-card select{width:100%;padding:12px;border:1px solid #cfd9e8;border-radius:12px;margin-top:6px}
+.admin-list{display:grid;gap:10px}.admin-user-row{display:grid;grid-template-columns:1.2fr 1.1fr .8fr .8fr auto;gap:8px;align-items:center;border:1px solid #dbe3ef;border-radius:14px;padding:10px;background:#fff}.admin-user-row small{color:#64748b}.admin-user-row .row-actions{justify-content:flex-end}
+.turmas-checklist{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:8px;margin:12px 0}.turma-check{display:flex;align-items:center;gap:8px;border:1px solid #dbe3ef;border-radius:12px;padding:9px 10px;background:#fff}.turma-check input{width:auto!important}
+@media(max-width:900px){.admin-user-row{grid-template-columns:1fr}.smallTopBtn{display:none}}
