@@ -308,3 +308,148 @@ body.app-ready .view#inicio{display:none!important}
 .role-professor .professor-nav{display:block}
 .role-professor [data-view="coordenacao"]{display:none!important}
 .login-help{display:none!important}
+
+/* V65 - Administração de usuários */
+.admin-user-form label{display:flex;flex-direction:column;gap:.35rem}
+.inline-check{flex-direction:row!important;align-items:center;margin-top:1.7rem}
+.users-admin-table .preview-row{grid-template-columns:1.2fr .9fr .7fr 1fr 1.25fr}
+.users-admin-table .preview-row.blocked{opacity:.68;background:#fff5f5}
+.row-actions{display:flex;gap:.35rem;flex-wrap:wrap}
+#adminUserLogin[readonly]{background:#f3f4f6;color:#555}
+@media(max-width:800px){.users-admin-table .preview-row{grid-template-columns:1fr}.row-actions{justify-content:flex-start}}
+
+
+/* V65.1 - botão Sair visível também no menu lateral (desktop e celular) */
+.sidebar-session{
+  margin-top:16px;
+  padding-top:14px;
+  border-top:1px solid rgba(255,255,255,.16);
+  display:grid;
+  gap:10px;
+}
+.sidebar-user{
+  background:rgba(255,255,255,.10);
+  border:1px solid rgba(255,255,255,.14);
+  border-radius:14px;
+  padding:10px 12px;
+  color:#fff;
+  font-weight:800;
+  line-height:1.35;
+}
+.sidebar-user small{
+  display:block;
+  opacity:.82;
+  font-weight:600;
+}
+.sidebarLogoutBtn{
+  width:100%;
+  border:0;
+  border-radius:14px;
+  padding:12px 14px;
+  background:#ffd23f;
+  color:#0f2e5f;
+  font-weight:900;
+  text-align:center;
+}
+@media(min-width:901px){
+  .topbar .logoutBtn{display:none}
+}
+
+/*V65.2*/
+.sidebar{width:260px!important;padding:12px!important;overflow-y:auto}.main-content,.content{margin-left:280px!important}.sidebar .menu-item,.sidebar nav a,.sidebar button{min-height:44px!important;padding:10px 12px!important;margin-bottom:6px!important;font-size:.95rem!important}
+/* ===== Ajustes V65.3 - Menu lateral compacto 100% visível ===== */
+:root{--sidebar-v653:220px}
+.sidebar{
+  width:var(--sidebar-v653)!important;
+  padding:10px 10px!important;
+  overflow:hidden!important;
+  display:flex!important;
+  flex-direction:column!important;
+  min-height:100vh!important;
+}
+.brand{
+  gap:8px!important;
+  margin-bottom:8px!important;
+  min-height:46px!important;
+}
+.brand-logo{
+  width:42px!important;
+  height:42px!important;
+  border-radius:12px!important;
+  padding:3px!important;
+}
+.brand strong{
+  font-size:14px!important;
+  line-height:1.1!important;
+  display:block!important;
+}
+.brand small{
+  font-size:11px!important;
+  line-height:1.15!important;
+}
+.sidebar nav{
+  gap:4px!important;
+  display:grid!important;
+  flex:1 1 auto!important;
+  align-content:start!important;
+  overflow:hidden!important;
+}
+.nav{
+  border-radius:10px!important;
+  padding:7px 9px!important;
+  min-height:36px!important;
+  font-size:13px!important;
+  line-height:1.05!important;
+  gap:7px!important;
+  white-space:nowrap!important;
+}
+.nav span{
+  width:18px!important;
+  min-width:18px!important;
+  font-size:14px!important;
+}
+.sidebar-session{
+  margin-top:auto!important;
+  padding-top:8px!important;
+  gap:6px!important;
+}
+.sidebar-user{
+  font-size:11px!important;
+  padding:7px 8px!important;
+  border-radius:10px!important;
+  line-height:1.2!important;
+}
+.sidebarLogoutBtn{
+  width:100%!important;
+  min-height:34px!important;
+  padding:8px 10px!important;
+  border-radius:10px!important;
+  font-size:13px!important;
+}
+.main{
+  margin-left:var(--sidebar-v653)!important;
+  padding:22px!important;
+  max-width:none!important;
+}
+.hero{
+  padding:22px!important;
+  border-radius:22px!important;
+}
+.hero-logo{
+  width:74px!important;
+  height:74px!important;
+  border-radius:18px!important;
+}
+.hero h1{font-size:27px!important}
+@media(max-width:900px){
+  .sidebar{left:-260px!important;width:240px!important;overflow-y:auto!important}
+  .sidebar.open{left:0!important}
+  .main{margin-left:0!important;padding:12px!important}
+}
+@media(max-height:760px) and (min-width:901px){
+  .sidebar{overflow-y:auto!important}
+  .nav{min-height:32px!important;padding:6px 8px!important;font-size:12.5px!important}
+  .brand-logo{width:36px!important;height:36px!important}
+  .brand{min-height:40px!important;margin-bottom:6px!important}
+  .sidebar-user{display:none!important}
+}

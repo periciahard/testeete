@@ -1,4 +1,4 @@
-# Diagnóstico Pedagógico ETE — V64
+# Diagnóstico Pedagógico ETE — V65
 
 Versão de refatoração e estabilidade.
 
@@ -10,7 +10,7 @@ Versão de refatoração e estabilidade.
 - Usuários de teste ocultados da tela de login.
 - Autoria inicial aplicada ao banco de questões local.
 - Filtros de turma/disciplina reforçados para professor.
-- Cache atualizado para `ete-diagnostico-v64`.
+- Cache atualizado para `ete-diagnostico-v65`.
 
 ## Observação
 O login ainda é local/provisório. Para segurança real e compartilhamento de dados entre professores e coordenação, a próxima etapa deve ser Supabase.
