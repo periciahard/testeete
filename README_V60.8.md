@@ -1,4 +1,4 @@
-# V60.8
+# V60.9
 
 Melhorias planejadas para coordenação pedagógica:
 
@@ -9,4 +9,4 @@ Melhorias planejadas para coordenação pedagógica:
 - Relatórios da coordenação.
 - Melhorias de exportação.
 
-Esta versão foi preparada como base V60.8.
+Esta versão foi preparada como base V60.9.
